@@ -9,18 +9,18 @@ public abstract class Personagem {
         this.forca = forca;
     }
 
-    public void Damage(int damage, Personagem p){
-        p.pontos_de_vida -= damage;
+    public void Damage(int damage){
+        this.pontos_de_vida -= damage;
 
 
     }
 
-    public void Exibir_Status(Personagem p){
-        System.out.printf("Nome: %s\nVida: %d\nForça: %d\n", p.nome, p.pontos_de_vida, p.forca);
+    public void Exibir_Status(){
+        System.out.printf("Nome: %s\nVida: %d\nForça: %d\n", this.nome, this.pontos_de_vida, this.forca);
     }
 
 
-    abstract void atacar(Personagem p);
+    public abstract void atacar(Personagem p);
 
 
 
