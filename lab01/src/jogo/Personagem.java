@@ -1,3 +1,4 @@
+package jogo;
 public abstract class Personagem {
     String nome;
     int pontos_de_vida;
