@@ -7,10 +7,12 @@ public abstract class Monstro extends Personagem{
         super(nome, pontos_de_vida, forca);
         this.xp_concedido = pontos_de_vida * forca;
     }
-    
+    public int getXpConcedido(){
+        return this.xp_concedido;
+    }
     @Override
     public void Exibir_Status(){
-        System.out.printf("Nome: %s\nVida: %d\nForça: %d\nXP Concedido: %d\n", this.nome, this.pontos_de_vida, this.forca, this.xp_concedido);
+        System.out.printf("Nome: %s\nVida: %d\nForça: %d\nXP Concedido: %d\n", getNome(), getPontos_de_vida(), getForca(), getXpConcedido());
     }
 
 
