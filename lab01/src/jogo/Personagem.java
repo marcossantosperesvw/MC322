@@ -1,11 +1,11 @@
 package jogo;
 // Criacao da classe abstrata para personagens
 public abstract class Personagem {
-    String nome;
-    int pontos_de_vida;
-    int forca;
+    public String nome;
+    public int pontos_de_vida;
+    public int forca;
 
-    Personagem(String nome, int pontos_de_vida, int forca){
+    public Personagem(String nome, int pontos_de_vida, int forca){
         this.nome = nome;
         this.pontos_de_vida = pontos_de_vida;
         this.forca = forca;
@@ -23,6 +23,7 @@ public abstract class Personagem {
 
 
     public abstract void atacar(Personagem p);
+    public abstract void usarHabilidadeEspecial();
 
 
 
