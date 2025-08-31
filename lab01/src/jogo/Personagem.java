@@ -1,4 +1,5 @@
 package jogo;
+// Criacao da classe abstrata para personagens
 public abstract class Personagem {
     String nome;
     int pontos_de_vida;
