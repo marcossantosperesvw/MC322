@@ -7,15 +7,18 @@ public class Mago extends jogo.Personagem {
         super(nome, pontos_de_vida, forca);
         this.magia = magia;
     }
+    public int getMagia(){
+        return this.magia;
+    }
     @Override
     public void atacar(jogo.Personagem p){
-        p.Damage(this.forca);
-        
-        System.out.printf("%s atacou %s e causou %d de dano!\n", this.nome, p.nome, this.forca);
+        p.Damage(getForca());
+
+        System.out.printf("%s atacou %s e causou %d de dano!\n", getNome(), p.getNome(), getForca());
     }
     @Override
     public void usarHabilidadeEspecial(){
-        System.out.printf("%s usou habilidade especial!\n", this.nome);
+        System.out.printf("%s usou habilidade especial!\n", getNome());
     }
     
 }
