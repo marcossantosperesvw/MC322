@@ -26,13 +26,20 @@ public abstract class Personagem {
         return this.forca;
     }
 
+    public int setPontos_de_vida(int pontos_de_vida){
+        this.pontos_de_vida = pontos_de_vida;
+        return this.pontos_de_vida;
+    }
+    public int setForca(int forca){
+        return this.forca;
+    }
+
     public void Exibir_Status(){
         System.out.printf("Nome: %s\nVida: %d\nForça: %d\n", this.nome, this.pontos_de_vida, this.forca);
     }
 
 
     public abstract void atacar(Personagem p);
-    public abstract void usarHabilidadeEspecial();
 
 
 
