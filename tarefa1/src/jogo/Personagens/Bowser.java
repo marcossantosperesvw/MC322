@@ -13,6 +13,9 @@ public class Bowser extends Monstro {
 
         System.out.printf("%s atacou %s com suas Bolas de Fogo, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
         alvo.takeDamage(getForca());
+        if(alvo.isAlive() == false){
+            System.out.printf("%s foi eliminado por %s!\n", alvo.getNome(), getNome());
+        }
 
     }
 }

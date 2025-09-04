@@ -8,6 +8,7 @@ public class Yoshi extends Heroi {
         this.atordoar = 1;
     }
 
+    // Getters e Setters
     public int getAtordoar(){
         return this.atordoar;
     }
@@ -16,28 +17,26 @@ public class Yoshi extends Heroi {
     }
 
     public void TurnoYoshi(Monstro alvo){
-        if (getAtordoar()== 1){
-            // Usa habilidade de atordoar
+        if (getAtordoar() == 1 && !alvo.getAtordoado()){
+            // Usando habilidade de atordoamento
             usarHabilidadeEspecial();
+            alvo.setAtordoado(true);
+            
+            // Ainda pode fazer um ataque apos usar atordoamento
+            System.out.println("Yoshi aproveita a chance e ataca!");
+            atacar(alvo);
+
 
         } else {
 
-            // Ataca normalmente
+
             atacar(alvo);
-
         }
-
+        // Se monstro foi derrotado, ele recebe experiencia
         if(alvo.getPontos_de_vida() <= 0){
-            ganharExperiencia(alvo.getXpConcedido());
-
             System.out.printf("%s derrotou %s e ganhou %d de experiencia!\n", getNome(), alvo.getNome(), alvo.getXpConcedido());
-
-            // Reseta a habilidade e vida pra enfrentar proximo monstro
-            setPontos_de_vida(75);
-            setAtordoar(1);
-        }
-
-            
+            ganharExperiencia(alvo.getXpConcedido());
+        }     
     }
     @Override
     public void atacar(Personagem alvo){
@@ -47,8 +46,7 @@ public class Yoshi extends Heroi {
     }
     @Override
     public void usarHabilidadeEspecial(){
-        // Habilidade de atordoar o oponente
-        // Apos o uso, volta apenas ao derrotar o monstro
+        // Volta apenas ao derrotar o monstro
         setAtordoar(0);
 
         System.out.printf("%s atordoou o oponente com sua habilidade especial\n", getNome());

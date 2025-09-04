@@ -6,10 +6,14 @@ public class King_Boo extends Monstro {
         super(nome, pontos_de_vida, forca, xp_concedido);
     }
     @Override
-    public void atacar(jogo.Personagem alvo){
+    public void atacar(Personagem alvo){
 
         System.out.printf("%s atacou %s com a Mordida Fantasma e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
         alvo.takeDamage(getForca());
+
+        if(alvo.isAlive() == false){
+            System.out.printf("%s foi eliminado por %s!\n", alvo.getNome(), getNome());
+        }
     }
 
 }
