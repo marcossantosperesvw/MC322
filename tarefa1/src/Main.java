@@ -52,7 +52,7 @@ public class Main {
             }
 
             System.out.println("\n===Vez dos heróis!===");
-            // Mario ataca primeiro por ser mais forte
+            // Mario ataca primeiro 
             if(mario.isAlive()){
                 mario.TurnoMario(alvo);
 
@@ -60,7 +60,7 @@ public class Main {
                     break;
                 }
             }
-            
+            // Yoshi ataca logo na sequencia
             if(yoshi.isAlive()){
                 yoshi.TurnoYoshi(alvo);
 
