@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import jogo.*;
 import jogo.Personagens.*;
 
@@ -15,11 +14,8 @@ public class Main {
         };
 
         System.out.println("Em uma terra mágica chamada Reino dos Cogumelos...");
-        System.out.println("Mario é convodado pelo seu Rei, o Rei Toadstool\n");
-        System.out.println("Rei Toadstool: Mario, a Princesa Peach foi sequestrada por Bowser novamente!");
         System.out.println("Mario e Yoshi partem em uma jornada para resgatar a Princesa Peach!");
         System.out.println("Eles precisam atravessar o castelo assombrado de Bowser...\n");
-
 
         // Primeira batalha - King Boo
         System.out.println("=== PRIMEIRO DESAFIO: King Boo aparece! ===");
@@ -36,7 +32,7 @@ public class Main {
         System.out.println("=== BATALHA FINAL: Bowser, o Rei dos Koopas! ===");
         turno(yoshi,mario, array_monstros[2]);
         System.out.println("Bowser: Vocês nunca levarão a Princesa Peach!");
-
+        
 
         System.out.println("\n=== O FIM DA JORNADA ===");
         System.out.println("Com o sacrifício de Yoshi, Bowser foi finalmente derrotado!");
@@ -90,5 +86,3 @@ public class Main {
         }
     }
 }
-=======
->>>>>>> e85b802 ( Retirando a main)
