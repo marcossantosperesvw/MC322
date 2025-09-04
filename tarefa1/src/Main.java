@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import jogo.*;
 import jogo.Personagens.*;
 
@@ -89,3 +90,5 @@ public class Main {
         }
     }
 }
+=======
+>>>>>>> e85b802 ( Retirando a main)
