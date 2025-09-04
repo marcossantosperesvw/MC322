@@ -11,7 +11,7 @@ public abstract class Personagem {
         this.forca = forca;
     }
 
-    public void Damage(int damage){
+    public void takeDamage(int damage){
         this.pontos_de_vida -= damage;
 
 

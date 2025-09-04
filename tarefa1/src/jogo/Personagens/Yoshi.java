@@ -12,10 +12,10 @@ public class Yoshi extends jogo.Heroi {
         return this.atordoar;
     }
     @Override
-    public void atacar(jogo.Personagem p){
-        p.Damage(getForca());
-
-        System.out.printf("%s atacou %s e causou %d de dano!\n", getNome(), p.getNome(), getForca());
+    public void atacar(jogo.Personagem alvo){
+        
+        System.out.printf("%s pisou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
+        alvo.takeDamage(getForca());
     }
     @Override
     public void usarHabilidadeEspecial(){
@@ -26,7 +26,6 @@ public class Yoshi extends jogo.Heroi {
         System.out.printf("%s atordoou o oponente com sua habilidade especial\n", getNome());
 
 
-        setPontos_de_vida(getPontos_de_vida() * 2);
 
     }
     

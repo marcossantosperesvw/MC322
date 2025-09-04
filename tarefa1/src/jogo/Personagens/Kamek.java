@@ -10,8 +10,9 @@ public class Kamek extends jogo.Monstro{
     }
 
     @Override
-    public void atacar(jogo.Personagem p){
-        System.out.printf("%s atacou %s e causou %d de dano!\n", getNome(), p.getNome(), getForca());
+    public void atacar(jogo.Personagem alvo){
+        System.out.printf("%s lançou Feitiço Abstrato em %s e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
+        alvo.takeDamage(getForca());
     }
     
 }
