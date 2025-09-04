@@ -5,9 +5,10 @@ public class King_Boo extends jogo.Monstro {
         super(nome, pontos_de_vida, forca, xp_concedido);
     }
     @Override
-    public void atacar(jogo.Personagem p){
+    public void atacar(jogo.Personagem alvo){
 
-        System.out.printf("%s atacou %s e causou %d de dano!\n", getNome(), p.getNome(), getForca());
+        System.out.printf("%s atacou %s com a Mordida Fantasma e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
+        alvo.takeDamage(getForca());
     }
 
 }

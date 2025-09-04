@@ -14,8 +14,11 @@ public class Main {
         };
 
         System.out.println("Em uma terra mágica chamada Reino dos Cogumelos...");
+        System.out.println("Mario é convodado pelo seu Rei, o Rei Toadstool\n");
+        System.out.println("Rei Toadstool: Mario, a Princesa Peach foi sequestrada por Bowser novamente!");
         System.out.println("Mario e Yoshi partem em uma jornada para resgatar a Princesa Peach!");
         System.out.println("Eles precisam atravessar o castelo assombrado de Bowser...\n");
+
 
         // Primeira batalha - King Boo
         System.out.println("=== PRIMEIRO DESAFIO: King Boo aparece! ===");
@@ -56,7 +59,6 @@ public class Main {
             array_herois[0].atacar(array_monstros[2]);
             
             if (((Yoshi)array_herois[1]).getAtordoar() > 0) {
-                // Me de um oscar por favor
                 System.out.println("\nYoshi: Mario, meu amigo... Este é meu último presente para você!");
                 array_herois[1].usarHabilidadeEspecial();
                 array_herois[1].atacar(array_monstros[2]);
