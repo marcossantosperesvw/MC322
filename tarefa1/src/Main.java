@@ -3,14 +3,14 @@ import jogo.Personagens.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Heroi array_herois[] = {
-            new Mario("Mario", 150, 50),
-            new Yoshi("Yoshi", 75, 40)
-        };
+
+        Mario mario = new Mario("Mario", 100, 60);
+        Yoshi yoshi = new Yoshi("Yoshi", 40, 30);
+        // indica qual personagem esta vivo
         Monstro array_monstros[] = {
-            new King_Boo("King Boo", 100, 20, 50),
-            new Kamek("Kamek", 80, 15, 30),
-            new Bowser("Bowser", 120, 30, 70)
+            new King_Boo("King Boo", 120, 40, 125),
+            new Kamek("Kamek", 80, 40, 175),
+            new Bowser("Bowser", 180, 50, 200)
         };
 
         // --- INÍCIO DA HISTÓRIA ---
@@ -40,48 +40,16 @@ public class Main {
         System.out.println("=== PRIMEIRO DESAFIO: O RISO GELADO DO REI FANTASMA ===\n");
         System.out.println("De repente, uma risada gélida ecoou pelas paredes, vinda de todos os lugares e de lugar nenhum.");
         System.out.println("King Boo: Toloooos... Ninguém entra no castelo de Lorde Bowser sem pagar o pedágio do medo!\n");
-        
-        while (array_monstros[0].getPontos_de_vida() > 0 && array_herois[0].getPontos_de_vida() > 0) {
-            array_herois[0].atacar(array_monstros[0]);
-            if (array_monstros[0].getPontos_de_vida() <= 0) break; // Verifica se o monstro foi derrotado
-            
-            array_herois[1].atacar(array_monstros[0]);
-            if (array_monstros[0].getPontos_de_vida() <= 0) break; // Verifica se o monstro foi derrotado
-            
-            array_monstros[0].atacar(array_herois[0]);
-        }
-        
-        array_herois[0].ganharExperiencia(array_monstros[0].getXpConcedido());
+        turno(yoshi, mario, array_monstros[0]);
         System.out.println("\nCom um golpe final, King Boo se dissipou em uma névoa fria, deixando para trás apenas o eco de sua risada.");
         System.out.println("King Boo foi derrotado! Esgotos, mas vitoriosos, a jornada continua...\n");
-
 
         // === Segunda batalha - Kamek ===
         System.out.println("=== SEGUNDO DESAFIO: A MAGIA ILUSÓRIA DE KAMEK ===\n");
         System.out.println("Avançando por um corredor, o caminho é bloqueado por um brilho de luz hexagonal.");
         System.out.println("Kamek: Impressionante, venceram o fantasma medroso. Mas vocês não são páreo para a minha magia!\n");
-        
-        if (((Mario)array_herois[0]).getCogumelo() > 0) {
-            System.out.println("Mario avista um Super Cogumelo pulsando com uma luz suave em um canto e o consome!");
-            array_herois[0].usarHabilidadeEspecial();
-        }
-        
-        while (array_monstros[1].getPontos_de_vida() > 0 && array_herois[0].getPontos_de_vida() > 0) {
-            array_herois[0].atacar(array_monstros[1]);
-            if (array_monstros[1].getPontos_de_vida() <= 0) break;
+        turno(yoshi, mario, array_monstros[1]);
 
-            array_herois[1].atacar(array_monstros[1]);
-            if (array_monstros[1].getPontos_de_vida() <= 0) break;
-
-            // Kamek ataca o herói com menos vida para ser mais estratégico
-            if (array_herois[1].getPontos_de_vida() > 0) {
-                 array_monstros[1].atacar(array_herois[1]);
-            } else {
-                 array_monstros[1].atacar(array_herois[0]);
-            }
-        }
-        
-        array_herois[0].ganharExperiencia(array_monstros[1].getXpConcedido());
         System.out.println("\nCom um ataque preciso, Mario acerta o verdadeiro Kamek, que desaparece em uma nuvem de fumaça e arrependimento.");
         System.out.println("Kamek foi derrotado! Chegou a hora da batalha final...\n");
 
@@ -90,39 +58,14 @@ public class Main {
         System.out.println("=== BATALHA FINAL: O REI DOS KOOPAS E O SACRIFÍCIO SUPREMO ===\n");
         System.out.println("A porta da sala do trono se abre. Lá dentro, em meio a rios de lava, está Bowser. Em uma jaula suspensa, a Princesa Peach.\n");
         System.out.println("Bowser: MARIO! Então você veio. Veio para testemunhar meu triunfo final! Vocês nunca levarão a Princesa Peach!\n");
-        
-        while (array_monstros[2].getPontos_de_vida() > 0 && (array_herois[0].getPontos_de_vida() > 0 || array_herois[1].getPontos_de_vida() > 0)) {
-            // Mario ataca
-            if(array_herois[0].getPontos_de_vida() > 0) {
-                array_herois[0].atacar(array_monstros[2]);
-            }
-            if (array_monstros[2].getPontos_de_vida() <= 0) break;
+        turno(yoshi,mario, array_monstros[2]);
 
-            // Checagem do sacrifício de Yoshi
-            if (array_herois[0].getPontos_de_vida() < 50 && ((Yoshi)array_herois[1]).getAtordoar() > 0 && array_herois[1].getPontos_de_vida() > 0) {
-                System.out.println("\nMario está enfraquecido! Bowser prepara o golpe final...");
-                System.out.println("Yoshi olha para seu amigo caído e toma uma decisão heroica.");
-                System.out.println("\nYoshi: Mario, meu amigo... Este é meu último presente para você!");
-                
-                array_herois[1].usarHabilidadeEspecial(); // Assume que a habilidade especial de Yoshi é este ataque sacrificial
-                array_herois[1].atacar(array_monstros[2]);
-                
-                System.out.println("Em um clarão de luz verde, Yoshi se lança contra Bowser em um cometa de pura coragem, desferindo um dano massivo!");
-                System.out.println("Yoshi se sacrifica em um último ataque heroico!\n");
-                array_herois[1].setPontos_de_vida(0); // Garante que Yoshi seja removido da batalha
-                break; // A batalha termina com o sacrifício, Bowser é derrotado
-            }
-            
-            // Bowser ataca
-            if (array_monstros[2].getPontos_de_vida() > 0) {
-                // Bowser foca em quem estiver vivo
-                if (array_herois[0].getPontos_de_vida() > 0) {
-                    array_monstros[2].atacar(array_herois[0]);
-                } else if (array_herois[1].getPontos_de_vida() > 0) {
-                    array_monstros[2].atacar(array_herois[1]);
-                }
-            }
-        }
+        
+        System.out.println("\nMario está enfraquecido! Bowser prepara o golpe final...");
+        System.out.println("Yoshi olha para seu amigo caído e toma uma decisão heroica.");
+        System.out.println("\nYoshi: Mario, meu amigo... Este é meu último presente para você!");
+        System.out.println("Em um clarão de luz verde, Yoshi se lança contra Bowser em um cometa de pura coragem, desferindo um dano massivo!");
+        System.out.println("Yoshi se sacrifica em um último ataque heroico!\n");
 
         // --- CONCLUSÃO DA HISTÓRIA ---
         System.out.println("\n=== O FIM DA JORNADA ===\n");
@@ -136,5 +79,64 @@ public class Main {
         System.out.println("E assim, mais uma vez, o Reino dos Cogumelos foi salvo.");
         System.out.println("A vitória teve um custo imenso, mas o reino para sempre se lembraria e honraria a lenda do mais leal dos amigos,");
         System.out.println("cujo sacrifício supremo garantiu que a luz triunfasse sobre as trevas.");
+    }
+    public static void turno(Yoshi yoshi, Mario mario, Monstro alvo){
+        System.out.printf("\nIniciando batalha contra %s!\n", alvo.getNome());
+
+        while(alvo.isAlive() && (yoshi.isAlive() || mario.isAlive())){
+            // O jogo so continua se o monstro estiver vivo juntamente com um heroi
+            if(!yoshi.isAlive() && !mario.isAlive()){
+                System.out.println("Todos os heróis foram derrotados! Game Over!");
+                break;
+            }
+
+            System.out.println("\n===Vez dos heróis!===");
+            // Mario ataca primeiro 
+            if(mario.isAlive()){
+                mario.TurnoMario(alvo);
+
+                if(!alvo.isAlive()){
+                    break;
+                }
+            }
+            // Yoshi ataca logo na sequencia
+            if(yoshi.isAlive()){
+                yoshi.TurnoYoshi(alvo);
+
+                if(!alvo.isAlive()){
+                    break;
+                }
+            }
+            // Implementacao da fase de ataque do monstro
+            if(!alvo.getAtordoado()){
+                System.out.printf("\n===Vez de %s atacar!===\n", alvo.getNome());
+                if(yoshi.isAlive()){
+                    // Monstro ataca sempre ataca Yoshi primeiro
+                    alvo.atacar(yoshi);
+                } else if(mario.isAlive()){
+                    alvo.atacar(mario);
+                }
+            } else {
+                System.out.printf("\n%s está atordoado e perde seu turno!\n", alvo.getNome());
+                // Monstro perde efeito de atordoamento
+                alvo.setAtordoado(false); 
+            }
+            exibeStatus(yoshi, mario, alvo);
+            
+        }
+
+        // Exibe status apos o final da batalha
+        exibeStatus(yoshi, mario, alvo);
+    }
+
+    public static void exibeStatus(Yoshi yoshi, Mario mario, Monstro alvo){
+        System.out.println("\n===Status dos Personagens===\n");
+
+        yoshi.Exibir_Status();
+        System.out.printf("============================================\n");
+        mario.Exibir_Status();
+        System.out.printf("============================================\n");
+        alvo.Exibir_Status();
+        System.out.printf("============================================\n");
     }
 }

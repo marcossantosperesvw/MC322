@@ -1,47 +1,54 @@
 package jogo.Personagens;
+import jogo.*;
 
-public class Mario extends jogo.Heroi {
-    private int estrela;
+public class Mario extends Heroi {
     private int cogumelo;
-    private boolean invencivel;
  
     public Mario(String nome, int pontos_de_vida, int forca){
         super(nome, pontos_de_vida, forca);
         this.cogumelo = 1; // Mario comeca com apenas 1 cogumelo
-        this.invencivel = false;
 
     }
+
+    // Getters e Setters
     public int getCogumelo(){
         return this.cogumelo;
     }
-    public int getEstrela(){
-        return this.estrela;
+    public void setCogumelo(int cogumelo){
+        this.cogumelo = cogumelo;
     }
-    public boolean getInvencivel(){
-        return this.invencivel;
-    }
-    public void usarEstrela(){
-        // Usa estrela e o personagem fica temporariamente intangivel
-        this.estrela--;
-        this.invencivel = true;
 
-        System.out.printf("%s usou a estrela e está temporariamente invencivel",getNome());
+    public void TurnoMario(Monstro alvo){
+
+        if(getPontos_de_vida() < (50) && getCogumelo() > 0){
+            // Utiliza cogumelo apenas quando esta com 50% da vida
+            System.out.printf("%s está com pouca vida! ", getNome());
+            usarHabilidadeEspecial();
+        }
+        else {
+            // Mario nao consegue usar a sua habilidade especial e atacar no mesmo turno
+
+            atacar(alvo);
+        }
         
-
-
+        // Se derrotou monstro, recebe experiencia
+        if (alvo.getPontos_de_vida() <= 0){
+            System.out.printf("%s derrotou %s e ganhou %d de experiencia!\n", getNome(), alvo.getNome(), alvo.getXpConcedido());
+            ganharExperiencia(alvo.getXpConcedido());
+        }
     }
  
     @Override
     public void atacar(jogo.Personagem alvo){
         
-        System.out.printf("%s atacou %s e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
+        System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
         alvo.takeDamage(getForca());
     }
     @Override
     public void usarHabilidadeEspecial(){
 
         // Usa o Cogumelo
-        this.cogumelo--;
+        setCogumelo(this.cogumelo - 1);
         System.out.printf("%s usou cogumelo mágico e sua vida foi dobrada!\n", getNome());
 
         // Dobra a vida

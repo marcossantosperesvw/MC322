@@ -8,25 +8,28 @@ public abstract class Heroi extends Personagem {
 
         this.nivel = 0;
         this.experiencia = 0;
-        
     }
     
 
-
+    // Getters e Setters
     public int getNivel() {
         return this.nivel;
     }
-
     public int getExperiencia() {
         return this.experiencia;
     }
 
     public void ganharExperiencia(int xp) {
+        int nivel_anterior = this.nivel;
         this.experiencia += xp;
         if (this.experiencia >= 100) {
-            this.nivel++;
-            this.experiencia -= 100;
-            System.out.printf("%s subiu para o nível %d!\n", getNome(), this.nivel);
+            this.nivel = this.experiencia /100;
+
+            if(this.nivel > nivel_anterior){
+                System.out.printf("%s subiu para o nível %d!\n", getNome(), this.nivel);
+            }
+
+            this.experiencia %= 100;
         }
     }
 
@@ -34,7 +37,7 @@ public abstract class Heroi extends Personagem {
 
     @Override
     public void Exibir_Status(){
-        System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d/10\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia);
+        System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia);
     }
 
 }
