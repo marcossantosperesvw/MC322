@@ -37,7 +37,6 @@ public abstract class Heroi extends Personagem {
 
     @Override
     public void Exibir_Status(){
-        System.out.printf("============================================\n");
         System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia);
     }
 

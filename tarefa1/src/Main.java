@@ -83,21 +83,27 @@ public class Main {
                 alvo.setAtordoado(false); 
             }
 
-            System.out.println("\n===Status dos Personagens===\n");
 
-            yoshi.Exibir_Status();
-            mario.Exibir_Status();
-            alvo.Exibir_Status();
+            exibeStatus(yoshi, mario, alvo);
             
         }
-        System.out.println("\n===Status dos Personagens===\n");
 
-        yoshi.Exibir_Status();
-        mario.Exibir_Status();
-        alvo.Exibir_Status();
+        // Exibe status apos o final da batalha
+        exibeStatus(yoshi, mario, alvo);
         
 
 
 
+    }
+
+    public static void exibeStatus(Yoshi yoshi, Mario mario, Monstro alvo){
+        System.out.println("\n===Status dos Personagens===\n");
+
+        yoshi.Exibir_Status();
+        System.out.printf("============================================\n");
+        mario.Exibir_Status();
+        System.out.printf("============================================\n");
+        alvo.Exibir_Status();
+        System.out.printf("============================================\n");
     }
 }
