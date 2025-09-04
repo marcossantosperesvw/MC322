@@ -8,9 +8,9 @@ public class Main {
         Yoshi yoshi = new Yoshi("Yoshi", 40, 30);
         // indica qual personagem esta vivo
         Monstro array_monstros[] = {
-            new King_Boo("King Boo", 120, 40, 100),
-            new Kamek("Kamek", 80, 40, 100),
-            new Bowser("Bowser", 180, 50, 100)
+            new King_Boo("King Boo", 120, 40, 125),
+            new Kamek("Kamek", 80, 40, 175),
+            new Bowser("Bowser", 180, 50, 200)
         };
 
         System.out.println("Em uma terra mágica chamada Reino dos Cogumelos...");
@@ -82,7 +82,22 @@ public class Main {
                 // Monstro perde efeito de atordoamento
                 alvo.setAtordoado(false); 
             }
+
+            System.out.println("\n===Status dos Personagens===\n");
+
+            yoshi.Exibir_Status();
+            mario.Exibir_Status();
+            alvo.Exibir_Status();
             
         }
+        System.out.println("\n===Status dos Personagens===\n");
+
+        yoshi.Exibir_Status();
+        mario.Exibir_Status();
+        alvo.Exibir_Status();
+        
+
+
+
     }
 }

@@ -10,9 +10,9 @@ public class King_Boo extends Monstro {
 
         System.out.printf("%s atacou %s com a Mordida Fantasma e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
         alvo.takeDamage(getForca());
-
+        
         if(alvo.isAlive() == false){
-            System.out.printf("%s foi eliminado por %s!\n", alvo.getNome(), getNome());
+            System.out.printf("%s foi eliminado por %s, sendo tomado pela escuridão!\n", alvo.getNome(), getNome());
         }
     }
 

@@ -19,7 +19,9 @@ public abstract class Monstro extends Personagem{
     }
     @Override
     public void Exibir_Status(){
+        System.out.printf("============================================\n");
         System.out.printf("Nome: %s\nVida: %d\nForça: %d\nXP Concedido: %d\n", getNome(), getPontos_de_vida(), getForca(), getXpConcedido());
+        System.out.printf("============================================\n");
     }
 
 

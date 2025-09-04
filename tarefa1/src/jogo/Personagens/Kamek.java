@@ -16,7 +16,7 @@ public class Kamek extends Monstro{
         alvo.takeDamage(getForca());
 
         if(alvo.isAlive() == false){
-            System.out.printf("\n%s foi eliminado por %s!\n", alvo.getNome(), getNome());
+            System.out.printf("\n%s foi eliminado por %s com Frieza Mágica!\n", alvo.getNome(), getNome());
         }
     }
     

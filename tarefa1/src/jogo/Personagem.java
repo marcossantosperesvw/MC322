@@ -14,6 +14,10 @@ public abstract class Personagem {
     public void takeDamage(int damage){
         this.pontos_de_vida -= damage;
 
+        if(this.pontos_de_vida < 0){
+            setPontos_de_vida(0);
+        }
+
 
     }
 
@@ -41,7 +45,9 @@ public abstract class Personagem {
         }
     }
     public void Exibir_Status(){
+        System.out.printf("============================================\n");
         System.out.printf("Nome: %s\nVida: %d\nForça: %d\n", this.nome, this.pontos_de_vida, this.forca);
+        System.out.printf("============================================\n");
     }
 
 
