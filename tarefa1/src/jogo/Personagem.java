@@ -5,6 +5,7 @@ public abstract class Personagem {
     private String nome;
     private int pontos_de_vida;
     private int forca;
+    // Implementar Arma para os personagens
     private Arma arma;
 
     public Personagem(String nome, int pontos_de_vida, int forca, Arma arma){
