@@ -3,7 +3,8 @@ import jogo.Personagens.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-
+        // TODO consertar inicializacao dos personagens com os construtores
+        
         Mario mario = new Mario("Mario", 100, 60);
         Yoshi yoshi = new Yoshi("Yoshi", 40, 30);
         // indica qual personagem esta vivo

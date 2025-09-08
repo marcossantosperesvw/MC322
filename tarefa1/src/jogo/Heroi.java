@@ -1,10 +1,11 @@
 package jogo;
+import Armas.*;
 
 public abstract class Heroi extends Personagem {
     private int nivel;
     private int experiencia;
-    public Heroi(String nome, int pontos_de_vida, int forca) {
-        super(nome, pontos_de_vida, forca);
+    public Heroi(String nome, int pontos_de_vida, int forca, Arma arma) {
+        super(nome, pontos_de_vida, forca, arma);
 
         this.nivel = 0;
         this.experiencia = 0;

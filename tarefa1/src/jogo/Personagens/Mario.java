@@ -1,11 +1,11 @@
 package jogo.Personagens;
 import jogo.*;
-
+import Armas.*;
 public class Mario extends Heroi {
     private int cogumelo;
  
-    public Mario(String nome, int pontos_de_vida, int forca){
-        super(nome, pontos_de_vida, forca);
+    public Mario(String nome, int pontos_de_vida, int forca, Arma arma){
+        super(nome, pontos_de_vida, forca, arma);
         this.cogumelo = 1; // Mario comeca com apenas 1 cogumelo
 
     }
