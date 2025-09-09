@@ -33,6 +33,7 @@ public abstract class Heroi extends Personagem {
 
             if(this.nivel > nivel_anterior){
                 System.out.printf("%s subiu para o nível %d!\n", getNome(), this.nivel);
+                this.forca += 10;
             }
 
             this.experiencia %= 100;
