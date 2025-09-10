@@ -18,7 +18,12 @@ public class Yoshi extends Heroi {
     }
 
     public void TurnoYoshi(Monstro alvo){
-        if (getAtordoar() == 1 && !alvo.getAtordoado()){
+        // Lancamento de dados
+        float dado = (float) Math.random();
+
+
+
+        if (getAtordoar() == 1 && !alvo.getAtordoado() && getSorte() >= dado){
             // Usando habilidade de atordoamento
             usarHabilidadeEspecial();
             alvo.setAtordoado(true);
