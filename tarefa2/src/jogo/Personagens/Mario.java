@@ -19,9 +19,8 @@ public class Mario extends Heroi {
     }
 
     public void TurnoMario(Monstro alvo){
-        // Lancamento de dado
-        float dado = (float) Math.random();
-        if(getPontos_de_vida() < (50) && getCogumelo() > 0 && getSorte() >= dado){
+
+        if(getPontos_de_vida() < 50 && getCogumelo() > 0){
             // Utiliza cogumelo apenas quando esta com 50% da vida
             System.out.printf("%s está com pouca vida! ", getNome());
             usarHabilidadeEspecial();

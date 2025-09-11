@@ -5,7 +5,6 @@ public abstract class Heroi extends Personagem {
     private int nivel;
     private int experiencia;
     private float sorte;
-    private Arma arma_atual;
     public Heroi(String nome, int pontos_de_vida, int forca, Arma arma) {
         super(nome, pontos_de_vida, forca, arma);
 
@@ -26,9 +25,6 @@ public abstract class Heroi extends Personagem {
     public float getSorte() {
         return this.sorte;
     }
-    public Arma getArma_atual() {
-        return arma_atual;
-    }
     public void ganharExperiencia(int xp) {
         int nivel_anterior = this.nivel;
         this.experiencia += xp;
@@ -37,19 +33,11 @@ public abstract class Heroi extends Personagem {
 
             if(this.nivel > nivel_anterior){
                 System.out.printf("%s subiu para o nível %d!\n", getNome(), this.nivel);
-                setForca(getForca() + 10); // Aumenta a forca do personagem em 10 ao subir de nivel
+                setForca(getForca() + 10);
             }
 
             this.experiencia %= 100;
         }
-    }
-
-    public void EquiparArma(Arma arma){
-        if (getNivel() >= arma.getMinNivel()){
-
-            this.arma_atual = arma;
-        }
-
     }
 
     public abstract void usarHabilidadeEspecial();
