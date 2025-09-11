@@ -37,6 +37,10 @@ public abstract class Personagem {
     public Arma getArma() {
         return arma;
     }
+    public void EquiparArma(Arma arma) {
+
+        this.arma = arma;
+    }
     public void setPontos_de_vida(int pontos_de_vida){
         this.pontos_de_vida = pontos_de_vida;
     }

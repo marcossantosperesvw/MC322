@@ -50,8 +50,8 @@ public class Yoshi extends Heroi {
 
             // Verificar loot do monstro
             Arma nova_arma = alvo.largarArma();
-            if (nova_arma.getDano() > this.getArma().getDano()){
-                setArma(nova_arma);
+            if (nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
+                EquiparArma(nova_arma);
             }
         }     
     }
