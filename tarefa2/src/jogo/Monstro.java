@@ -1,5 +1,5 @@
 package jogo;
-import Armas.*;
+import Armas.Arma;
 // Criacao da classe abstrata para monstros
 public abstract class Monstro extends Personagem{
     private int xp_concedido;

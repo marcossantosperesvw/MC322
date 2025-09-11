@@ -1,6 +1,6 @@
 package jogo.Personagens;
 import jogo.*;
-import Armas.*;
+import Armas.Arma;
 public class Mario extends Heroi {
     private int cogumelo;
  

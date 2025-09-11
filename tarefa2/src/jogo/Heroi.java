@@ -1,5 +1,5 @@
 package jogo;
-import Armas.*;
+import Armas.Arma;
 
 public abstract class Heroi extends Personagem {
     private int nivel;

@@ -1,5 +1,5 @@
 package jogo;
-import Armas.*;
+import Armas.Arma;
 // Criacao da classe abstrata para personagens
 public abstract class Personagem {
     private String nome;
@@ -21,8 +21,6 @@ public abstract class Personagem {
         if(this.pontos_de_vida < 0){
             setPontos_de_vida(0);
         }
-
-
     }
 
     // Getters e setters

@@ -1,5 +1,6 @@
 package Ferramentas;
 import jogo.Monstro;
+
 public class Fase {
     private int nivel;
     private String ambiente;

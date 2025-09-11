@@ -1,6 +1,6 @@
 package jogo.Personagens;
 import jogo.*;
-import Armas.*;
+import Armas.Arma;
 public class Yoshi extends Heroi {
     private int atordoar;
     public Yoshi(String nome, int pontos_de_vida, int forca, Arma arma){
