@@ -7,7 +7,7 @@ public class King_Boo extends Monstro {
     }
     @Override
     public void atacar(Personagem alvo, int critico){
-
+        // O monstro  nao tera ataque critico.
         System.out.printf("%s atacou %s com a Mordida Fantasma e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
         alvo.takeDamage(getForca());
         
