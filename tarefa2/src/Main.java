@@ -1,12 +1,9 @@
 import jogo.*;
 import jogo.Personagens.*;
 import Armas.*;
-import Ferramentas.*;
-
 public class Main {
     public static void main(String[] args) throws Exception {
-        int nFases = 3;
-        Fase[] f = ConstrutorDeCenario.gerarFases(nFases); 
+        Fase[] f = ConstrutorDeCenario.gerarFases(3); 
         // Mint das armas iniciais
         Arma martelo = new Martelo("Martelo Lendário", 1, 0);
         Arma lingua = new Lingua("Língua Ancestral", 15, 0);
@@ -63,7 +60,6 @@ public class Main {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
         String[] cenario1 = {"Castelo Mal Assombrado", "Corredor Sombrio", "Sala do Trono Fantasma"};
-        f[0] = new Fase(1, cenario1, array_monstros[0]); // King Boo
 
         System.out.println("A temperatura cai drasticamente. Uma gargalhada gélida ecoa pelas paredes, e do próprio ar, a forma translúcida de KING BOO se materializa!");
         System.out.println("Seu Cetro Espectral brilha com uma luz fantasmagórica, drenando o calor e a coragem do ambiente.");
@@ -85,7 +81,6 @@ public class Main {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
         String[] cenario2 = {"Torre do Feiticeiro", "Câmara das Ilusões", "Laboratório de Kamek"};
-        f[1] = new Fase(2, cenario2, array_monstros[1]); // Kamek
 
         System.out.println("O corredor seguinte se abre para um salão vasto, cujas paredes parecem ondular. No centro, KAMEK flutua em seu cajado, rindo com desdém.");
         System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui! Vocês conseguirão distinguir o real do imaginário quando a sua própria mente for o campo de batalha?'");
@@ -114,7 +109,6 @@ public class Main {
         System.out.println("======================================================================\n");
         
         String[] cenario3 = {"Fortaleza de Bowser", "Sala do Trono", "Câmara da Lava"};
-        f[2] = new Fase(3, cenario3, array_monstros[2]); // Bowser
         
         System.out.println("O chão treme. Um rugido gutural que abala as próprias fundações do castelo anuncia a chegada do Rei Koopa.");
         System.out.println("BOWSER aterrissa diante deles, quebrando as lajes de pedra. Em suas mãos, as Garras de Fogo ardem com o calor de um vulcão.");

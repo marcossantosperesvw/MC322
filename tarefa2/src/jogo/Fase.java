@@ -1,4 +1,4 @@
-package Ferramentas;
+package Personagens.*;
 import jogo.Monstro;
 public class Fase {
     private int nivel;
