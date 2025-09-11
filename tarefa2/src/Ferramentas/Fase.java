@@ -1,23 +1,25 @@
 package Ferramentas;
 import jogo.Monstro;
-
 public class Fase {
     private int nivel;
     private String ambiente;
-    private String[] monstros;
+    private Monstro[] ListaMonstros;
 
     public Fase(int nivel, String ambiente, String[] monstros){
         this.nivel = nivel;
         this.ambiente = ambiente;
-        this.monstros = new String[50];
+        this.monstros = new Monstro[50];
     }
 
 
     public String getAmbiente() {
         return ambiente;
     }
-    public String[] getMonstros() {
-        return monstros;
+    public Monstro[] getListaMonstros() {
+        return ListaMonstros;
+    }
+    public void setListaMonstros(Monstro[] listaMonstros) {
+        ListaMonstros = listaMonstros;
     }
     public int getNivel() {
         return nivel;
