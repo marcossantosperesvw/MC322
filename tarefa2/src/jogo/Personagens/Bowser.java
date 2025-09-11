@@ -5,8 +5,8 @@ import Armas.Arma;
 
 
 public class Bowser extends Monstro {
-    public Bowser(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma){
-        super(nome, pontos_de_vida, forca, xp_concedido, arma);
+    public Bowser(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma[] lista){
+        super(nome, pontos_de_vida, forca, xp_concedido, lista);
     }
 
     @Override

@@ -8,21 +8,22 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Fase[] f = ConstrutorDeCenario.gerarFases(3); 
         // Mint das armas iniciais
-        Arma martelo = new Martelo("Martelo Lendário", 1, 0);
-        Arma lingua = new Lingua("Língua Ancestral", 15, 0);
-        Arma cetroFantasma = new Cetro("Cetro Espectral", 1, 0);
-        Arma varinhaMagica = new Varinha("Varinha das Sombras", 1, 0);
-        Arma garrasIgneas = new Garras("Garras de Fogo", 0, 0);
+        Arma martelo = new Martelo("Martelo Lendário", 10, 0);
+        Arma lingua = new Lingua("Língua Ancestral", 12, 0);
         
         // Heróis com suas armas
         Mario mario = new Mario("Mario", 100, 40, martelo);
         Yoshi yoshi = new Yoshi("Yoshi", 40, 15, lingua);
         
-        // Monstros armados
+        // Monstros com armas para largar
+        Arma[] lista = new Arma[3];
+        lista[0] = new Martelo("Martelinho de bronze", 22, 1);
+        lista[1] = new Varinha("Varinha das Sombras", 15, 1);
+        lista[2] = new Garras("Garras Sanguinarias", 20, 1);
         Monstro array_monstros[] = {
-            new King_Boo("King Boo", 120, 30, 125, cetroFantasma),
-            new Kamek("Kamek", 80, 25, 175, varinhaMagica),
-            new Bowser("Bowser", 180, 25, 200, garrasIgneas)
+            new King_Boo("King Boo", 120, 30, 300, lista),
+            new Kamek("Kamek", 80, 25, 175, lista),
+            new Bowser("Bowser", 180, 25, 200, lista)
         };
 
         // Criação correta das fases
@@ -58,7 +59,7 @@ public class Main {
         System.out.println("Lá dentro, a escuridão era uma entidade viva, e um frio que não era natural arrepiou a espinha dos heróis. Cada passo ecoava como uma batida de tambor fúnebre.\n");
 
 
-        // === Primeira batalha - King Boo ===
+        // === Primeira batal(yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1)ha - King Boo ===
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("   PRIMEIRO DESAFIO: O GUARDIÃO ESPECTRAL E SEU CETRO GÉLIDO");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
