@@ -8,7 +8,7 @@ public class Fase {
     public Fase(int nivel, String ambiente, Monstro[] monstros){
         this.nivel = nivel;
         this.ambiente = ambiente;
-        this.ListaMonstros = new Monstro[50];
+        this.ListaMonstros = monstros;
         
     }
 
