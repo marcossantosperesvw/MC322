@@ -1,6 +1,12 @@
-import jogo.*;
-import jogo.Personagens.*;
-import Armas.*;
+import Armas.Arma;
+import Armas.Martelo;
+import Armas.Lingua;
+import Armas.Cetro;
+import Armas.Varinha;
+import Armas.Garras;
+import Ferramentas.Fase;
+import Ferramentas.ConstrutorDeCenario;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         Fase[] f = ConstrutorDeCenario.gerarFases(3); 
