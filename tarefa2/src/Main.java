@@ -4,8 +4,16 @@ import Armas.Lingua;
 import Armas.Cetro;
 import Armas.Varinha;
 import Armas.Garras;
+<<<<<<< HEAD
 import jogo.Monstro;
 import jogo.Personagens.*;
+=======
+import jogo.Personagens.*;
+import jogo.Monstro;
+import jogo.Fase;
+import jogo.ConstrutorDeCenario;
+
+>>>>>>> refs/remotes/origin/main
 public class Main {
     public static void main(String[] args) throws Exception {
         Fase[] f = ConstrutorDeCenario.gerarFases(3); 
