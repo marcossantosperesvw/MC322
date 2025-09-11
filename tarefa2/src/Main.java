@@ -16,14 +16,37 @@ public class Main {
         Yoshi yoshi = new Yoshi("Yoshi", 40, 15, lingua);
         
         // Monstros com armas para largar
-        Arma[] lista = new Arma[3];
-        lista[0] = new Martelo("Martelinho de bronze", 22, 1);
-        lista[1] = new Varinha("Varinha das Sombras", 15, 1);
-        lista[2] = new Garras("Garras Sanguinarias", 20, 1);
-        Monstro array_monstros[] = {
-            new King_Boo("King Boo", 120, 30, 300, lista),
-            new Kamek("Kamek", 80, 25, 175, lista),
-            new Bowser("Bowser", 180, 25, 200, lista)
+        Arma[] lista_nivel1 = new Arma[3];
+        lista_nivel1[0] = new Martelo("Esmagador de Crânios", 22, 1);
+        lista_nivel1[1] = new Varinha("Cajado da Noite Eterna", 15, 1);
+        lista_nivel1[2] = new Garras("Dilacerador de Almas", 20, 1);
+
+        Arma[] lista_nivel2 = new Arma[3];
+        lista_nivel2[0] = new Martelo("Quebra-Mundos", 32, 2);
+        lista_nivel2[1] = new Varinha("Orbe da Destruição", 30, 2);
+        lista_nivel2[2] = new Garras("Desmembrador Cósmico", 37, 2);
+
+        Arma[] lista_nivel3 = new Arma[3];
+        lista_nivel3[0] = new Martelo("Aniquilador Divino", 50, 3);
+        lista_nivel3[3] = new Varinha("Cetro do Apocalipse", 55, 3);
+        lista_nivel3[2] = new Garras("Exterminador de Universos", 42, 3);
+        
+        Monstro[][] array_monstros = {
+            {
+                new King_Boo("King Boo", 120, 30, 300, lista_nivel1),
+                new Koopalings("Koopalings", 90, 20, 150, lista_nivel1),
+                new Koopalings("Koopalings", 90, 20, 150, lista_nivel1)
+            },
+            {
+                new Kamek("Kamek", 300, 50, 420, lista_nivel2),
+                new Koopalings("Koopalings", 90, 20, 150, lista_nivel2),
+                new Koopalings("Koopalings", 90, 20, 150, lista_nivel2)
+            },
+            {
+                new Bowser("Bowser", 500, 70, 1500, lista_nivel3),
+                new Koopalings("Koopalings", 150, 20, 150, lista_nivel3),
+                new Koopalings("Koopalings", 150, 20, 150, lista_nivel3)
+            }
         };
 
         // Criação correta das fases
@@ -65,13 +88,13 @@ public class Main {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
         String[] cenario1 = {"Corredor Sombrio", "Sala do Trono Fantasma"};
-        f[0] = new Fase(1, cenario1[0], new Monstro[]{array_monstros[0]}); 
+        f[0] = new Fase(1, cenario1[0], array_monstros[0]); 
 
         System.out.println(">>> OS HERÓIS ADENTRAM O CASTELO... <<<");
         System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
         
         System.out.println("A temperatura cai drasticamente. Uma gargalhada gélida ecoa pelas paredes, e do próprio ar, a forma translúcida de KING BOO se materializa!");
-        System.out.printf("Mario: 'Cuidado! Olhe a arma dele... é um %s! A energia que emana dele é maligna!'\n\n", array_monstros[0].getArma().getNome());
+        System.out.printf("Mario: 'Cuidado! Olhe a arma dele... é um %s! A energia que emana dele é maligna!'\n\n", array_monstros[0][0].getArma().getNome());
         System.out.println("King Boo: 'Heh heh heh... Tolos mortais. Suas armas de carne e osso não podem tocar um rei feito de pesadelos!'\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -79,11 +102,14 @@ public class Main {
             return;
         }
         
-        turno(yoshi, mario, array_monstros[0]);
+        turno(yoshi, mario, array_monstros[0][2]);
+        turno(yoshi, mario, array_monstros[0][1]);
+        turno(yoshi, mario, array_monstros[0][0]);
+
         System.out.println("\nCom um golpe final imbuído de pura bravura, o Martelo Lendário atravessou a forma espectral.");
         System.out.println("King Boo se dissipou em uma névoa fria, deixando para trás apenas o eco de sua risada e o silêncio.");
         System.out.println("King Boo foi derrotado! A luz de tochas mágicas se acende ao longo do corredor, revelando o caminho a seguir. A própria fortaleza parece respirar aliviada.\n");
-        f[0] = new Fase(1, cenario1[1], new Monstro[]{array_monstros[0]}); 
+        f[0] = new Fase(1, cenario1[1], array_monstros[0]); 
         System.out.println("[Os heróis avançam para a " + f[0].getAmbiente() + "]\n");
         
         // === Segunda batalha - Kamek ===
@@ -93,12 +119,12 @@ public class Main {
         
         String[] cenario2 = {"Câmara das Ilusões", "Laboratório de Kamek"};
         // Sua linha de código para definir a nova fase
-        f[0] = new Fase(2, cenario2[0], new Monstro[]{array_monstros[1]});
+        f[0] = new Fase(2, cenario2[0], array_monstros[1]);
 
         System.out.println(">>> ELES SEGUEM ADIANTE... <<<");
         System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
 
-        System.out.printf("Yoshi: 'A magia vem daquela %s, Mario! É ela que está criando tudo isso!'\n\n", array_monstros[1].getArma().getNome());
+        System.out.printf("Yoshi: 'A magia vem daquela %s, Mario! É ela que está criando tudo isso!'\n\n", array_monstros[1][0].getArma().getNome());
         System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui!'\n");
         System.out.println("Ele ergue sua Varinha das Sombras, e o salão se multiplica em dezenas de cópias, cada uma com um Kamek zombeteiro.\n");
         
@@ -107,12 +133,15 @@ public class Main {
             return;
         }
         
-        turno(yoshi, mario, array_monstros[1]);
+        turno(yoshi, mario, array_monstros[1][2]);
+        turno(yoshi, mario, array_monstros[1][1]);
+        turno(yoshi, mario, array_monstros[1][0]);
+
 
         System.out.println("\nCom um ataque preciso guiado pela intuição, a Língua Ancestral de Yoshi chicoteia através das ilusões e acerta o verdadeiro Kamek!");
         System.out.println("O feiticeiro desaparece em uma nuvem de fumaça e arrependimento, e as ilusões se estilhaçam como vidro.");
 
-        f[0] = new Fase(2, cenario2[1], new Monstro[]{array_monstros[1]});
+        f[0] = new Fase(2, cenario2[1], array_monstros[1]);
 
         System.out.println("Kamek foi derrotado! Apenas uma porta imponente agora os separa do confronto final.\n");
         
@@ -129,13 +158,13 @@ public class Main {
         
         String[] cenario3 = {"Fortaleza de Bowser", "Sala do Trono", "Câmara da Lava"};
         // Sua linha de código para definir a fase final
-        f[0] = new Fase(3, cenario3[1], new Monstro[]{array_monstros[2]});
+        f[0] = new Fase(3, cenario3[1], array_monstros[2]);
 
         System.out.println(">>> A CÂMARA FINAL. <<<");
         System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
         
         System.out.println("O chão treme. Um rugido gutural que abala as próprias fundações do castelo anuncia a chegada do Rei Koopa.");
-        System.out.printf("Yoshi: 'Cuidado, Mario! São as lendárias %s! O calor é insuportável!'\n\n", array_monstros[2].getArma().getNome());
+        System.out.printf("Yoshi: 'Cuidado, Mario! São as lendárias %s! O calor é insuportável!'\n\n", array_monstros[2][0].getArma().getNome());
         System.out.println("Bowser: 'MARIO! Seu inseto persistente! A Princesa é MINHA! E este reino será reduzido a cinzas sob as MINHAS GARRAS!'\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -143,7 +172,9 @@ public class Main {
             return;
         }
         
-        turno(yoshi, mario, array_monstros[2]);
+        turno(yoshi, mario, array_monstros[2][2]);
+        turno(yoshi, mario, array_monstros[2][1]);
+        turno(yoshi, mario, array_monstros[2][0]);
 
         // --- CONCLUSÃO ---
         System.out.println("\nCom um último esforço hercúleo, Mario e Yoshi atacam juntos!");
@@ -156,7 +187,7 @@ public class Main {
 
         System.out.println("Com Bowser vencido, o castelo começa a tremer e a desmoronar. 'Peach!' grita Mario.");
         
-        f[0] = new Fase(3, "Torre da Fortaleza em Ruínas", new Monstro[]{array_monstros[2]}); // Cenário customizado para a fuga
+        f[0] = new Fase(3, "Torre da Fortaleza em Ruínas", array_monstros[2]); // Cenário customizado para a fuga
         //--> NOVO: Anúncio do cenário final.
         System.out.println("[Eles correm para a " + f[0].getAmbiente() + "]\n");
         
