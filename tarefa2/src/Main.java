@@ -1,8 +1,7 @@
 import jogo.*;
 import jogo.Personagens.*;
 import Armas.*;
-import Ferramentas.ConstrutorDeCenario;
-import Ferramentas.Fase;
+import Ferramentas.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
