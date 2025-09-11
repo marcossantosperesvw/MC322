@@ -1,7 +1,7 @@
 package Armas;
 
-public class MarteloDoMario extends Arma{
-    public MarteloDoMario(String nome, int MinNivel, int dano){
+public class Cetro extends Arma{
+    public Cetro(String nome, int dano, int MinNivel){
         super(nome, dano, MinNivel);
     }
     
