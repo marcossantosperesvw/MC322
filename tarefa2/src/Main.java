@@ -1,9 +1,13 @@
 import jogo.*;
 import jogo.Personagens.*;
 import Armas.*;
+import Ferramentas.ConstrutorDeCenario;
+import Ferramentas.Fase;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        int nFases = 3;
+        Fase[] f = ConstrutorDeCenario.gerarFases(nFases); 
         // Mint das armas iniciais
         Arma martelo = new Martelo("Martelo Lendário", 1, 0);
         Arma lingua = new Lingua("Língua Ancestral", 15, 0);
@@ -22,10 +26,14 @@ public class Main {
             new Bowser("Bowser", 180, 25, 200, garrasIgneas)
         };
 
+        // Criação correta das fases
+        
         // --- INÍCIO DA HISTÓRIA ---
         System.out.println("======================================================================");
         System.out.println("     A Lenda de Dois Heróis: Uma Jornada pelo Coração do Reino");
         System.out.println("======================================================================\n");
+
+        String[] cenario0 = {"Salão do Trono do Castelo do Cogumelo"};
         
         System.out.println("Nas profundezas do Castelo do Cogumelo, em uma câmara iluminada apenas por cristais brilhantes, o Rei Toadstool aguardava.");
         System.out.println("Sobre almofadas de veludo, duas armas antigas repousavam, pulsando com uma energia contida.");
@@ -54,6 +62,10 @@ public class Main {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("   PRIMEIRO DESAFIO: O GUARDIÃO ESPECTRAL E SEU CETRO GÉLIDO");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        
+        String[] cenario1 = {"Castelo Mal Assombrado", "Corredor Sombrio", "Sala do Trono Fantasma"};
+        f[0] = new Fase(1, cenario1, array_monstros[0]); // King Boo
+
         System.out.println("A temperatura cai drasticamente. Uma gargalhada gélida ecoa pelas paredes, e do próprio ar, a forma translúcida de KING BOO se materializa!");
         System.out.println("Seu Cetro Espectral brilha com uma luz fantasmagórica, drenando o calor e a coragem do ambiente.");
         System.out.println("King Boo: 'Heh heh heh... Tolos mortais. Suas armas de carne e osso não podem tocar um rei feito de pesadelos!'\n");
@@ -67,11 +79,15 @@ public class Main {
         System.out.println("\nCom um golpe final imbuído de pura bravura, o Martelo Lendário atravessou a forma espectral.");
         System.out.println("King Boo se dissipou em uma névoa fria, deixando para trás apenas o eco de sua risada e o silêncio.");
         System.out.println("King Boo foi derrotado! A luz de tochas mágicas se acende ao longo do corredor, revelando o caminho a seguir. A própria fortaleza parece respirar aliviada.\n");
-
+        
         // === Segunda batalha - Kamek ===
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("   SEGUNDO DESAFIO: O FEITICEIRO DAS ILUSÕES E A VARINHA DAS SOMBRAS");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        
+        String[] cenario2 = {"Torre do Feiticeiro", "Câmara das Ilusões", "Laboratório de Kamek"};
+        f[1] = new Fase(2, cenario2, array_monstros[1]); // Kamek
+
         System.out.println("O corredor seguinte se abre para um salão vasto, cujas paredes parecem ondular. No centro, KAMEK flutua em seu cajado, rindo com desdém.");
         System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui! Vocês conseguirão distinguir o real do imaginário quando a sua própria mente for o campo de batalha?'");
         System.out.println("Ele ergue sua Varinha das Sombras, e o salão se multiplica em dezenas de cópias, cada uma com um Kamek zombeteiro.\n");
@@ -86,17 +102,21 @@ public class Main {
         System.out.println("\nCom um ataque preciso guiado pela intuição, a Língua Ancestral de Yoshi chicoteia através das ilusões e acerta o verdadeiro Kamek!");
         System.out.println("O feiticeiro desaparece em uma nuvem de fumaça e arrependimento, e as ilusões se estilhaçam como vidro.");
         System.out.println("Kamek foi derrotado! Apenas uma porta imponente agora os separa do confronto final.\n");
-
+        
         // --- A Calma Antes da Tempestade ---
         System.out.println("Mario coloca uma mão no ombro de Yoshi, seu companheiro de tantas aventuras.");
         System.out.println("Mario: Estamos quase lá, amigo. Atrás daquela porta... está o Bowser. E a Peach.");
         System.out.println("Yoshi solta um grunhido determinado, batendo o pé no chão. Eles não vieram tão longe para falhar agora. Juntos, eles empurram a porta.\n");
-
+        
 
         // === Batalha Final - Bowser ===
         System.out.println("======================================================================");
         System.out.println("                 BATALHA FINAL: O REI KOOPA E SUAS GARRAS DE FOGO");
         System.out.println("======================================================================\n");
+        
+        String[] cenario3 = {"Fortaleza de Bowser", "Sala do Trono", "Câmara da Lava"};
+        f[2] = new Fase(3, cenario3, array_monstros[2]); // Bowser
+        
         System.out.println("O chão treme. Um rugido gutural que abala as próprias fundações do castelo anuncia a chegada do Rei Koopa.");
         System.out.println("BOWSER aterrissa diante deles, quebrando as lajes de pedra. Em suas mãos, as Garras de Fogo ardem com o calor de um vulcão.");
         System.out.println("Bowser: 'MARIO! Seu inseto persistente! A Princesa é MINHA! E este reino será reduzido a cinzas sob as MINHAS GARRAS!'\n");
