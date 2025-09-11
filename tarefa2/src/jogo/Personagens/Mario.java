@@ -28,8 +28,12 @@ public class Mario extends Heroi {
         }
         else {
             // Mario nao consegue usar a sua habilidade especial e atacar no mesmo turno
+            int critico = 0;
+            if (dado >= 0.8){
+                critico = 1;
+            }
 
-            atacar(alvo);
+            atacar(alvo, critico);
         }
         
         // Se derrotou monstro, recebe experiencia
@@ -40,10 +44,20 @@ public class Mario extends Heroi {
     }
  
     @Override
-    public void atacar(jogo.Personagem alvo){
+    public void atacar(jogo.Personagem alvo, int critico){
         
-        System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
-        alvo.takeDamage(getForca());
+        if (critico == 1){
+            System.out.printf("%s conseguiu acertar dano critico em cima de %s, causando %d de dano", getNome(), alvo.getNome(), getForca());
+            
+            double dano = (1.2 * getForca()); // Acerto critico
+            int dano_truncado = (int)Math.floor(dano);
+
+            alvo.takeDamage(dano_truncado);
+        } else {
+
+            System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
+            alvo.takeDamage(getForca());
+        }
     }
     @Override
     public void usarHabilidadeEspecial(){
