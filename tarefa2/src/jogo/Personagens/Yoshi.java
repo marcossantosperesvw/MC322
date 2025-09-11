@@ -17,7 +17,8 @@ public class Yoshi extends Heroi {
         this.atordoar = atordoar;
     }
 
-    public void TurnoYoshi(Monstro alvo){
+    public void TurnoYoshi(Monstro alvo){ 
+        // Gerar atributo sorte antes de lancar a habilidade especial
         if (getAtordoar() == 1 && !alvo.getAtordoado()){
             // Usando habilidade de atordoamento
             usarHabilidadeEspecial();
