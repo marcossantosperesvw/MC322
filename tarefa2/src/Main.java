@@ -183,9 +183,9 @@ public class Main {
             if(!alvo.getAtordoado()){
                 System.out.printf("\n=== Vez de %s atacar! ===\n", alvo.getNome());
                 if(yoshi.isAlive()){
-                    alvo.atacar(yoshi);
+                    alvo.atacar(yoshi, 0);
                 } else if(mario.isAlive()){
-                    alvo.atacar(mario);
+                    alvo.atacar(mario, 0);
                 }
             } else {
                 System.out.printf("\n%s está atordoado e perde seu turno!\n", alvo.getNome());
