@@ -1,3 +1,5 @@
+import Ferramentas.Fase;
+
 public class ConstrutorDeCenario {
     public static Fase[] gerarFases(int nFases){
         Fase[] f = new Fase[nFases];
