@@ -28,13 +28,20 @@ public class Yoshi extends Heroi {
             
             // Ainda pode fazer um ataque apos usar atordoamento
             System.out.println("Yoshi aproveita a chance e ataca!");
-            atacar(alvo);
+            int critico = 0;
+            if (dado >= 0.8){
+                critico = 1;
+            }
+            atacar(alvo, critico);
 
 
         } else {
+            int critico = 0;
+            if (dado >= 0.8){
+                critico = 1;
+            }
 
-
-            atacar(alvo);
+            atacar(alvo, critico);
         }
         // Se monstro foi derrotado, ele recebe experiencia
         if(alvo.getPontos_de_vida() <= 0){
@@ -43,10 +50,19 @@ public class Yoshi extends Heroi {
         }     
     }
     @Override
-    public void atacar(Personagem alvo){
-        
-        System.out.printf("%s pisou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
-        alvo.takeDamage(getForca());
+    public void atacar(Personagem alvo, int critico){
+        if (critico == 1){
+            System.out.printf("%s conseguiu acertar dano critico em cima de %s, causando %d de dano", getNome(), alvo.getNome(), getForca());
+            
+            double dano = (1.2 * getForca()); // Acerto critico
+            int dano_truncado = (int)Math.floor(dano);
+
+            alvo.takeDamage(dano_truncado);
+        } else {
+
+            System.out.printf("%s pisou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
+            alvo.takeDamage(getForca());
+        }
     }
     @Override
     public void usarHabilidadeEspecial(){

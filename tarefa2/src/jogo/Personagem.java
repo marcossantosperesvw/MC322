@@ -58,7 +58,7 @@ public abstract class Personagem {
     }
 
 
-    public abstract void atacar(Personagem p);
+    public abstract void atacar(Personagem p, int critico);
 
 
 

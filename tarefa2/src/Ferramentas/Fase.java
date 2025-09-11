@@ -5,10 +5,10 @@ public class Fase {
     private String ambiente;
     private Monstro[] ListaMonstros;
 
-    public Fase(int nivel, String ambiente, String[] monstros){
+    public Fase(int nivel, String ambiente, Monstro[] monstros){
         this.nivel = nivel;
         this.ambiente = ambiente;
-        this.monstros = new Monstro[50];
+        this.ListaMonstros = new Monstro[50];
     }
 
 
