@@ -45,18 +45,18 @@ public class Mario extends Heroi {
  
     @Override
     public void atacar(jogo.Personagem alvo, int critico){
-        
+        int ataque = getForca() + this.arma.getDano();
         if (critico == 1){
             System.out.printf("%s conseguiu acertar dano critico em cima de %s, causando %d de dano", getNome(), alvo.getNome(), getForca());
             
-            double dano = (1.2 * getForca()); // Acerto critico
+            double dano = (1.2 *  ataque); // Acerto critico
             int dano_truncado = (int)Math.floor(dano);
 
             alvo.takeDamage(dano_truncado);
         } else {
 
             System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
-            alvo.takeDamage(getForca());
+            alvo.takeDamage(ataque);
         }
     }
     @Override
