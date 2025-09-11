@@ -1,4 +1,4 @@
-package Personagens.*;
+package jogo;
 import jogo.Monstro;
 
 public class Fase {

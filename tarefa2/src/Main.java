@@ -4,8 +4,10 @@ import Armas.Lingua;
 import Armas.Cetro;
 import Armas.Varinha;
 import Armas.Garras;
-import Ferramentas.Fase;
-import Ferramentas.ConstrutorDeCenario;
+import jogo.Personagens.*;
+import jogo.Monstro;
+import jogo.Fase;
+import jogo.ConstrutorDeCenario;
 
 public class Main {
     public static void main(String[] args) throws Exception {
