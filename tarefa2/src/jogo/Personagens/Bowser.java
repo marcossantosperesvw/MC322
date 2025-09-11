@@ -1,7 +1,7 @@
 package jogo.Personagens;
 
 import jogo.*;
-import Armas.*;
+import Armas.Arma;
 
 
 public class Bowser extends Monstro {

@@ -1,6 +1,6 @@
 package jogo.Personagens;
 import jogo.*;
-import Armas.*;
+import Armas.Arma;
 public class Kamek extends Monstro{
 
     public Kamek(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma){

@@ -1,6 +1,6 @@
 package jogo.Personagens;
 import jogo.*;
-import Armas.*;
+import Armas.Arma;
 public class King_Boo extends Monstro {
     public King_Boo(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma){
         super(nome, pontos_de_vida, forca, xp_concedido, arma);
