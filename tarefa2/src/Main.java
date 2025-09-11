@@ -1,9 +1,4 @@
 import Armas.*;
-import Armas.Martelo;
-import Armas.Lingua;
-import Armas.Cetro;
-import Armas.Varinha;
-import Armas.Garras;
 import jogo.Personagens.*;
 import jogo.Monstro;
 import jogo.Fase;
@@ -39,6 +34,7 @@ public class Main {
         System.out.println("======================================================================\n");
 
         String[] cenario0 = {"Salão do Trono do Castelo do Cogumelo"};
+        System.out.println("[CENÁRIO ATUAL: " + cenario0[0] + "]\n");
         
         System.out.println("Nas profundezas do Castelo do Cogumelo, em uma câmara iluminada apenas por cristais brilhantes, o Rei Toadstool aguardava.");
         System.out.println("Sobre almofadas de veludo, duas armas antigas repousavam, pulsando com uma energia contida.");
@@ -68,10 +64,14 @@ public class Main {
         System.out.println("   PRIMEIRO DESAFIO: O GUARDIÃO ESPECTRAL E SEU CETRO GÉLIDO");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
-        String[] cenario1 = {"Castelo Mal Assombrado", "Corredor Sombrio", "Sala do Trono Fantasma"};
+        String[] cenario1 = {"Corredor Sombrio", "Sala do Trono Fantasma"};
+        f[0] = new Fase(1, cenario1[0], new Monstro[]{array_monstros[0]}); 
 
+        System.out.println(">>> OS HERÓIS ADENTRAM O CASTELO... <<<");
+        System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
+        
         System.out.println("A temperatura cai drasticamente. Uma gargalhada gélida ecoa pelas paredes, e do próprio ar, a forma translúcida de KING BOO se materializa!");
-        System.out.println("Seu Cetro Espectral brilha com uma luz fantasmagórica, drenando o calor e a coragem do ambiente.");
+        System.out.printf("Mario: 'Cuidado! Olhe a arma dele... é um %s! A energia que emana dele é maligna!'\n\n", array_monstros[0].getArma().getNome());
         System.out.println("King Boo: 'Heh heh heh... Tolos mortais. Suas armas de carne e osso não podem tocar um rei feito de pesadelos!'\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -83,16 +83,23 @@ public class Main {
         System.out.println("\nCom um golpe final imbuído de pura bravura, o Martelo Lendário atravessou a forma espectral.");
         System.out.println("King Boo se dissipou em uma névoa fria, deixando para trás apenas o eco de sua risada e o silêncio.");
         System.out.println("King Boo foi derrotado! A luz de tochas mágicas se acende ao longo do corredor, revelando o caminho a seguir. A própria fortaleza parece respirar aliviada.\n");
+        f[0] = new Fase(1, cenario1[1], new Monstro[]{array_monstros[0]}); 
+        System.out.println("[Os heróis avançam para a " + f[0].getAmbiente() + "]\n");
         
         // === Segunda batalha - Kamek ===
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("   SEGUNDO DESAFIO: O FEITICEIRO DAS ILUSÕES E A VARINHA DAS SOMBRAS");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
-        String[] cenario2 = {"Torre do Feiticeiro", "Câmara das Ilusões", "Laboratório de Kamek"};
+        String[] cenario2 = {"Câmara das Ilusões", "Laboratório de Kamek"};
+        // Sua linha de código para definir a nova fase
+        f[0] = new Fase(2, cenario2[0], new Monstro[]{array_monstros[1]});
 
-        System.out.println("O corredor seguinte se abre para um salão vasto, cujas paredes parecem ondular. No centro, KAMEK flutua em seu cajado, rindo com desdém.");
-        System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui! Vocês conseguirão distinguir o real do imaginário quando a sua própria mente for o campo de batalha?'");
+        System.out.println(">>> ELES SEGUEM ADIANTE... <<<");
+        System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
+
+        System.out.printf("Yoshi: 'A magia vem daquela %s, Mario! É ela que está criando tudo isso!'\n\n", array_monstros[1].getArma().getNome());
+        System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui!'\n");
         System.out.println("Ele ergue sua Varinha das Sombras, e o salão se multiplica em dezenas de cópias, cada uma com um Kamek zombeteiro.\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -104,6 +111,9 @@ public class Main {
 
         System.out.println("\nCom um ataque preciso guiado pela intuição, a Língua Ancestral de Yoshi chicoteia através das ilusões e acerta o verdadeiro Kamek!");
         System.out.println("O feiticeiro desaparece em uma nuvem de fumaça e arrependimento, e as ilusões se estilhaçam como vidro.");
+
+        f[0] = new Fase(2, cenario2[1], new Monstro[]{array_monstros[1]});
+
         System.out.println("Kamek foi derrotado! Apenas uma porta imponente agora os separa do confronto final.\n");
         
         // --- A Calma Antes da Tempestade ---
@@ -118,9 +128,14 @@ public class Main {
         System.out.println("======================================================================\n");
         
         String[] cenario3 = {"Fortaleza de Bowser", "Sala do Trono", "Câmara da Lava"};
+        // Sua linha de código para definir a fase final
+        f[0] = new Fase(3, cenario3[1], new Monstro[]{array_monstros[2]});
+
+        System.out.println(">>> A CÂMARA FINAL. <<<");
+        System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
         
         System.out.println("O chão treme. Um rugido gutural que abala as próprias fundações do castelo anuncia a chegada do Rei Koopa.");
-        System.out.println("BOWSER aterrissa diante deles, quebrando as lajes de pedra. Em suas mãos, as Garras de Fogo ardem com o calor de um vulcão.");
+        System.out.printf("Yoshi: 'Cuidado, Mario! São as lendárias %s! O calor é insuportável!'\n\n", array_monstros[2].getArma().getNome());
         System.out.println("Bowser: 'MARIO! Seu inseto persistente! A Princesa é MINHA! E este reino será reduzido a cinzas sob as MINHAS GARRAS!'\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -130,7 +145,7 @@ public class Main {
         
         turno(yoshi, mario, array_monstros[2]);
 
-        // --- CONCLUSÃO (Aprimorada e Completa) ---
+        // --- CONCLUSÃO ---
         System.out.println("\nCom um último esforço hercúleo, Mario e Yoshi atacam juntos!");
         System.out.println("O Martelo Lendário colide com as Garras de Fogo, criando uma explosão de luz e som. Bowser, o tirano, finalmente tomba, derrotado.");
         System.out.println("As Garras de Fogo se apagam, tornando-se metal frio e sem vida. O silêncio que se segue é mais pesado que qualquer rugido.\n");
@@ -140,6 +155,11 @@ public class Main {
         System.out.println("======================================================================\n");
 
         System.out.println("Com Bowser vencido, o castelo começa a tremer e a desmoronar. 'Peach!' grita Mario.");
+        
+        f[0] = new Fase(3, "Torre da Fortaleza em Ruínas", new Monstro[]{array_monstros[2]}); // Cenário customizado para a fuga
+        //--> NOVO: Anúncio do cenário final.
+        System.out.println("[Eles correm para a " + f[0].getAmbiente() + "]\n");
+        
         System.out.println("Eles correm para a torre mais alta, onde encontram a Princesa, sã e salva. 'Mario! Yoshi! Eu sabia que vocês viriam!'");
         System.out.println("Não há tempo para palavras. Mario a pega nos braços e, com Yoshi liderando o caminho, eles escapam da fortaleza em ruínas.\n");
 
