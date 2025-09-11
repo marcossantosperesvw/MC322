@@ -5,9 +5,10 @@ public abstract class Monstro extends Personagem{
     private int xp_concedido;
     private boolean atordoado = false;
     private Arma[] listaArmasParaLargar;
-    public Monstro(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma){
-        super(nome, pontos_de_vida, forca, arma);
+    public Monstro(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma[] listaArmasParaLargar){
+        super(nome, pontos_de_vida, forca, null);
         this.xp_concedido = xp_concedido;
+        this.listaArmasParaLargar = listaArmasParaLargar;
  
     }
     public Arma[] getListaArmasParaLargar() {

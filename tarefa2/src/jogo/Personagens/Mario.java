@@ -40,22 +40,28 @@ public class Mario extends Heroi {
         if (alvo.getPontos_de_vida() <= 0){
             System.out.printf("%s derrotou %s e ganhou %d de experiencia!\n", getNome(), alvo.getNome(), alvo.getXpConcedido());
             ganharExperiencia(alvo.getXpConcedido());
+
+            Arma nova_arma = alvo.largarArma();
+            if (nova_arma.getDano() > this.getArma().getDano()){
+                setArma(nova_arma);
+            }
         }
+
     }
  
     @Override
     public void atacar(jogo.Personagem alvo, int critico){
         int ataque = getForca() + this.arma.getDano();
         if (critico == 1){
-            System.out.printf("%s conseguiu acertar dano critico em cima de %s, causando %d de dano", getNome(), alvo.getNome(), getForca());
             
             double dano = (1.2 *  ataque); // Acerto critico
             int dano_truncado = (int)Math.floor(dano);
+            System.out.printf("%s conseguiu acertar dano critico com %s em cima de %s, causando %d de dano", getNome(), this.arma.getNome(), alvo.getNome(), dano_truncado);
 
             alvo.takeDamage(dano_truncado);
         } else {
 
-            System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), getForca());
+            System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), ataque);
             alvo.takeDamage(ataque);
         }
     }
