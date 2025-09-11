@@ -4,9 +4,8 @@ import Armas.Lingua;
 import Armas.Cetro;
 import Armas.Varinha;
 import Armas.Garras;
-import Ferramentas.Fase;
-import Ferramentas.ConstrutorDeCenario;
-
+import jogo.Monstro;
+import jogo.Personagens.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         Fase[] f = ConstrutorDeCenario.gerarFases(3); 
@@ -218,4 +217,12 @@ public class Main {
             alvo.getArma().getNome(), alvo.getArma().getDano());
         System.out.println("------------------------------\n");
     }
+
+    public static void inicializa_fases(Fase[] f){
+        for (int i = 0; i < f.length; i++){
+            
+
+        }
+
+    }   
 }

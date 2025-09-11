@@ -1,5 +1,4 @@
-package Personagens.*;
-import jogo.Monstro;
+package jogo;
 
 public class Fase {
     private int nivel;
@@ -10,6 +9,7 @@ public class Fase {
         this.nivel = nivel;
         this.ambiente = ambiente;
         this.ListaMonstros = new Monstro[50];
+        
     }
 
 
@@ -20,7 +20,7 @@ public class Fase {
         return ListaMonstros;
     }
     public void setListaMonstros(Monstro[] listaMonstros) {
-        ListaMonstros = listaMonstros;
+        this.ListaMonstros = listaMonstros;
     }
     public int getNivel() {
         return nivel;

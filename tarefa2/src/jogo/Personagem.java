@@ -20,6 +20,7 @@ public abstract class Personagem {
 
         if(this.pontos_de_vida < 0){
             setPontos_de_vida(0);
+            
         }
     }
 
