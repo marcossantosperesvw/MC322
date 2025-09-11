@@ -1,6 +1,6 @@
 package Armas;
 
-public class Arma {
+public abstract class Arma {
     private String nome;
     private int dano;
     private int MinNivel;

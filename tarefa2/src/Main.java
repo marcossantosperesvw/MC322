@@ -4,12 +4,12 @@ import Armas.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Mint das armas
-        Arma martelo = new Arma("Martelo Lendário", 20);
-        Arma lingua = new Arma("Língua Ancestral", 15);
-        Arma cetroFantasma = new Arma("Cetro Espectral", 10);
-        Arma varinhaMagica = new Arma("Varinha das Sombras", 15);
-        Arma garrasIgneas = new Arma("Garras de Fogo", 25);
+        // Mint das armas iniciais
+        Arma martelo = new Martelo("Martelo Lendário", 1, 0);
+        Arma lingua = new Lingua("Língua Ancestral", 15, 0);
+        Arma cetroFantasma = new Cetro("Cetro Espectral", 1, 0);
+        Arma varinhaMagica = new Varinha("Varinha das Sombras", 1, 0);
+        Arma garrasIgneas = new Garras("Garras de Fogo", 0, 0);
         
         // Heróis com suas armas
         Mario mario = new Mario("Mario", 100, 40, martelo);
