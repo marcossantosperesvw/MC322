@@ -24,7 +24,7 @@ public class Yoshi extends Heroi {
 
 
         if (getAtordoar() == 1 && !alvo.getAtordoado() && getSorte() >= dado){
-            // Usando habilidade de atordoamento
+            // Usando habilidade de atordoamento 
             usarHabilidadeEspecial();
             alvo.setAtordoado(true);
             
