@@ -6,7 +6,7 @@ public abstract class Personagem {
     private int pontos_de_vida;
     private int forca;
     // Implementar Arma para os personagens
-    public Arma arma;
+    protected Arma arma;
 
     public Personagem(String nome, int pontos_de_vida, int forca, Arma arma){
         this.nome = nome;
