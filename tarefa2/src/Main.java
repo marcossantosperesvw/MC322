@@ -28,7 +28,7 @@ public class Main {
 
         Arma[] lista_nivel3 = new Arma[3];
         lista_nivel3[0] = new Martelo("Aniquilador Divino", 50, 3);
-        lista_nivel3[1] = new Varinha("Cetro do Apocalipse", 55, 3);
+        lista_nivel3[3] = new Varinha("Cetro do Apocalipse", 55, 3);
         lista_nivel3[2] = new Garras("Exterminador de Universos", 42, 3);
         
         Monstro[][] array_monstros = {
