@@ -18,7 +18,7 @@ public class Main {
         Arma Machadinha = new Machadinho("Machadinha", 25, 0);
         
         // Heróis com suas armas
-        Mario mario = new Mario("Mario", 100, 60, martelo);
+        Mario mario = new Mario("Mario", 100, 66, martelo);
         Yoshi yoshi = new Yoshi("Yoshi", 80, 50, lingua);
         
         // Monstros com armas para largar

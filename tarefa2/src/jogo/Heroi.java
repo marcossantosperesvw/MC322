@@ -45,7 +45,13 @@ public abstract class Heroi extends Personagem {
 
     @Override
     public void Exibir_Status(){
-        System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\nFaltam %d de experiencia para o proximo nivel\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia, this.expParaProxNivel);
+        if (this.expParaProxNivel!=0){
+
+            System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\nFaltam %d de experiencia para o proximo nivel\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia, this.expParaProxNivel);
+        } else {
+            System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia);
+
+        }
     }
 
 }
