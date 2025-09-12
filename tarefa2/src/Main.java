@@ -94,7 +94,6 @@ public class Main {
         System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
         
         System.out.println("A temperatura cai drasticamente. Uma gargalhada gélida ecoa pelas paredes, e do próprio ar, a forma translúcida de KING BOO se materializa!");
-        System.out.printf("Mario: 'Cuidado! Olhe a arma dele... é um %s! A energia que emana dele é maligna!'\n\n", array_monstros[0][0].getArma().getNome());
         System.out.println("King Boo: 'Heh heh heh... Tolos mortais. Suas armas de carne e osso não podem tocar um rei feito de pesadelos!'\n");
         
         if (yoshi.getSorte() < 0.1 && mario.getSorte() < 0.1) {
@@ -205,8 +204,7 @@ public class Main {
     }
 
     public static void turno(Yoshi yoshi, Mario mario, Monstro alvo) {
-        System.out.printf("\nIniciando batalha contra %s empunhando %s!\n", 
-            alvo.getNome(), alvo.getArma().getNome());
+        System.out.printf("\nIniciando batalha contra %s empunhando %s!\n", alvo.getNome(), alvo.getArma().getNome());
 
         while(alvo.isAlive() && (yoshi.isAlive() || mario.isAlive())) {
             if(!yoshi.isAlive() && !mario.isAlive()){
@@ -273,11 +271,4 @@ public class Main {
         System.out.println("------------------------------\n");
     }
 
-    public static void inicializa_fases(Fase[] f){
-        for (int i = 0; i < f.length; i++){
-            
-
-        }
-
-    }   
 }

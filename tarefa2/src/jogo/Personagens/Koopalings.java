@@ -3,8 +3,8 @@ package jogo.Personagens;
 import jogo.*;
 import Armas.Arma;
 public class Koopalings extends Monstro {
-    public Koopalings(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma[] lista){
-        super(nome, pontos_de_vida, forca, xp_concedido, lista);
+    public Koopalings(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma, Arma[] lista){
+        super(nome, pontos_de_vida, forca, xp_concedido, arma, lista);
     }
     @Override
     public void atacar(Personagem alvo, int critico){

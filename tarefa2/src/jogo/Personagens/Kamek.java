@@ -3,8 +3,8 @@ import jogo.*;
 import Armas.Arma;
 public class Kamek extends Monstro{
 
-    public Kamek(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma[] lista){
-        super(nome, pontos_de_vida, forca, xp_concedido, lista);
+    public Kamek(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma,  Arma[] lista){
+        super(nome, pontos_de_vida, forca, xp_concedido, arma, lista);
 
 
 
