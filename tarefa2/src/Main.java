@@ -214,7 +214,7 @@ public class Main {
         System.out.printf("\nIniciando batalha contra %s empunhando %s!\n", alvo.getNome(), alvo.getArma().getNome());
 
         while(alvo.isAlive() && (yoshi.isAlive() || mario.isAlive())) {
-            
+
             System.out.println("\n=== Vez dos heróis! ===");
             // Mario ataca primeiro 
             if(mario.isAlive()){
@@ -245,6 +245,11 @@ public class Main {
             exibeStatus(yoshi, mario, alvo);
             
         }
+
+        if(!yoshi.isAlive() && !mario.isAlive()){
+                System.out.println("Todos os heróis foram derrotados! Game Over!");
+                System.exit(0);
+            }
         
         if (!alvo.isAlive()) {
             System.out.printf("\n%s foi derrotado!\n", alvo.getNome());
