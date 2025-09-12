@@ -10,6 +10,12 @@ public class Main {
         // Mint das armas iniciais
         Arma martelo = new Martelo("Martelo Lendário", 10, 0);
         Arma lingua = new Lingua("Língua Ancestral", 12, 0);
+
+        // Arma dos alemão
+        Arma calafafrios = new Machadinho("NULL", 25, 0);
+        Arma Farra = new Machadinho("Cajadão", 25, 0);
+        Arma Fogo = new Machadinho("Labaredas de Fogo", 25, 0);
+        Arma Machadinha = new Machadinho("Machadinha", 25, 0);
         
         // Heróis com suas armas
         Mario mario = new Mario("Mario", 100, 40, martelo);
@@ -33,19 +39,20 @@ public class Main {
         
         Monstro[][] array_monstros = {
             {
-                new King_Boo("King Boo", 120, 30, 300, lista_nivel1),
-                new Koopalings("Koopalings", 90, 20, 150, lista_nivel1),
-                new Koopalings("Koopalings", 90, 20, 150, lista_nivel1)
+                new King_Boo("King Boo", 120, 30, 300, calafafrios, lista_nivel1),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel1),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel1),
+
             },
             {
-                new Kamek("Kamek", 300, 50, 420, lista_nivel2),
-                new Koopalings("Koopalings", 90, 20, 150, lista_nivel2),
-                new Koopalings("Koopalings", 90, 20, 150, lista_nivel2)
+                new Kamek("Kamek", 300, 50, 420, Farra ,lista_nivel2),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel2),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel2)
             },
             {
-                new Bowser("Bowser", 500, 70, 1500, lista_nivel3),
-                new Koopalings("Koopalings", 150, 20, 150, lista_nivel3),
-                new Koopalings("Koopalings", 150, 20, 150, lista_nivel3)
+                new Bowser("Bowser", 500, 70, 1500, Fogo, lista_nivel3),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel3),
+                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel3),
             }
         };
 
