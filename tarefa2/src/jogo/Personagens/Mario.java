@@ -46,8 +46,8 @@ public class Mario extends Heroi {
             // Se arma for  null, o personagem deu azar e nao conseguiu nenhum loot
 
             if (nova_arma != null && nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
-                EquiparArma(nova_arma);
                 System.out.printf("%s trocou sua %s por %s", getNome(), getArma().getNome(), nova_arma.getNome());
+                EquiparArma(nova_arma);
             }
         }
 
@@ -65,7 +65,7 @@ public class Mario extends Heroi {
             alvo.takeDamage(dano_truncado);
         } else {
 
-            System.out.printf("%s pulou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), ataque);
+            System.out.printf("%s atacou %s, causando %d de dano, utilizando %s!\n", getNome(), alvo.getNome(), ataque, getArma().getNome());
             alvo.takeDamage(ataque);
         }
     }

@@ -51,8 +51,8 @@ public class Yoshi extends Heroi {
             // Verificar loot do monstro
             Arma nova_arma = alvo.largarArma();
             if (nova_arma != null && nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
-                EquiparArma(nova_arma);
                 System.out.printf("%s trocou sua %s por %s", getNome(), getArma().getNome(), nova_arma.getNome());
+                EquiparArma(nova_arma);
             }
         }     
     }
@@ -66,8 +66,7 @@ public class Yoshi extends Heroi {
             
             alvo.takeDamage(dano_truncado);
         } else {
-
-            System.out.printf("%s pisou em cima de %s, causando %d de dano!\n", getNome(), alvo.getNome(), ataque);
+               System.out.printf("%s atacou %s, causando %d de dano, utilizando %s!\n", getNome(), alvo.getNome(), ataque, getArma().getNome());
             alvo.takeDamage(ataque);
         }
     }
