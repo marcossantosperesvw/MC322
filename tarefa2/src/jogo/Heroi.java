@@ -28,16 +28,13 @@ public abstract class Heroi extends Personagem {
     public void ganharExperiencia(int xp) {
         int nivel_anterior = this.nivel;
         this.experiencia += xp;
-        if (this.experiencia >= 100) {
-            this.nivel = this.experiencia /100;
+        this.nivel = this.experiencia /100;
 
-            if(this.nivel > nivel_anterior){
-                System.out.printf("%s subiu para o nível %d!\n", getNome(), this.nivel);
-                setForca(getForca() + 10);
-            }
-
-            this.experiencia %= 100;
+        if(this.nivel > nivel_anterior){
+            System.out.printf("%s subiu para o nível %d e sua forca foi atualizada para %d!\n", getNome(), this.nivel, getForca()+ 10);
+            setForca(getForca() + 10);
         }
+
     }
 
     public abstract void usarHabilidadeEspecial();

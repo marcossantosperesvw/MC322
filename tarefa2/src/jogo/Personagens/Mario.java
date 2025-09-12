@@ -47,7 +47,7 @@ public class Mario extends Heroi {
 
             if (nova_arma != null && nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
                 EquiparArma(nova_arma);
-                System.out.printf("%s trocou sua %s por %s", getNome(), getArma(), nova_arma.getNome());
+                System.out.printf("%s trocou sua %s por %s", getNome(), getArma().getNome(), nova_arma.getNome());
             }
         }
 

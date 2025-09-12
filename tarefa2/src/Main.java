@@ -8,29 +8,29 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Fase[] f = ConstrutorDeCenario.gerarFases(3); 
         // Mint das armas iniciais
-        Arma martelo = new Martelo("Martelo Lendário", 10, 0);
-        Arma lingua = new Lingua("Língua Ancestral", 12, 0);
+        Arma martelo = new Martelo("Martelo Lendario", 10, 0);
+        Arma lingua = new Lingua("Lingua Ancestral", 12, 0);
 
         // Arma dos alemão
         Arma calafafrios = new Machadinho("NULL", 25, 0);
-        Arma Farra = new Machadinho("Cajadão", 25, 0);
+        Arma Farra = new Machadinho("Cajadao", 25, 0);
         Arma Fogo = new Machadinho("Labaredas de Fogo", 25, 0);
         Arma Machadinha = new Machadinho("Machadinha", 25, 0);
         
         // Heróis com suas armas
-        Mario mario = new Mario("Mario", 100, 40, martelo);
-        Yoshi yoshi = new Yoshi("Yoshi", 40, 15, lingua);
+        Mario mario = new Mario("Mario", 150, 40, martelo);
+        Yoshi yoshi = new Yoshi("Yoshi", 100, 50, lingua);
         
         // Monstros com armas para largar
         Arma[] lista_nivel1 = new Arma[3];
-        lista_nivel1[0] = new Martelo("Esmagador de Crânios", 22, 1);
+        lista_nivel1[0] = new Martelo("Esmagador de Cranios", 22, 1);
         lista_nivel1[1] = new Varinha("Cajado da Noite Eterna", 15, 1);
         lista_nivel1[2] = new Garras("Dilacerador de Almas", 20, 1);
 
         Arma[] lista_nivel2 = new Arma[3];
         lista_nivel2[0] = new Martelo("Quebra-Mundos", 32, 2);
-        lista_nivel2[1] = new Varinha("Orbe da Destruição", 30, 2);
-        lista_nivel2[2] = new Garras("Desmembrador Cósmico", 37, 2);
+        lista_nivel2[1] = new Varinha("Orbe da Destruicao", 30, 2);
+        lista_nivel2[2] = new Garras("Desmembrador Cosmico", 37, 2);
 
         Arma[] lista_nivel3 = new Arma[3];
         lista_nivel3[0] = new Martelo("Aniquilador Divino", 50, 3);
@@ -40,19 +40,19 @@ public class Main {
         Monstro[][] array_monstros = {
             {
                 new King_Boo("King Boo", 120, 30, 300, calafafrios, lista_nivel1),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel1),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel1),
+                new Koopalings("Koopaling Ordenado", 90, 20, 150, Machadinha ,lista_nivel1),
+                new Koopalings("Koopalings Ponteiro", 90, 20, 150, Machadinha ,lista_nivel1),
 
             },
             {
                 new Kamek("Kamek", 300, 50, 420, Farra ,lista_nivel2),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel2),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel2)
+                new Koopalings("Koopaling logaritmico", 90, 20, 150, Machadinha ,lista_nivel2),
+                new Koopalings("Koopaling Quadratico", 90, 20, 150, Machadinha ,lista_nivel2)
             },
             {
-                new Bowser("Bowser", 500, 70, 1500, Fogo, lista_nivel3),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel3),
-                new Koopalings("Koopalings", 90, 20, 150, Machadinha ,lista_nivel3),
+                new Bowser("Bowser", 450, 55, 1500, Fogo, lista_nivel3),
+                new Koopalings("Koopaling Exponencial", 90, 20, 150, Machadinha ,lista_nivel3),
+                new Koopalings("Koopaling Linear", 90, 20, 150, Machadinha ,lista_nivel3),
             }
         };
 
@@ -112,6 +112,9 @@ public class Main {
         turno(yoshi, mario, array_monstros[0][1]);
         turno(yoshi, mario, array_monstros[0][0]);
 
+
+        // Resetar habillidaes
+        resetarHabilidades(yoshi, mario);
         System.out.println("\nCom um golpe final imbuído de pura bravura, o Martelo Lendário atravessou a forma espectral.");
         System.out.println("King Boo se dissipou em uma névoa fria, deixando para trás apenas o eco de sua risada e o silêncio.");
         System.out.println("King Boo foi derrotado! A luz de tochas mágicas se acende ao longo do corredor, revelando o caminho a seguir. A própria fortaleza parece respirar aliviada.\n");
@@ -129,7 +132,7 @@ public class Main {
 
         System.out.println(">>> ELES SEGUEM ADIANTE... <<<");
         System.out.println("[CENÁRIO ATUAL: " + f[0].getAmbiente() + "]\n");
-
+        
         System.out.printf("Yoshi: 'A magia vem daquela %s, Mario! É ela que está criando tudo isso!'\n\n", array_monstros[1][0].getArma().getNome());
         System.out.println("Kamek: 'Impressionante, mas sua jornada termina aqui!'\n");
         System.out.println("Ele ergue sua Varinha das Sombras, e o salão se multiplica em dezenas de cópias, cada uma com um Kamek zombeteiro.\n");
@@ -142,11 +145,12 @@ public class Main {
         turno(yoshi, mario, array_monstros[1][2]);
         turno(yoshi, mario, array_monstros[1][1]);
         turno(yoshi, mario, array_monstros[1][0]);
-
-
+        
+        
+        resetarHabilidades(yoshi, mario);
         System.out.println("\nCom um ataque preciso guiado pela intuição, a Língua Ancestral de Yoshi chicoteia através das ilusões e acerta o verdadeiro Kamek!");
         System.out.println("O feiticeiro desaparece em uma nuvem de fumaça e arrependimento, e as ilusões se estilhaçam como vidro.");
-
+        
         f[0] = new Fase(2, cenario2[1], array_monstros[1]);
 
         System.out.println("Kamek foi derrotado! Apenas uma porta imponente agora os separa do confronto final.\n");
@@ -181,7 +185,7 @@ public class Main {
         turno(yoshi, mario, array_monstros[2][2]);
         turno(yoshi, mario, array_monstros[2][1]);
         turno(yoshi, mario, array_monstros[2][0]);
-
+        
         // --- CONCLUSÃO ---
         System.out.println("\nCom um último esforço hercúleo, Mario e Yoshi atacam juntos!");
         System.out.println("O Martelo Lendário colide com as Garras de Fogo, criando uma explosão de luz e som. Bowser, o tirano, finalmente tomba, derrotado.");
@@ -277,6 +281,11 @@ public class Main {
         System.out.printf("Arma: %s (Dano: %d)\n", 
             alvo.getArma().getNome(), alvo.getArma().getDano());
         System.out.println("------------------------------\n");
+    }
+
+    public static void resetarHabilidades(Yoshi y, Mario m){
+        y.setAtordoar(1);
+        m.setCogumelo(1);
     }
 
 }
