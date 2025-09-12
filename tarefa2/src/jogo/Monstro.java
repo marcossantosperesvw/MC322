@@ -22,7 +22,6 @@ public abstract class Monstro extends Personagem{
     public Arma largarArma(){
         int numero = (int)(Math.random() * 3);
         Arma arma_largar = this.listaArmasParaLargar[numero];
-        this.listaArmasParaLargar[numero] = null;
         return arma_largar;
     }
     public int getXpConcedido(){

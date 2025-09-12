@@ -44,9 +44,10 @@ public class Mario extends Heroi {
             Arma nova_arma = alvo.largarArma();
 
             // Se arma for  null, o personagem deu azar e nao conseguiu nenhum loot
-        
+
             if (nova_arma != null && nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
                 EquiparArma(nova_arma);
+                System.out.printf("%s trocou sua %s por %s", getNome(), getArma(), nova_arma.getNome());
             }
         }
 
