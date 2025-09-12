@@ -42,7 +42,10 @@ public class Mario extends Heroi {
             ganharExperiencia(alvo.getXpConcedido());
 
             Arma nova_arma = alvo.largarArma();
-            if (nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
+
+            // Se arma for  null, o personagem deu azar e nao conseguiu nenhum loot
+        
+            if (nova_arma != null && nova_arma.getDano() > this.getArma().getDano() && nova_arma.getMinNivel() <= getNivel()){
                 EquiparArma(nova_arma);
             }
         }
