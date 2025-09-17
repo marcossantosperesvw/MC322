@@ -1,12 +1,12 @@
 import Armas.*;
+import interfaces.Fase;
 import jogo.Personagens.*;
 import jogo.Monstro;
-import jogo.Fase;
-import jogo.ConstrutorDeCenario;
+import jogo.ConstrutorDeCenarioFixo;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Fase[] f = ConstrutorDeCenario.gerarFases(3); 
+        Fase[] f = ConstrutorDeCenarioFixo.gerarFases(3); 
         // Mint das armas iniciais
         Arma martelo = new Martelo("Martelo Lendario", 10, 0);
         Arma lingua = new Lingua("Lingua Ancestral", 12, 0);

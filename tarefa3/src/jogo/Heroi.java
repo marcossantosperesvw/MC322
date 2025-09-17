@@ -4,54 +4,40 @@ import Armas.Arma;
 public abstract class Heroi extends Personagem {
     private int nivel;
     private int experiencia;
-    private float sorte;
-    int expParaProxNivel;
-    public Heroi(String nome, int pontos_de_vida, int forca, Arma arma) {
-        super(nome, pontos_de_vida, forca, arma);
+    protected float sorte;
+    private int expParaProxNivel;
 
+    public Heroi(String nome, int pontosDeVida, int forca, Arma arma) {
+        super(nome, pontosDeVida, forca, arma);
         this.nivel = 0;
         this.experiencia = 0;
-
         this.sorte = (float) Math.random();
+        this.expParaProxNivel = 100;
     }
-    
 
-    // Getters e Setters
     public int getNivel() {
         return this.nivel;
     }
-    public int getExperiencia() {
-        return this.experiencia;
-    }
+
     public float getSorte() {
         return this.sorte;
     }
-    public int getExpParaProxNivel() {
-        return expParaProxNivel;
-    }
+
     public void ganharExperiencia(int xp) {
-        int nivel_anterior = this.nivel;
+        int nivelAnterior = this.nivel;
         this.experiencia += xp;
-        this.nivel = this.experiencia /100;
-        this.expParaProxNivel = 100 -(experiencia %100);
-        if(this.nivel > nivel_anterior){
-            System.out.printf("%s subiu para o nível %d e sua forca foi atualizada para %d!\n", getNome(), this.nivel, getForca()+ 10);
-            setForca(getForca() + 10);
+        this.nivel = this.experiencia / 100;
+        this.expParaProxNivel = 100 - (experiencia % 100);
+
+        if (this.nivel > nivelAnterior) {
+            setForca(getForca() + 10 * (this.nivel - nivelAnterior));
+            System.out.printf(">> %s subiu para o nível %d e sua força aumentou para %d! <<\n", getNome(), this.nivel, getForca());
         }
-
     }
-
-    public abstract void usarHabilidadeEspecial();
-
+    
     @Override
-    public void Exibir_Status(){
-        if (this.expParaProxNivel!=0){
-
-            System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\nFaltam %d de experiencia para o proximo nivel\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia, this.expParaProxNivel);
-        } else {
-            System.out.printf("Nome: %s\nVida: %d\nForça: %d\nNível: %d\nExperiência: %d\n", getNome(), getPontos_de_vida(), getForca(), this.nivel, this.experiencia);
-
-        }
+    public void exibirStatus() {
+        super.exibirStatus();
+        System.out.printf("   Nível: %d | Experiência: %d (%d para o próximo nível)\n", this.nivel, this.experiencia, this.expParaProxNivel);
     }
-
 }

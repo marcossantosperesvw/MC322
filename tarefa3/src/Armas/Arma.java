@@ -1,6 +1,9 @@
 package Armas;
 
-public abstract class Arma {
+import interfaces.Item;
+
+public abstract class Arma implements Item {
+    // ... o resto do seu código da classe Arma permanece o mesmo ...
     private String nome;
     private int dano;
     private int MinNivel;
@@ -11,6 +14,7 @@ public abstract class Arma {
         this.MinNivel = MinNivel;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
@@ -21,13 +25,5 @@ public abstract class Arma {
 
     public int getMinNivel() {
         return MinNivel;
-    }
-
-    public void setDano(int dano) {
-        this.dano = dano;
-    }
-
-    public void setMinNivel(int minNivel) {
-        this.MinNivel = minNivel;
     }
 }
