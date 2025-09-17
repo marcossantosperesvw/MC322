@@ -1,3 +1,5 @@
+import java.util.List;
+
 import Armas.*;
 import interfaces.Fase;
 import jogo.Personagens.*;
@@ -6,7 +8,9 @@ import jogo.ConstrutorDeCenarioFixo;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Fase[] f = ConstrutorDeCenarioFixo.gerarFases(3); 
+        List<Fase> f = ConstrutorDeCenarioFixo.gerar(3);
+        
+        
         // Mint das armas iniciais
         Arma martelo = new Martelo("Martelo Lendario", 10, 0);
         Arma lingua = new Lingua("Lingua Ancestral", 12, 0);
@@ -206,29 +210,29 @@ public class Main {
     public static void turno(Yoshi yoshi, Mario mario, Monstro alvo) {
         System.out.printf("\nIniciando batalha contra %s empunhando %s!\n", alvo.getNome(), alvo.getArma().getNome());
 
-        while(alvo.isAlive() && (yoshi.isAlive() || mario.isAlive())) {
+        while(alvo.estaVivo() && (yoshi.estaVivo() || mario.estaVivo())) {
 
             System.out.println("\n=== Vez dos heróis! ===");
             // Mario ataca primeiro 
-            if(mario.isAlive()){
+            if(mario.estaVivo()){
                 mario.TurnoMario(alvo);
 
-                if(!alvo.isAlive()){
+                if(!alvo.estaVivo()){
                     break;
                 }
             }
-            if(yoshi.isAlive()){
+            if(yoshi.estaVivo()){
                 yoshi.TurnoYoshi(alvo);
 
-                if(!alvo.isAlive()){
+                if(!alvo.estaVivo()){
                     break;
                 }
             }
             if(!alvo.getAtordoado()){
                 System.out.printf("\n=== Vez de %s atacar! ===\n", alvo.getNome());
-                if(yoshi.isAlive()){
+                if(yoshi.estaVivo()){
                     alvo.atacar(yoshi, 0);
-                } else if(mario.isAlive()){
+                } else if(mario.estaVivo()){
                     alvo.atacar(mario, 0);
                 }
             } else {
@@ -239,12 +243,12 @@ public class Main {
             
         }
 
-        if(!yoshi.isAlive() && !mario.isAlive()){
+        if(!yoshi.estaVivo() && !mario.estaVivo()){
                 System.out.println("Todos os heróis foram derrotados! Game Over!");
                 System.exit(0);
             }
         
-        if (!alvo.isAlive()) {
+        if (!alvo.estaVivo()) {
             System.out.printf("\n%s foi derrotado!\n", alvo.getNome());
         }
 
@@ -254,26 +258,26 @@ public class Main {
     public static void exibeStatus(Yoshi yoshi, Mario mario, Monstro alvo) {
         System.out.println("\n--- Status dos Combatentes ---");
         System.out.printf("HERÓI: %s\n", yoshi.getNome());
-        yoshi.Exibir_Status();
+        yoshi.exibirStatus();
         System.out.printf("Arma: %s (Dano: %d)\n", 
             yoshi.getArma().getNome(), yoshi.getArma().getDano());
         System.out.println("------------------------------");
         
         System.out.printf("HERÓI: %s\n", mario.getNome());
-        mario.Exibir_Status();
+        mario.exibirStatus();
         System.out.printf("Arma: %s (Dano: %d)\n", 
             mario.getArma().getNome(), mario.getArma().getDano());
         System.out.println("------------------------------");
         
         System.out.printf("INIMIGO: %s\n", alvo.getNome());
-        alvo.Exibir_Status();
+        alvo.exibirStatus();
         System.out.printf("Arma: %s (Dano: %d)\n", 
             alvo.getArma().getNome(), alvo.getArma().getDano());
         System.out.println("------------------------------\n");
     }
 
     public static void resetarHabilidades(Yoshi y, Mario m){
-        y.setAtordoar(1);
+        y.setAtordoarDisponivel(true);;
         m.setCogumelo(1);
     }
 
