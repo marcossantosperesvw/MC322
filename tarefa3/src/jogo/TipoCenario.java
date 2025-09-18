@@ -19,7 +19,5 @@ public enum TipoCenario {
 
     public void aplicarEfeitos(Heroi heroi) {
         System.out.println(efeito);
-        // Futuramente, você pode adicionar efeitos reais aqui, como buffs ou debuffs.
-        // Ex: heroi.receberBuffDeDefesa(10);
     }
 }

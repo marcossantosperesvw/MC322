@@ -1,19 +1,24 @@
 package jogo.Personagens;
-import jogo.*;
-import Armas.Arma;
-public class King_Boo extends Monstro {
-    public King_Boo(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma,  Arma[] lista){
-        super(nome, pontos_de_vida, forca, xp_concedido, arma, lista);
-    }
-    @Override
-    public void atacar(Personagem alvo, int critico){
-        // O monstro  nao tera ataque critico.
-        System.out.printf("%s atacou %s com a Mordida Fantasma e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
-        alvo.receberDano(getForca());
-        
-        if(alvo.estaVivo() == false){
-            System.out.printf("%s foi eliminado por %s, sendo tomado pela escuridão!\n", alvo.getNome(), getNome());
-        }
-    }
 
+import jogo.Monstro;
+import Armas.Arma;
+import interfaces.AcaoDeCombate;
+import interfaces.Combatente;
+import jogo.AcaoDeCombate.AtaqueFisico;
+
+public class King_Boo extends Monstro {
+    public King_Boo(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
+    }
+    
+    @Override
+    protected void inicializarAcoes() {
+        acoes.add(new AtaqueFisico());
+    }
+    
+    @Override
+    public AcaoDeCombate escolherAcao(Combatente alvo) {
+        System.out.println(getNome() + " prepara uma Mordida Fantasma!");
+        return acoes.get(0);
+    }
 }

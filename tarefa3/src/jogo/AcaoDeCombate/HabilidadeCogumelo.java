@@ -5,16 +5,6 @@ import interfaces.Combatente;
 import jogo.Personagens.Mario;
 
 public class HabilidadeCogumelo implements AcaoDeCombate {
-    private final String nomeAcao;
-    
-    public HabilidadeCogumelo(){
-        this.nomeAcao = "Usar Cogumelo Mágico";
-    }
-    
-    @Override
-    public String getNomeAcao(){
-        return this.nomeAcao;
-    }
 
     @Override
     public void executar(Combatente usuario, Combatente alvo) {

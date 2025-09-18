@@ -1,24 +1,24 @@
 package jogo.Personagens;
-import jogo.*;
+
+import jogo.Monstro;
 import Armas.Arma;
-public class Kamek extends Monstro{
+import interfaces.AcaoDeCombate;
+import interfaces.Combatente;
+import jogo.AcaoDeCombate.AtaqueFisico;
 
-    public Kamek(String nome, int pontos_de_vida, int forca, int xp_concedido, Arma arma,  Arma[] lista){
-        super(nome, pontos_de_vida, forca, xp_concedido, arma, lista);
-
-
-
-    }
-
-    @Override
-    public void atacar(Personagem alvo, int critico){
-        // Monstros nao terao ataque critico
-        System.out.printf("%s lançou Feitiço Abstrato em %s e causou %d de dano!\n", getNome(), alvo.getNome(), getForca());
-        alvo.takeDamage(getForca());
-
-        if(alvo.isAlive() == false){
-            System.out.printf("\n%s foi eliminado por %s com Frieza Mágica!\n", alvo.getNome(), getNome());
-        }
+public class Kamek extends Monstro {
+    public Kamek(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
     }
     
+    @Override
+    protected void inicializarAcoes() {
+        acoes.add(new AtaqueFisico());
+    }
+    
+    @Override
+    public AcaoDeCombate escolherAcao(Combatente alvo) {
+        System.out.println(getNome() + " conjura um Feitiço Abstrato!");
+        return acoes.get(0);
+    }
 }

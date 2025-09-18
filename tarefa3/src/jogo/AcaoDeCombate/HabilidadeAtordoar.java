@@ -6,17 +6,6 @@ import jogo.Monstro;
 import jogo.Personagens.Yoshi;
 
 public class HabilidadeAtordoar implements AcaoDeCombate {
-    private final String nomeAcao;
-    
-    public HabilidadeAtordoar() {
-        this.nomeAcao = "Ataque Atordoante";
-    }
-
-    @Override
-    public String getNomeAcao(){
-        return this.nomeAcao;
-    }
-    
     @Override
     public void executar(Combatente usuario, Combatente alvo) {
         if (usuario instanceof Yoshi && alvo instanceof Monstro) {

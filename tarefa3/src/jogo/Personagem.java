@@ -16,6 +16,7 @@ public abstract class Personagem implements Combatente {
         this.pontosDeVida = pontosDeVida;
         this.forca = forca;
         this.arma = arma;
+        // NOTA: acoes será inicializada nas subclasses
     }
 
     @Override

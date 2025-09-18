@@ -1,11 +1,10 @@
 package jogo;
 
-import interfaces.Combatente;
 import interfaces.Fase;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import Armas.*;
+import interfaces.Item;
 public class FaseDeCombate implements Fase {
     private final TipoCenario tipoCenario;
     private final List<Monstro> monstros;

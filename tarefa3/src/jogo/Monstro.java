@@ -2,6 +2,7 @@ package jogo;
 import Armas.Arma;
 import interfaces.Item;
 import interfaces.Lootavel;
+import java.util.ArrayList;
 
 public abstract class Monstro extends Personagem implements Lootavel {
     private final int xpConcedido;
@@ -12,7 +13,12 @@ public abstract class Monstro extends Personagem implements Lootavel {
         super(nome, pontosDeVida, forca, arma);
         this.xpConcedido = xpConcedido;
         this.listaArmasParaLargar = listaArmasParaLargar;
+        this.acoes = new ArrayList<>(); // CRÍTICO: Inicializar lista
+        inicializarAcoes(); // CRÍTICO: Chamar inicialização
     }
+
+    // Método abstrato que cada monstro deve implementar
+    protected abstract void inicializarAcoes();
 
     public int getXpConcedido() {
         return this.xpConcedido;
