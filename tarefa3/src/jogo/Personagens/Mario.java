@@ -28,7 +28,8 @@ public class Mario extends Heroi {
     @Override
     public AcaoDeCombate escolherAcao(Combatente alvo) {
         // IA simples do Mario: se estiver com pouca vida e tiver cogumelo, usa. Senão, ataca.
-        if (getPontosDeVida() < 50 && this.cogumelo > 0 && this.sorte > Math.random()) {
+        if (getPontosDeVida() < 50 && this.cogumelo > 0 && this.sorte > 0.8) {
+            System.out.printf("%s esta com sorte e conseguiu utilizar sua habilidade especial\n", getNome());
             return acoes.get(1); // HabilidadeCogumelo
         }
         return acoes.get(0); // AtaqueFisico

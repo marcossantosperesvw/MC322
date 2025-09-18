@@ -18,7 +18,7 @@ public class Bowser extends Monstro {
     @Override
     public AcaoDeCombate escolherAcao(Combatente alvo) {
         // IA do Bowser: sempre ataca ferozmente
-        System.out.println(getNome() + " ruge e prepara suas Garras de Fogo!");
+        System.out.println(getNome() + " ruge e prepara suas " + getArma().getNome() + "!");
         return acoes.get(0);
     }
 }

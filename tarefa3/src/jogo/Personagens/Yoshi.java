@@ -27,7 +27,9 @@ public class Yoshi extends Heroi {
         if (alvo instanceof Monstro) {
             Monstro monstro = (Monstro) alvo;
             // IA do Yoshi: se a habilidade estiver disponível, houver chance e o alvo não estiver atordoado, usa.
-            if (this.atordoarDisponivel && !monstro.isAtordoado() && this.sorte > Math.random()) {
+            if (this.atordoarDisponivel && !monstro.isAtordoado() && this.sorte > 0.8) {
+
+                System.out.printf("%s esta com sorte e conseguiu utilizar sua habilidade especial\n", getNome());
                 return acoes.get(1); // HabilidadeAtordoar
             }
         }

@@ -17,7 +17,6 @@ public abstract class Monstro extends Personagem implements Lootavel {
         inicializarAcoes(); 
     }
 
-    // Método abstrato que cada monstro deve implementar
     protected abstract void inicializarAcoes();
 
     public int getXpConcedido() {

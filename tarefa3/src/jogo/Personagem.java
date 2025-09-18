@@ -16,7 +16,7 @@ public abstract class Personagem implements Combatente {
         this.pontosDeVida = pontosDeVida;
         this.forca = forca;
         this.arma = arma;
-        // NOTA: acoes será inicializada nas subclasses
+        //TODO: acoes será inicializada nas subclasses
     }
 
     @Override
@@ -56,7 +56,12 @@ public abstract class Personagem implements Combatente {
     }
     
     public void equiparArma(Arma arma) {
-        this.arma = arma;
+        if (getArma().getDano() < arma.getDano()){
+            // apenas troc de arma se for vantajoso
+            
+            this.arma = arma;
+
+        }
     }
 
     protected void setPontosDeVida(int pontosDeVida) {
