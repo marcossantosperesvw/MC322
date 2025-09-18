@@ -13,8 +13,8 @@ public abstract class Monstro extends Personagem implements Lootavel {
         super(nome, pontosDeVida, forca, arma);
         this.xpConcedido = xpConcedido;
         this.listaArmasParaLargar = listaArmasParaLargar;
-        this.acoes = new ArrayList<>(); // CRÍTICO: Inicializar lista
-        inicializarAcoes(); // CRÍTICO: Chamar inicialização
+        this.acoes = new ArrayList<>(); 
+        inicializarAcoes(); 
     }
 
     // Método abstrato que cada monstro deve implementar

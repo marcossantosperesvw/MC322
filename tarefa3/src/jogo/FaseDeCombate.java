@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import Armas.*;
 import interfaces.Item;
+import jogo.Eventos.*;
 public class FaseDeCombate implements Fase {
     private final TipoCenario tipoCenario;
     private final List<Monstro> monstros;
@@ -29,7 +30,12 @@ public class FaseDeCombate implements Fase {
             System.out.printf("\n--- Um %s selvagem aparece! ---\n", monstro.getNome());
             
             // Laço de combate
+            Emboscada emboscada = new Emboscada();
             while (heroi.estaVivo() && monstro.estaVivo()) {
+                if (emboscada.verificarGatilho(heroi, monstro)){
+                    emboscada.executar(heroi, monstro);
+                }
+
                 System.out.println("\n--- Vez do Herói ---");
                 heroi.escolherAcao(monstro).executar(heroi, monstro);
 

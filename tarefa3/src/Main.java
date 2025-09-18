@@ -19,16 +19,16 @@ public class Main {
         
         // Criar herói usando interface
         Arma Martelo_Poderoso = new Martelo("Matrtelo do Iniciante", 15, 0);
-        Heroi heroi = new Mario("Mario", 500, 25, Martelo_Poderoso);
+        Heroi heroi = new Mario("Mario", 200, 25, Martelo_Poderoso);
         
         System.out.println("Herói criado: " + heroi.getNome());
         heroi.exibirStatus();
         
         // LOOP PRINCIPAL conforme especificação
         for (Fase fase : fases) {
-            System.out.println("\n" + "=".repeat(60));
+            System.out.println("\t==========================\t");
             System.out.println("NOVA FASE: " + fase.getTipoDeCenario().getDescricao());
-            System.out.println("=".repeat(60));
+            System.out.println("\t==========================\t");
             
             // Aplicar efeitos do cenário
             fase.getTipoDeCenario().aplicarEfeitos(heroi);
