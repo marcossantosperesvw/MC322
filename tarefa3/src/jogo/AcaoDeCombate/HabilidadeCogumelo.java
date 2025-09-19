@@ -11,9 +11,8 @@ public class HabilidadeCogumelo implements AcaoDeCombate {
         if (usuario instanceof Mario) {
             Mario mario = (Mario) usuario;
             mario.setCogumelo(mario.getCogumelo() - 1);
-            int cura = mario.getPontosDeVida(); // Dobra a vida atual
-            mario.receberCura(cura);
-            System.out.printf(">> %s usou um Cogumelo Mágico e recuperou %d de vida! <<\n", mario.getNome(), cura);
+            mario.receberCura(50);
+            System.out.printf(">> %s usou um Cogumelo Mágico e recuperou 50 de vida! <<\n", mario.getNome());
         }
     }
 }

@@ -12,7 +12,7 @@ public class King_Boo extends Monstro {
     }
     
     @Override
-    protected void inicializarAcoes() {
+    public void inicializarAcoes() {
         acoes.add(new AtaqueFisico());
     }
     

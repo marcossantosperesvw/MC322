@@ -19,5 +19,8 @@ public enum TipoCenario {
 
     public void aplicarEfeitos(Heroi heroi) {
         System.out.println(efeito);
+        // IMplementar diferntes efeitos
+        heroi.receberDano(5);
+
     }
 }

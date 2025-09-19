@@ -16,7 +16,6 @@ public abstract class Personagem implements Combatente {
         this.pontosDeVida = pontosDeVida;
         this.forca = forca;
         this.arma = arma;
-        //TODO: acoes será inicializada nas subclasses
     }
 
     @Override
@@ -64,11 +63,11 @@ public abstract class Personagem implements Combatente {
         }
     }
 
-    protected void setPontosDeVida(int pontosDeVida) {
+    public void setPontosDeVida(int pontosDeVida) {
         this.pontosDeVida = pontosDeVida;
     }
 
-    protected void setForca(int forca) {
+    public void setForca(int forca) {
         this.forca = forca;
     }
 

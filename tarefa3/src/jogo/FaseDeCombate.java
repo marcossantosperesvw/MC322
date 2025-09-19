@@ -6,6 +6,8 @@ import java.util.List;
 import Armas.*;
 import interfaces.Item;
 import jogo.Eventos.*;
+import jogo.Personagens.Mario;
+import jogo.Personagens.Yoshi;
 public class FaseDeCombate implements Fase {
     private final TipoCenario tipoCenario;
     private final List<Monstro> monstros;
@@ -75,6 +77,15 @@ public class FaseDeCombate implements Fase {
 
         if (heroi.estaVivo()) {
             this.concluida = true;
+            if (heroi instanceof Mario){
+                Mario m = (Mario) heroi;
+                m.setCogumelo(1);
+            }
+            else {
+                Yoshi y = (Yoshi) heroi;
+                y.setAtordoarDisponivel(true);
+            }
+            // Reseta habilidades a cada fase
         }
     }
 

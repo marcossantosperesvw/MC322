@@ -10,7 +10,7 @@ public class Emboscada implements Evento {
     @Override
     public boolean verificarGatilho(Heroi heroi, Monstro monstro) {
         // Gatilho: herói com vida baixa e evento ainda não executado
-        return !jaExecutado && heroi.getPontosDeVida() < 30;
+        return !jaExecutado && heroi.getPontosDeVida() < 100;
     }
     
     @Override

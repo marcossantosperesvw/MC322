@@ -10,7 +10,7 @@ public class Main {
     
     public static void main(String[] args) {
         System.out.println("======================================================================");
-        System.out.println("                    Aventuras de Mario");
+        System.out.println("                    Aventuras de Mario e Yoshi");
         System.out.println("======================================================================\n");
         
         // USAR INTERFACES conforme especificação
@@ -19,19 +19,13 @@ public class Main {
         
         // Criar herói usando interface
         Arma Martelo_Poderoso = new Martelo("Matrtelo do Iniciante", 15, 0);
-        Heroi heroi = new Mario("Mario", 200, 25, Martelo_Poderoso);
+        Heroi heroi = new Yoshi("Yoshi", 300, 40, Martelo_Poderoso);
         
         System.out.println("Herói criado: " + heroi.getNome());
         heroi.exibirStatus();
         
         // LOOP PRINCIPAL conforme especificação
         for (Fase fase : fases) {
-            System.out.println("\t==========================\t");
-            System.out.println("NOVA FASE: " + fase.getTipoDeCenario().getDescricao());
-            System.out.println("\t==========================\t");
-            
-            // Aplicar efeitos do cenário
-            fase.getTipoDeCenario().aplicarEfeitos(heroi);
             
             // Iniciar a fase
             fase.iniciar(heroi);
