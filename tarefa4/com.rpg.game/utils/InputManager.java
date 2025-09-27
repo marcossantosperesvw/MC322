@@ -28,6 +28,35 @@ public class InputManager{
             }
         }
     }
-        
+
+    public static String LerString(String mensagem){
+        String input  = null;
+        System.out.println(mensagem);
+        input = scanner.nextLine().trim();
+        return input;
+
+    }   
+
+    public static boolean lerString(String mensagem){
+        System.out.printf("%s\n", mensagem);
+        String input = scanner.nextLine().trim();
+        if (input == "s"){
+            return true;
+
+        } 
+    
+        return false;
+
+    }
+    public static void esperarEnter(String mensagem){
+        System.out.printf("%s\n", mensagem);
+        scanner.nextLine();
+    }
+    public static void fecharScanner(){
+        scanner.close();
+    }
 
 }
+        
+
+

@@ -6,8 +6,8 @@ import personagens.herois.*;
 import itens.*;
 
 public class FaseDeCombate implements Fase {
-    private final TipoCenario tipoCenario;
-    private final List<Monstro> monstros;
+    private TipoCenario tipoCenario;
+    private List<Monstro> monstros;
     private boolean concluida;
 
     public FaseDeCombate(TipoCenario tipoCenario, Monstro... monstros) {

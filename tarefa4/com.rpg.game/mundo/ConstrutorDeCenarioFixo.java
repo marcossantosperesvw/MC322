@@ -8,7 +8,7 @@ import personagens.monstros.*;
 public class ConstrutorDeCenarioFixo implements GeradorDeFases {
 
     @Override
-    public List<Fase> gerar(int quantidadeDeFases) {
+    public List<Fase> gerar(int quantidadeDeFases, Dificuldade d) {
         List<Fase> fases = new ArrayList<>();
 
         // Armas
