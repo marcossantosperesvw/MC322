@@ -71,7 +71,6 @@ public class FaseDeCombate implements Fase {
                         heroi.equiparArma(novaArma);
 
                     } catch (NivelInsuficiente e){
-                        System.out.printf("Heroi nao possui nivel suficiente\n\n\n\n\n");
                         System.out.printf("%s[lvl = %d] nao pode equipar %s[lvl min = %d]\n",heroi.getNome(), heroi.getNivel(), novaArma.getNome(), novaArma.getMinNivel());
                     }
                 }

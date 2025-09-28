@@ -60,7 +60,6 @@ public abstract class Personagem implements Combatente {
             if (this instanceof Heroi){
                 Heroi h = (Heroi) this;
                 if (h.getNivel() < arma.getMinNivel()){
-                    System.out.printf("Heroi nao possui nivel suficiente\n\n\n\n\n");
                     throw new NivelInsuficiente();
                 } else {
                     System.out.printf("Heroi %s trocou %s por %s\n", h.getNome(), getArma().getNome(), arma.getNome());
