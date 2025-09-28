@@ -20,8 +20,8 @@ public class Main {
         
         // Criar herói usando interface
         Arma Martelo_Poderoso = new Martelo("Matrtelo do Iniciante", 15, 0);
-        Heroi heroi = new Yoshi("Yoshi", 200000, 40, Martelo_Poderoso);
-        
+        Heroi[] Array_herois = {new Yoshi("Yoshi", 200000, 40, Martelo_Poderoso), new Mario("Mario", 20000, 50, Martelo_Poderoso)};
+        Heroi heroi = manager.selecaoHeroi(Array_herois);
         System.out.println("Herói criado: " + heroi.getNome());
         heroi.exibirStatus();
             
