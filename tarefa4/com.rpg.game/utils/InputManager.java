@@ -40,12 +40,8 @@ public class InputManager{
     public static boolean lerSimNao(String mensagem){
         System.out.printf("%s\n", mensagem);
         String input = scanner.nextLine().trim();
-        if (input == "s"){
-            return true;
+        return input.equalsIgnoreCase("s");
 
-        } 
-    
-        return false;
 
     }
     public static void esperarEnter(String mensagem){

@@ -2,7 +2,10 @@ package utils;
 import personagens.herois.*;
 import personagens.monstros.*;
 import java.util.*;
+
+import exceptions.NivelInsuficiente;
 import mundo.*;
+import itens.*;
 public class GerenciadorDeInteracao {
     String opcoes = "\n[1] Continuar\n"
     + "[2] Ver informacoes das classes de Herois\n"
@@ -74,6 +77,47 @@ public class GerenciadorDeInteracao {
             // Caso o usuario nao selecione a dificuldade adequadaemnte, ela vai automaticamente para facil
             return Dificuldade.FACIL;
         }
+    }
+    public void StatusPosTurno(Heroi h, Arma arma_dropada){
+        int input = 0;
+        while (input != 4){
+            String opcoes = "[1] Arma do Heroi\n[2] Arma Dropada\n[3] Trocar de Arma\n[4] Continuar\n[5] Desistir\n";
+            input = InputManager.LerInteiro(opcoes, 1, 5);
+            if (input == 1){
+                System.out.printf("Arma do heroi: %s\nDano: %d\n", h.getArma().getNome(), h.getArma().getDano());
+                
+                
+            }
+            else if (input == 2){
+                System.out.printf("Arma do Chao: %s\nDano: %d\nNivel Minimo: %d\n", arma_dropada.getNome(), arma_dropada.getDano(), arma_dropada.getMinNivel());
+
+            }
+            else if (input == 3){
+                try{
+                    h.equiparArma(arma_dropada);
+                } catch (NivelInsuficiente e){
+
+                    System.out.printf("%s[lvl = %d] nao possui nivel suficiente para equipar %s[lvl = %d]", h.getNome(), h.getNivel(), arma_dropada.getNome(), arma_dropada.getMinNivel());
+                }
+
+            }
+            else if (input == 5){
+                String mensagem = "Tem certeza de que deseja desistir do jogo? (s/n)\n";
+                boolean in = InputManager.lerSimNao(mensagem);
+                if (in == true){
+                    System.out.printf("Derrota por desistencia\n");
+                    System.exit(1);
+
+                } 
+
+                
+            }
+        }
+
+
+        
+
+        
     }
 
 }   

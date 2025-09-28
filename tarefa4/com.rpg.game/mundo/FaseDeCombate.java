@@ -2,10 +2,10 @@ package mundo;
 import interfaces.*;
 import java.util.*;
 
-import exceptions.NivelInsuficiente;
 import personagens.monstros.*;
 import personagens.herois.*;
 import itens.*;
+import  utils.*;
 
 public class FaseDeCombate implements Fase {
     private TipoCenario tipoCenario;
@@ -26,7 +26,8 @@ public class FaseDeCombate implements Fase {
         System.out.println("                INICIANDO NOVA FASE: " + tipoCenario.getDescricao());
         System.out.println("======================================================================\n");
         tipoCenario.aplicarEfeitos(heroi);
-
+        
+        GerenciadorDeInteracao manager = new GerenciadorDeInteracao();
         for (Monstro monstro : monstros) {
             if (!heroi.estaVivo()) break;
             
@@ -52,29 +53,23 @@ public class FaseDeCombate implements Fase {
                     }
                 }
                 
-                System.out.println("\n-- Status Pós-Turno --");
-                heroi.exibirStatus();
-                monstro.exibirStatus();
+                if (heroi.estaVivo()) {
+                    System.out.printf("\n>> %s foi derrotado! <<\n", monstro.getNome());
+                    Arma arma_dropada = (Arma) monstro.droparLoot();
+                    System.out.printf("%s deixou cair: %s.\n", monstro.getNome(), arma_dropada.getNome());
+                    heroi.ganharExperiencia(monstro.getXpConcedido());
+
+                    System.out.println("\n-- Status Pós-Turno --");
+                    heroi.exibirStatus();
+                    
+                    // Lógica de Loot
+                    manager.StatusPosTurno(heroi, arma_dropada);
+
+
+                }
                 System.out.println("----------------------");
             }
 
-            if (heroi.estaVivo()) {
-                System.out.printf("\n>> %s foi derrotado! <<\n", monstro.getNome());
-                heroi.ganharExperiencia(monstro.getXpConcedido());
-                
-                // Lógica de Loot
-                Item itemDropado = monstro.droparLoot();
-                System.out.printf("%s deixou cair: %s.\n", monstro.getNome(), itemDropado.getNome());
-                Arma novaArma = (Arma) itemDropado;
-                if (itemDropado instanceof Arma) {
-                    try{
-                        heroi.equiparArma(novaArma);
-
-                    } catch (NivelInsuficiente e){
-                        System.out.printf("%s[lvl = %d] nao pode equipar %s[lvl min = %d]\n",heroi.getNome(), heroi.getNivel(), novaArma.getNome(), novaArma.getMinNivel());
-                    }
-                }
-            }
         }
 
         if (heroi.estaVivo()) {

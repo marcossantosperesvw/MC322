@@ -4,7 +4,7 @@ import personagens.herois.*;
 import personagens.monstros.*;
 public class HabilidadeAtordoar implements AcaoDeCombate {
     @Override
-    public void executar(Combatente usuario, Combatente alvo) {
+    public void executar(Combatente usuario, Combatente alvo){
         if (usuario instanceof Yoshi && alvo instanceof Monstro) {
             Yoshi yoshi = (Yoshi) usuario;
             Monstro monstro = (Monstro) alvo;
