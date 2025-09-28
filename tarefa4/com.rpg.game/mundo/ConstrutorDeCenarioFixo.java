@@ -8,7 +8,7 @@ import personagens.monstros.*;
 public class ConstrutorDeCenarioFixo implements GeradorDeFases {
 
     @Override
-    public List<Fase> gerar(int quantidadeDeFases, Dificuldade d) {
+    public List<Fase> gerar(int quantidadeDeFases, Dificuldade dificuldade) {
         List<Fase> fases = new ArrayList<>();
 
         // Armas
@@ -41,7 +41,7 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
             new Koopalings("Koopaling Ponteiro", 90, 20, 150, machadinha, listaNivel1),
             new King_Boo("King Boo", 120, 30, 300, calafafrios, listaNivel1)
         ));
-
+        
         // Fase 2
         fases.add(new FaseDeCombate(
             TipoCenario.CAMARA_ILUSOES,
@@ -57,7 +57,21 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
             new Koopalings("Koopaling Linear", 130, 30, 220, machadinha, listaNivel3),
             new Bowser("Bowser", 450, 55, 1500, fogo, listaNivel3)
         ));
-
+        // MULTIPLICADOR sobre os pontos de vida de cada monstro para todas as fases
+        Adicao_Dificuldade(fases, dificuldade);
         return fases;
+    }
+    public static void Adicao_Dificuldade(List<Fase> fases, Dificuldade dificuldade){
+        for (Fase f: fases){
+            for (Monstro monstro : f.getMonstros()){
+                double vida_monstro = monstro.getPontosDeVida() * dificuldade.getMult_dificuldade();
+                double forca_monstro = monstro.getForca() * dificuldade.getMult_dificuldade();
+                int forca_truncada = (int) forca_monstro;
+                int vida_truncada = (int) vida_monstro;
+                monstro.setPontosDeVida(vida_truncada);
+                monstro.setForca(forca_truncada);
+                
+            }
+        }
     }
 }

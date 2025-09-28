@@ -15,7 +15,9 @@ public class FaseDeCombate implements Fase {
         this.monstros = Arrays.asList(monstros);
         this.concluida = false;
     }
-
+    public List<Monstro> getMonstros() {
+        return monstros;
+    }
     @Override
     public void iniciar(Heroi heroi) {
         System.out.println("\n======================================================================");
