@@ -1,6 +1,8 @@
 package mundo;
 import interfaces.*;
 import java.util.*;
+
+import exceptions.NivelInsuficiente;
 import personagens.monstros.*;
 import personagens.herois.*;
 import itens.*;
@@ -63,12 +65,14 @@ public class FaseDeCombate implements Fase {
                 // Lógica de Loot
                 Item itemDropado = monstro.droparLoot();
                 System.out.printf("%s deixou cair: %s.\n", monstro.getNome(), itemDropado.getNome());
-                
+                Arma novaArma = (Arma) itemDropado;
                 if (itemDropado instanceof Arma) {
-                    Arma novaArma = (Arma) itemDropado;
-                    if (novaArma.getDano() > heroi.getArma().getDano() && novaArma.getMinNivel() <= heroi.getNivel()) {
-                        System.out.printf("%s equipou %s!\n", heroi.getNome(), novaArma.getNome());
+                    try{
                         heroi.equiparArma(novaArma);
+
+                    } catch (NivelInsuficiente e){
+                        System.out.printf("Heroi nao possui nivel suficiente\n\n\n\n\n");
+                        System.out.printf("%s[lvl = %d] nao pode equipar %s[lvl min = %d]\n",heroi.getNome(), heroi.getNivel(), novaArma.getNome(), novaArma.getMinNivel());
                     }
                 }
             }

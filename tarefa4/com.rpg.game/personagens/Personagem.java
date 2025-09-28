@@ -2,6 +2,8 @@ package personagens;
 import interfaces.*;
 import itens.*;
 import java.util.*;
+import exceptions.*;
+import personagens.herois.*;
 
 public abstract class Personagem implements Combatente {
     private String nome;
@@ -53,11 +55,18 @@ public abstract class Personagem implements Combatente {
         return arma;
     }
     
-    public void equiparArma(Arma arma) {
+    public void equiparArma(Arma arma) throws NivelInsuficiente{
         if (getArma().getDano() < arma.getDano()){
-            // apenas troc de arma se for vantajoso
-            
-            this.arma = arma;
+            if (this instanceof Heroi){
+                Heroi h = (Heroi) this;
+                if (h.getNivel() < arma.getMinNivel()){
+                    System.out.printf("Heroi nao possui nivel suficiente\n\n\n\n\n");
+                    throw new NivelInsuficiente();
+                } else {
+                    System.out.printf("Heroi %s trocou %s por %s\n", h.getNome(), getArma().getNome(), arma.getNome());
+                    this.arma = arma;
+                }
+            }
 
         }
     }

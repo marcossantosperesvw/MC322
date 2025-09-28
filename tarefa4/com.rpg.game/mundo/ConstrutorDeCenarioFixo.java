@@ -11,27 +11,27 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
     public List<Fase> gerar(int quantidadeDeFases, Dificuldade dificuldade) {
         List<Fase> fases = new ArrayList<>();
 
-        // Armas
-        Arma calafafrios = new Machadinho("Cetro Gélido", 25, 0);
-        Arma farra = new Machadinho("Varinha das Sombras", 25, 0);
-        Arma fogo = new Machadinho("Garras de Fogo", 25, 0);
-        Arma machadinha = new Machadinho("Machadinha Koopa", 15, 0);
+        // Armas sem dano - DAno apenas relacionado a forca do monstro
+        Arma calafafrios = new Machadinho("Cetro Gélido", 0, 0);
+        Arma farra = new Machadinho("Varinha das Sombras", 0, 0);
+        Arma fogo = new Machadinho("Garras de Fogo", 0, 0);
+        Arma machadinha = new Machadinho("Machadinha Koopa", 0, 0);
 
         // Loots
         Arma[] listaNivel1 = {
-            new Martelo("Esmagador de Crânios", 22, 1),
-            new Varinha("Cajado da Noite Eterna", 15, 1),
-            new Garras("Dilacerador de Almas", 20, 1)
+            new Martelo("Esmagador de Crânios", 22, 1000),
+            new Varinha("Cajado da Noite Eterna", 15, 1000),
+            new Garras("Dilacerador de Almas", 20, 1000)
         };
         Arma[] listaNivel2 = {
-            new Martelo("Quebra-Mundos", 32, 2),
-            new Varinha("Orbe da Destruição", 30, 2),
-            new Garras("Desmembrador Cósmico", 37, 2)
+            new Martelo("Quebra-Mundos", 32, 10000),
+            new Varinha("Orbe da Destruição", 30, 10000),
+            new Garras("Desmembrador Cósmico", 37, 10000)
         };
         Arma[] listaNivel3 = {
-            new Martelo("Aniquilador Divino", 50, 3),
-            new Varinha("Cetro do Apocalipse", 55, 3),
-            new Garras("Exterminador de Universos", 42, 3)
+            new Martelo("Aniquilador Divino", 50, 15),
+            new Varinha("Cetro do Apocalipse", 55, 7),
+            new Garras("Exterminador de Universos", 42, 20)
         };
 
         // Fase 1
@@ -70,7 +70,7 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
                 int vida_truncada = (int) vida_monstro;
                 monstro.setPontosDeVida(vida_truncada);
                 monstro.setForca(forca_truncada);
-                
+
             }
         }
     }
