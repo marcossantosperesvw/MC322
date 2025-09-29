@@ -67,7 +67,7 @@ public class Main {
                 // Menu pós-fase (exceto na última)
                 if (i < fases.size() - 1) {
                     InputManager.esperarEnter("Pressione ENTER para continuar...");
-                    manager.statusPosTurno(heroi, fases.get(i + 1).getMonstros());
+                    manager.statusPosTurno(heroi, fases.get(i + 1).getMonstros().get(0).getArma());
                 }
             }
             
