@@ -1,10 +1,10 @@
 package com.rpglab.game;
 
-import com.rpglab.cenario.*;
-import com.rpglab.personagens.herois.*;
-import com.rpglab.personagens.monstros.*;
-import com.rpglab.itens.*;
-import com.rpglab.util.*;
+import com.rpglab.src.cenario.*;
+import com.rpglab.src.personagens.herois.*;
+import com.rpglab.src.personagens.monstros.*;
+import com.rpglab.src.itens.*;
+import com.rpglab.src.util.*;
 import java.util.*;
 
 public class Main {

@@ -29,3 +29,4 @@ public class RecursoInsuficiente extends Exception {
     public int getQuantidadeNecessaria() {
         return quantidadeNecessaria;
     }
+}
