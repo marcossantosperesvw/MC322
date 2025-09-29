@@ -4,7 +4,7 @@ import com.rpglab.personagens.monstros.*;
 import java.util.*;
 
 import com.rpglab.itens.*;
-import com.rpglab.utils.*;
+import com.rpglab.util.*;
 
 public class FaseDeCombate implements Fase {
     private TipoCenario tipoCenario;

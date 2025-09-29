@@ -3,9 +3,10 @@ import com.rpglab.personagens.herois.*;
 import com.rpglab.personagens.monstros.*;
 import java.util.*;
 
-import exceptions.NivelInsuficiente;
-import mundo.*;
-import itens.*;
+import com.rpglab.exceptions.NivelInsuficiente;
+import com.rpglab.itens.*;
+import com.rpglab.cenario.*;
+
 
 public class GerenciadorDeInteracao {
     private final String opcoesMenu = "\n[1] Continuar\n"
