@@ -2,7 +2,7 @@ package com.rpglab.cenario;
 
 public enum Dificuldade {
     FACIL(0.8, "Inimigos mais fracos, melhores recompensas"),
-    NORMAL(1.0, "Experiência balanceada"),
+    MEDIO(1.0, "Experiência balanceada"),
     DIFICIL(1.5, "Inimigos poderosos, grandes desafios");
 
     private final double multiplicadorDificuldade;
@@ -38,7 +38,7 @@ public enum Dificuldade {
         switch (this) {
             case FACIL:
                 return 0; 
-            case NORMAL:
+            case MEDIO:
                 return 1; 
             case DIFICIL:
                 return 2; 
