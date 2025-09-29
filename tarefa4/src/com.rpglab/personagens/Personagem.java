@@ -1,9 +1,10 @@
-package personagens;
-import interfaces.*;
-import itens.*;
+package com.rpglab.personagens;
+import com.rpglab.cenario.*;
+import com.rpglab.itens.*;
+import com.rpglab.combate.*;
 import java.util.*;
-import exceptions.*;
-import personagens.herois.*;
+import com.rpglab.exceptions.*;
+import com.rpglab.personagens.herois.*;
 
 public abstract class Personagem implements Combatente {
     private String nome;

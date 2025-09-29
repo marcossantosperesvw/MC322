@@ -1,6 +1,6 @@
-package util;
-import personagens.herois.*;
-import personagens.monstros.*;
+package com.rpglab.util;
+import com.rpglab.personagens.herois.*;
+import com.rpglab.personagens.monstros.*;
 import java.util.*;
 
 import exceptions.NivelInsuficiente;
