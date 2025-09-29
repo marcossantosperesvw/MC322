@@ -74,7 +74,7 @@ public class FaseDeCombate implements Fase {
                     
                     // Lógica de Loot apenas se for uma arma
                     if (itemDropado instanceof Arma) {
-                        manager.StatusPosTurno(heroi, (Arma) itemDropado);
+                        manager.statusPosTurno(heroi, (Arma) itemDropado);
                     }
                 }
             }

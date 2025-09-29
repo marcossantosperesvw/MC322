@@ -6,6 +6,7 @@ import java.util.*;
 import com.rpglab.exceptions.NivelInsuficiente;
 import com.rpglab.itens.*;
 import com.rpglab.cenario.*;
+import com.rpglab.util.*;
 
 
 public class GerenciadorDeInteracao {
@@ -22,7 +23,7 @@ public class GerenciadorDeInteracao {
             System.out.println("==============================================");
             System.out.print(opcoesMenu);
             
-            opcao = InputManager.LerInteiro("Escolha uma opção", 1, 4);
+            opcao = InputManager.lerInteiro("Escolha uma opção", 1, 4);
             
             switch (opcao) {
                 case 1:
@@ -57,7 +58,7 @@ public class GerenciadorDeInteracao {
         System.out.println("=== BEM-VINDO AO JOGO ===");
         String opcoes = "[1] Iniciar Novo Jogo\n[2] Sair do Jogo\n";
 
-        int opcao = InputManager.LerInteiro(opcoes + "Escolha uma opção", 1, 2);
+        int opcao = InputManager.lerInteiro(opcoes + "Escolha uma opção", 1, 2);
              
         if (opcao == 2) {
             System.out.println("Obrigado por jogar!");
@@ -73,7 +74,7 @@ public class GerenciadorDeInteracao {
         System.out.println("\n=== SELEÇÃO DE HERÓI ===");
         String opcoes = "\n[1] Yoshi\n[2] Mario\n";
 
-        int posicao = InputManager.LerInteiro(opcoes + "Escolha seu herói", 1, 2);
+        int posicao = InputManager.lerInteiro(opcoes + "Escolha seu herói", 1, 2);
         
         Heroi heroiSelecionado = arrayHerois[posicao - 1];
         System.out.printf("Você selecionou: %s!\n", heroiSelecionado.getNome());
@@ -85,7 +86,7 @@ public class GerenciadorDeInteracao {
         System.out.println("\n=== SELEÇÃO DE DIFICULDADE ===");
         String opcoes = "[1] FÁCIL\n[2] MÉDIO\n[3] DIFÍCIL\n";
 
-        int input = InputManager.LerInteiro(opcoes + "Escolha a dificuldade", 1, 3);
+        int input = InputManager.lerInteiro(opcoes + "Escolha a dificuldade", 1, 3);
         
         Dificuldade dificuldadeSelecionada;
         switch (input) {
@@ -118,7 +119,7 @@ public class GerenciadorDeInteracao {
         while (input != 4) {
             System.out.println("\n=== GERENCIAMENTO DE ITENS ===");
             String opcoes = "[1] Ver Arma do Herói\n[2] Ver Arma Dropada\n[3] Trocar de Arma\n[4] Continuar\n[5] Desistir\n";
-            input = InputManager.LerInteiro(opcoes + "Escolha uma opção", 1, 5);
+            input = InputManager.lerInteiro(opcoes + "Escolha uma opção", 1, 5);
             
             switch (input) {
                 case 1:

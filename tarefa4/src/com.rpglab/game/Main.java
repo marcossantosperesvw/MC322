@@ -17,7 +17,7 @@ public class Main {
             GerenciadorDeInteracao manager = new GerenciadorDeInteracao();
             
             // Menu principal com seleção
-            manager.exibirMenuPrincipal();
+            manager.menuInicial();
             
             // Narrativa de início
             exibirNarrativaInicio();
@@ -67,7 +67,7 @@ public class Main {
                 // Menu pós-fase (exceto na última)
                 if (i < fases.size() - 1) {
                     InputManager.esperarEnter("Pressione ENTER para continuar...");
-                    manager.menuPosFase(heroi, fases.get(i + 1).getMonstros());
+                    manager.statusPosTurno(heroi, fases.get(i + 1).getMonstros());
                 }
             }
             
