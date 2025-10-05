@@ -27,10 +27,32 @@ public class DificuldadeTest {
 
         // Verificar se os atributos são maiores na dificuldade DIFICIL
         assertTrue(monstroDificil.getPontosDeVida() > monstroFacil.getPontosDeVida(),
-                "Monstro no DIFÍCIL deve ter mais vida que no FÁCIL.");
+                "Primeiro Monstro no DIFÍCIL deve ter mais vida que no FÁCIL.");
 
         assertTrue(monstroDificil.getForca() > monstroFacil.getForca(),
-                "Monstro no DIFÍCIL deve ter mais força que no FÁCIL.");
+                "Primeiro Monstro no DIFÍCIL deve ter mais força que no FÁCIL.");
+        
+        // Fazer o mesmo para os proximos monstros
+        monstroFacil = fasesFaceis.get(1).getMonstros().get(1);
+        monstroDificil = fasesDificeis.get(1).getMonstros().get(1);
+
+        // Verificar se os atributos são maiores na dificuldade DIFICIL
+        assertTrue(monstroDificil.getPontosDeVida() > monstroFacil.getPontosDeVida(),
+                "Segundo Monstro no DIFÍCIL deve ter mais vida que no FÁCIL.");
+
+        assertTrue(monstroDificil.getForca() > monstroFacil.getForca(),
+                "Segundo Monstro no DIFÍCIL deve ter mais força que no FÁCIL.");
+        
+        
+        monstroFacil = fasesFaceis.get(2).getMonstros().get(2);
+        monstroDificil = fasesDificeis.get(2).getMonstros().get(2);
+
+        // Verificar se os atributos são maiores na dificuldade DIFICIL
+        assertTrue(monstroDificil.getPontosDeVida() > monstroFacil.getPontosDeVida(),
+                "Terceiro Monstro no DIFÍCIL deve ter mais vida que no FÁCIL.");
+
+        assertTrue(monstroDificil.getForca() > monstroFacil.getForca(),
+                "Terceiro Monstro no DIFÍCIL deve ter mais força que no FÁCIL.");
     }
 
     @Test
@@ -56,6 +78,40 @@ public class DificuldadeTest {
         
         // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
         assertTrue(armaDificil.getDano() > armaFacil.getDano(),
-                "O loot do modo DIFÍCIL deve ser mais forte que o do FÁCIL.");
+                "O loot do modo DIFÍCIL deve ser mais forte que o do FÁCIL para o primeiro monstro.");
+        
+        monstroFacil = fasesFaceis.get(1).getMonstros().get(1);
+        monstroDificil = fasesDificeis.get(1).getMonstros().get(1);
+        
+        lootFacil = monstroFacil.droparLoot();
+        lootDificil = monstroDificil.droparLoot();
+
+        // Verificar se os itens são armas para poder comparar o dano
+        assertTrue(lootFacil instanceof com.rpglab.itens.Arma);
+        assertTrue(lootDificil instanceof com.rpglab.itens.Arma);
+        
+        com.rpglab.itens.Arma armaFacil = (com.rpglab.itens.Arma) lootFacil;
+        com.rpglab.itens.Arma armaDificil = (com.rpglab.itens.Arma) lootDificil;
+        
+        // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
+        assertTrue(armaDificil.getDano() > armaFacil.getDano(),
+                "O loot do modo DIFÍCIL deve ser mais forte que o do FÁCIL para o segundo monstro");
+        
+        monstroFacil = fasesFaceis.get(2).getMonstros().get(2);
+        monstroDificil = fasesDificeis.get(2).getMonstros().get(2);
+        
+        lootFacil = monstroFacil.droparLoot();
+        lootDificil = monstroDificil.droparLoot();
+
+        // Verificar se os itens são armas para poder comparar o dano
+        assertTrue(lootFacil instanceof com.rpglab.itens.Arma);
+        assertTrue(lootDificil instanceof com.rpglab.itens.Arma);
+        
+        com.rpglab.itens.Arma armaFacil = (com.rpglab.itens.Arma) lootFacil;
+        com.rpglab.itens.Arma armaDificil = (com.rpglab.itens.Arma) lootDificil;
+        
+        // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
+        assertTrue(armaDificil.getDano() > armaFacil.getDano(),
+                "O loot do modo DIFÍCIL deve ser mais forte que o do FÁCIL para o terceiro monstro");
     }
 }
