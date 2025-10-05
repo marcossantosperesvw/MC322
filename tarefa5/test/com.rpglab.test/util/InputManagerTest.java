@@ -1,12 +1,7 @@
-<<<<<<<< HEAD:tarefa5/test/com.rpglab.test/util/InputManagerTest.java
 package com.rpglab.test.util;
-
-========
-package com.rpglab.util;
-import com.rpglab.util.InputManager;
+import com.rpglab.game.util.InputManager;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
->>>>>>>> refs/remotes/origin/main:tarefa5/src/com.rpglab.test/util/InputManagerTest.java
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

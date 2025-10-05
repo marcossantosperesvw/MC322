@@ -1,15 +1,10 @@
-<<<<<<<< HEAD:tarefa5/test/com.rpglab.test/personagens/PersonagemTest.java
 package com.rpglab.test.personagens;
-========
-package personagens;
->>>>>>>> refs/remotes/origin/main:tarefa5/src/com.rpglab.test/personagens/PersonagemTest.java
-
-import com.rpglab.combate.Combatente;
-import com.rpglab.itens.*;
-import com.rpglab.exceptions.NivelInsuficiente;
-import com.rpglab.itens.*;
-import com.rpglab.personagens.herois.*;
-import com.rpglab.personagens.monstros.*;
+import com.rpglab.game.combate.Combatente;
+import com.rpglab.game.itens.*;
+import com.rpglab.game.exceptions.NivelInsuficiente;
+import com.rpglab.game.itens.*;
+import com.rpglab.game.personagens.herois.*;
+import com.rpglab.game.personagens.monstros.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,6 @@
 package test.com.rpglab.test.cenario;
 
-import com.rpglab.personagens.monstros.Monstro;
+import com.rpglab.game.personagens.monstros.Monstro;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
