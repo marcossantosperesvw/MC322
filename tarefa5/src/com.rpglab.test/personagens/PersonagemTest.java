@@ -1,6 +1,7 @@
-package com.rpglab.personagens;
+package personagens;
 
 import com.rpglab.combate.Combatente;
+import com.rpglab.itens.*;
 import com.rpglab.exceptions.NivelInsuficiente;
 import com.rpglab.itens.*;
 import com.rpglab.personagens.herois.*;

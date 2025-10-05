@@ -1,5 +1,5 @@
 package com.rpglab.cenario;
-
+import com.rpglab.itens.*;
 import com.rpglab.personagens.monstros.Monstro;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -90,8 +90,8 @@ public class DificuldadeTest {
         assertTrue(lootFacil instanceof com.rpglab.itens.Arma);
         assertTrue(lootDificil instanceof com.rpglab.itens.Arma);
         
-        com.rpglab.itens.Arma armaFacil = (com.rpglab.itens.Arma) lootFacil;
-        com.rpglab.itens.Arma armaDificil = (com.rpglab.itens.Arma) lootDificil;
+        armaFacil = (com.rpglab.itens.Arma) lootFacil;
+        armaDificil = (com.rpglab.itens.Arma) lootDificil;
         
         // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
         assertTrue(armaDificil.getDano() > armaFacil.getDano(),
@@ -107,8 +107,8 @@ public class DificuldadeTest {
         assertTrue(lootFacil instanceof com.rpglab.itens.Arma);
         assertTrue(lootDificil instanceof com.rpglab.itens.Arma);
         
-        com.rpglab.itens.Arma armaFacil = (com.rpglab.itens.Arma) lootFacil;
-        com.rpglab.itens.Arma armaDificil = (com.rpglab.itens.Arma) lootDificil;
+        armaFacil = (com.rpglab.itens.Arma) lootFacil;
+        armaDificil = (com.rpglab.itens.Arma) lootDificil;
         
         // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
         assertTrue(armaDificil.getDano() > armaFacil.getDano(),
