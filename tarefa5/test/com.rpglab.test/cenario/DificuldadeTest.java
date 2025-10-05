@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
+import com.rpglab.game.cenario.*;
+import com.rpglab.game.itens.*;
+
 
 public class DificuldadeTest {
 
@@ -48,11 +51,11 @@ public class DificuldadeTest {
         Item lootDificil = monstroDificil.droparLoot();
 
         // Verificar se os itens são armas para poder comparar o dano
-        assertTrue(lootFacil instanceof com.rpglab.itens.Arma);
-        assertTrue(lootDificil instanceof com.rpglab.itens.Arma);
-        
-        com.rpglab.itens.Arma armaFacil = (com.rpglab.itens.Arma) lootFacil;
-        com.rpglab.itens.Arma armaDificil = (com.rpglab.itens.Arma) lootDificil;
+        assertTrue(lootFacil instanceof Arma);
+        assertTrue(lootDificil instanceof Arma);
+
+        Arma armaFacil = (Arma) lootFacil;
+        Arma armaDificil = (Arma) lootDificil;
         
         // Com base no ConstrutorDeCenarioFixo, o loot da dificuldade maior deve ter mais dano
         assertTrue(armaDificil.getDano() > armaFacil.getDano(),
