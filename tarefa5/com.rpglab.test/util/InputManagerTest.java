@@ -63,7 +63,6 @@ public class InputManagerTest {
     @Test
     public void testLerInteiro_LancaExcecaoSemEntrada() {
         provideInput(""); // Sem entrada
-        // A implementação de lerInteiro lança RuntimeException quando não encontra mais linhas
         assertThrows(RuntimeException.class, () -> {
             InputManager.lerInteiro("Digite um número", 1, 10);
         });
