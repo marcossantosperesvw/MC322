@@ -44,12 +44,24 @@ public class InputManagerTest {
     }
 
     // Testes para lerSimNao
-
+    @Test 
+    public void testEsperaEnter(){
+        provideInput("\n");
+        InputManager.esperarEnter("Pressione Enter para continuar...");
+        assertEquals("Pressione Enter para continuar...\n", outContent.toString());
+    }
     @Test
     public void testLerInteiro_ValidInput() {
         provideInput("5\n");
         int resultado = InputManager.lerInteiro("Digite um numero", 1, 10);
         assertEquals(5, resultado);
+    }
+    @Test
+    public void testEsperaEnterExcecao(){
+        provideInput(""); // Simula uma entrada vazia
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->{
+            InputManager.esperarEnter("Pressione Enter para continuar...");
+        });
     }
     @Test
     public void testLerSimNao_InputSim() {
@@ -60,6 +72,13 @@ public class InputManagerTest {
     public void testLerSimNao_InputNao() {
         provideInput("n\n");
         assertFalse(InputManager.lerSimNao("(s/n)"));
+    }
+    @Test 
+    public void testLerSimNaoExcecao(){
+        provideInput("");
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->{
+            InputManager.lerSimNao("(s/n)");
+        });
     }
 
 
