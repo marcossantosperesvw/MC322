@@ -63,6 +63,21 @@ public class PersonagemTest {
     }
 
     @Test
+    void testCuraPersonagem(){
+        // Verificar o erro de cura negativa: illegalArgumentException
+        assertThrows(IllegalArgumentException.class, () -> {
+            heroi.receberCura(-10);
+        });     
+
+    }
+    @Test
+    void testEquiparArma(){
+        Arma novaarma = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            heroi.equiparArma(novaarma);
+        });
+    }
+    @Test
     void testMonstroAtacaHeroi() {
         int vidaInicialHeroi = heroi.getPontosDeVida();
         int danoEsperado = monstro.getForca() + monstro.getArma().getDano();
