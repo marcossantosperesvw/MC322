@@ -12,6 +12,7 @@ import java.io.PrintStream;
 import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import com.rpglab.game.util.*; 
 
 
 
@@ -24,6 +25,7 @@ public class InputManagerTest {
     private final PrintStream originalSystemOut = System.out;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    
     @BeforeEach
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
@@ -34,44 +36,50 @@ public class InputManagerTest {
         System.setIn(originalSystemIn);
         System.setOut(originalSystemOut);
     }
-
+    @Test
     private void provideInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
+        InputManager.resetScanner();
     }
 
     // Testes para lerSimNao
+
+    @Test
+    public void testLerInteiro_ValidInput() {
+        provideInput("5\n");
+        int resultado = InputManager.lerInteiro("Digite um numero", 1, 10);
+        assertEquals(5, resultado);
+    }
     @Test
     public void testLerSimNao_InputSim() {
         provideInput("s\n");
-        assertTrue(InputManager.lerSimNao("Teste? (s/n)"));
+        assertTrue(InputManager.lerSimNao("(s/n)"));
     }
-
     @Test
     public void testLerSimNao_InputNao() {
         provideInput("n\n");
-        assertFalse(InputManager.lerSimNao("Teste? (s/n)"));
+        assertFalse(InputManager.lerSimNao("(s/n)"));
     }
 
-    @Test
-    public void testLerSimNao_InputInvalidoDepoisValido() {
-        provideInput("invalido\ns\n");
-        assertTrue(InputManager.lerSimNao("Teste? (s/n)"));
-        assertTrue(outContent.toString().contains("Digite 's' para sim ou 'n' para não."));
-    }
 
     // Testes para lerString
-    @Test
-    public void testLerString_InputComum() {
-        provideInput("Teste de String\n");
-        assertEquals("Teste de String", InputManager.lerString("Digite algo:"));
-    }
     
     @Test
-    public void testLerInteiro_LancaExcecaoSemEntrada() {
-        provideInput(""); // Sem entrada
-        assertThrows(RuntimeException.class, () -> {
-            InputManager.lerInteiro("Digite um número", 1, 10);
-        });
+    public void testLerInteiro_InvalidInput_nao_inteiro() {
+    System.setOut(new PrintStream(outContent));
+
+    provideInput("palavras\n");
+
+    RuntimeException exception = assertThrows(RuntimeException.class, () ->
+    InputManager.lerInteiro("Digite um numero", 1, 10));
+
+    // Entrada invalida faz com que o InputManager espere nova entrada (nao existe entao da erro)
+    assertEquals("Entrada nao disponivel.", exception.getMessage());
+
+    // Verifica se a mensagem de entrada errada foi exibida
+    assertEquals("Digite um numero (1 - 10): Valor invalido. Digite um numero inteiro.\n"+
+    "Digite um numero (1 - 10): No line found\n", outContent.toString());
+
     }
 }

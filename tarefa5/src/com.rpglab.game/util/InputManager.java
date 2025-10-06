@@ -34,7 +34,11 @@ public class InputManager {
         System.out.println(mensagem);
         return scanner.nextLine().trim();
     }
-    
+    public static void resetScanner() {
+        if (scanner != null) {
+            scanner = new Scanner(System.in);
+        }
+    }
     public static boolean lerSimNao(String mensagem) {
         while (true) {
             System.out.print(mensagem + " ");
