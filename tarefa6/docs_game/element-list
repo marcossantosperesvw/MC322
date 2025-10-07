@@ -1,0 +1,9 @@
+com.rpglab.game
+com.rpglab.game.cenario
+com.rpglab.game.combate
+com.rpglab.game.exceptions
+com.rpglab.game.itens
+com.rpglab.game.personagens
+com.rpglab.game.personagens.herois
+com.rpglab.game.personagens.monstros
+com.rpglab.game.util
