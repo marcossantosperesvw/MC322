@@ -1,12 +1,29 @@
 package com.rpglab.game.personagens.herois;
+
 import com.rpglab.game.personagens.*;
 import com.rpglab.game.itens.*;
+import javax.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Mario.class, Yoshi.class})
 public abstract class Heroi extends Personagem {
+    
+    @XmlElement
     private int nivel;
+    
+    @XmlElement
     private int experiencia;
+    
+    @XmlElement
     protected float sorte;
+    
+    @XmlElement
     private int expParaProxNivel;
+
+    // Construtor padrão para JAXB
+    protected Heroi() {
+        super();
+    }
 
     public Heroi(String nome, int pontosDeVida, int forca, Arma arma) {
         super(nome, pontosDeVida, forca, arma);
@@ -37,15 +54,15 @@ public abstract class Heroi extends Personagem {
 
         if (this.nivel > nivelAnterior) {
             setForca(getForca() + 10 * (this.nivel - nivelAnterior));
-            System.out.printf(">> %s subiu para o nível %d e sua força aumentou para %d! <<\n", 
-                            getNome(), this.nivel, getForca());
+            System.out.printf(">> %s subiu para o nível %d e sua força aumentou para %d! <<\n",
+                    getNome(), this.nivel, getForca());
         }
     }
-    
+
     @Override
     public void exibirStatus() {
         super.exibirStatus();
-        System.out.printf("   Nível: %d | Experiência: %d (%d para o próximo nível)\n", 
-                         this.nivel, this.experiencia, this.expParaProxNivel);
+        System.out.printf(" Nível: %d | Experiência: %d (%d para o próximo nível)\n",
+                this.nivel, this.experiencia, this.expParaProxNivel);
     }
 }

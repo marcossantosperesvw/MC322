@@ -1,19 +1,13 @@
 package com.rpglab.game.util;
+
 import com.rpglab.game.personagens.herois.*;
 import com.rpglab.game.personagens.monstros.*;
 import java.util.*;
-
 import com.rpglab.game.exceptions.NivelInsuficiente;
 import com.rpglab.game.itens.*;
 import com.rpglab.game.cenario.*;
-import com.rpglab.game.util.*;
-
 
 public class GerenciadorDeInteracao {
-    private final String opcoesMenu = "\n[1] Continuar\n"
-            + "[2] Ver informações das classes de Heróis\n"
-            + "[3] Ver informações das classes de Monstros\n"
-            + "[4] Sair do Jogo\n";
                     
     public int mostrarOpcoes(Heroi heroi, List<Monstro> monstros) {
         int opcao = 0;
@@ -21,9 +15,12 @@ public class GerenciadorDeInteracao {
             System.out.println("==============================================");
             System.out.println("             Aventuras de Mario e Yoshi");
             System.out.println("==============================================");
-            System.out.print(opcoesMenu);
+            String opcoesMenu = "\n[1] Continuar\n"
+                    + "[2] Ver informações das classes de Heróis\n"
+                    + "[3] Ver informações das classes de Monstros\n"
+                    + "[4] Sair do Jogo\n";
             
-            opcao = InputManager.lerInteiro("Escolha uma opção", 1, 4);
+            opcao = InputManager.lerInteiro(opcoesMenu + "Escolha uma opção", 1, 4);
             
             switch (opcao) {
                 case 1:
@@ -54,16 +51,40 @@ public class GerenciadorDeInteracao {
         return 0;
     }
     
-    public void menuInicial() {
+    /**
+     * Menu inicial com opção de carregar jogo se existir save.
+     * @param existeSave Indica se há um save disponível
+     * @return 1 para novo jogo, 2 para carregar, 3 para sair
+     */
+    public int menuInicial(boolean existeSave) {
         System.out.println("=== BEM-VINDO AO JOGO ===");
-        String opcoes = "[1] Iniciar Novo Jogo\n[2] Sair do Jogo\n";
+        
+        String opcoes;
+        int maxOpcoes;
+        
+        if (existeSave) {
+            opcoes = "[1] Iniciar Novo Jogo\n[2] Carregar Jogo\n[3] Sair do Jogo\n";
+            maxOpcoes = 3;
+        } else {
+            opcoes = "[1] Iniciar Novo Jogo\n[2] Sair do Jogo\n";
+            maxOpcoes = 2;
+        }
 
-        int opcao = InputManager.lerInteiro(opcoes + "Escolha uma opção", 1, 2);
-             
-        if (opcao == 2) {
+        int opcao = InputManager.lerInteiro(opcoes + "Escolha uma opção", 1, maxOpcoes);
+        
+        // Se não existe save e usuário escolheu 2, significa que quer sair
+        if (!existeSave && opcao == 2) {
             System.out.println("Obrigado por jogar!");
             System.exit(0);
         }
+        
+        // Se existe save e usuário escolheu 3, significa que quer sair
+        if (existeSave && opcao == 3) {
+            System.out.println("Obrigado por jogar!");
+            System.exit(0);
+        }
+        
+        return opcao;
     }
     
     public Heroi selecaoHeroi(Heroi[] arrayHerois) {

@@ -3,14 +3,27 @@ package com.rpglab.game.cenario;
 import com.rpglab.game.personagens.herois.*;
 import com.rpglab.game.personagens.monstros.*;
 import java.util.*;
-
 import com.rpglab.game.itens.*;
 import com.rpglab.game.util.*;
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class FaseDeCombate implements Fase {
+    
+    @XmlElement
     private TipoCenario tipoCenario;
+    
+    @XmlElement
     private List<Monstro> monstros;
+    
+    @XmlElement
     private boolean concluida;
+
+    // Construtor padrão para JAXB
+    public FaseDeCombate() {
+        this.monstros = new ArrayList<>();
+    }
 
     public FaseDeCombate(TipoCenario tipoCenario, Monstro... monstros) {
         this.tipoCenario = tipoCenario;
@@ -18,6 +31,7 @@ public class FaseDeCombate implements Fase {
         this.concluida = false;
     }
     
+    @Override
     public List<Monstro> getMonstros() {
         return monstros;
     }

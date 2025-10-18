@@ -1,17 +1,36 @@
 package com.rpglab.game.personagens;
+
 import com.rpglab.game.cenario.*;
 import com.rpglab.game.itens.*;
 import com.rpglab.game.combate.*;
 import java.util.*;
 import com.rpglab.game.exceptions.*;
 import com.rpglab.game.personagens.herois.*;
+import javax.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Heroi.class})
 public abstract class Personagem implements Combatente {
+    
+    @XmlElement
     private String nome;
+    
+    @XmlElement
     private int pontosDeVida;
+    
+    @XmlElement
     private int forca;
+    
+    @XmlElement
     protected Arma arma;
+    
+    @XmlTransient
     protected List<AcaoDeCombate> acoes;
+
+    // Construtor padrão para JAXB
+    protected Personagem() {
+        this.acoes = new ArrayList<>();
+    }
 
     /**
      * Construtor da classe Personagem.
