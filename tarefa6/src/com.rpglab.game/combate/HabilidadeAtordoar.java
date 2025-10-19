@@ -31,5 +31,7 @@ public class HabilidadeAtordoar implements AcaoDeCombate {
                 new AtaqueFisico().executar(yoshi, monstro);
             }
         }
+        // Lancar uma excecao neste caso -> mario nao pode atordoar
+
     }
 }
