@@ -27,4 +27,9 @@ public class Koopalings extends Monstro {
         // IA simples: sempre ataca
         return acoes.get(0);
     }
+
+    @Override
+    public void resetarHabilidade() {
+        setAtordoado(false);
+    }
 }

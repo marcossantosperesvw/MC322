@@ -26,4 +26,9 @@ public class Kamek extends Monstro {
         System.out.println(getNome() + " conjura um Feitiço Abstrato!");
         return acoes.get(0);
     }
+
+    @Override
+    public void resetarHabilidade() {
+        setAtordoado(false);
+    }
 }

@@ -27,4 +27,9 @@ public class Bowser extends Monstro {
         System.out.println(getNome() + " ruge e prepara suas " + getArma().getNome() + "!");
         return acoes.get(0);
     }
+
+    @Override
+    public void resetarHabilidade() {
+        setAtordoado(false);
+    }
 }

@@ -87,10 +87,6 @@ public class GerenciadorDeInteracao {
         return opcao;
     }
     public Heroi selecaoHeroi() {
-        if (arrayHerois == null || arrayHerois.length < 2) {
-            throw new IllegalArgumentException("Array de heróis inválido");
-        }
-        
         System.out.println("\n=== SELEÇÃO DE HERÓI ===");
         String opcoes = "\n[1] Yoshi\n[2] Mario\n";
         Heroi heroiSelecionado;

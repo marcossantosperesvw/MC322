@@ -39,7 +39,7 @@ public class Yoshi extends Heroi {
             acoes = Arrays.asList(new AtaqueFisico(), new HabilidadeAtordoar());
         }
         
-        if (this.atordoarDisponiveKl && alvo.isAtordoado() && this.sorte > 0.5) {
+        if (this.atordoarDisponivel && alvo.isAtordoado() && this.sorte > 0.5) {
             System.out.printf("%s está com sorte e conseguiu utilizar sua habilidade especial\n", getNome());
             return acoes.get(1); // HabilidadeAtordoar
         }

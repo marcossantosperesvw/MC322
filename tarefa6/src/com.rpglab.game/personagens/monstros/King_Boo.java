@@ -26,4 +26,9 @@ public class King_Boo extends Monstro {
         System.out.println(getNome() + " prepara uma Mordida Fantasma!");
         return acoes.get(0);
     }
+
+    @Override
+    public void resetarHabilidade() {
+        setAtordoado(false);
+    }
 }

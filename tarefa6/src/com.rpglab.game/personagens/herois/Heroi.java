@@ -19,6 +19,9 @@ public abstract class Heroi extends Personagem {
     
     @XmlElement
     private int expParaProxNivel;
+    
+    @XmlElement
+    private boolean atordoado;
 
     // Construtor padrão para JAXB
     protected Heroi() {
@@ -64,5 +67,14 @@ public abstract class Heroi extends Personagem {
         super.exibirStatus();
         System.out.printf(" Nível: %d | Experiência: %d (%d para o próximo nível)\n",
                 this.nivel, this.experiencia, this.expParaProxNivel);
+    }
+
+    @Override
+    public boolean isAtordoado() {
+        return this.atordoado;
+    }
+
+    public void setAtordoado(boolean atordoado) {
+        this.atordoado = atordoado;
     }
 }
