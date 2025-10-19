@@ -173,4 +173,7 @@ public abstract class Personagem implements Combatente {
     // Método abstrato que deve ser implementado pelas subclasses
     @Override
     public abstract AcaoDeCombate escolherAcao(Combatente alvo);
+
+    @Override 
+    public abstract resetarHabilidade();
 }

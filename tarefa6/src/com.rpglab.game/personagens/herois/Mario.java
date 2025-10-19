@@ -45,7 +45,10 @@ public class Mario extends Heroi {
         }
         return acoes.get(0); // AtaqueFisico
     }
-
+    @Override
+    public resetarHabilidade(){
+        setCogumelo(1);
+    }
     @Override
     public void exibirStatus() {
         super.exibirStatus();

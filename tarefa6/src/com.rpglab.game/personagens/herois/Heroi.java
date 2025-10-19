@@ -58,7 +58,7 @@ public abstract class Heroi extends Personagem {
                     getNome(), this.nivel, getForca());
         }
     }
-
+    
     @Override
     public void exibirStatus() {
         super.exibirStatus();

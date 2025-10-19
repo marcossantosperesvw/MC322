@@ -9,4 +9,5 @@ public interface Combatente {
     boolean isAtordoado(); 
     AcaoDeCombate escolherAcao(Combatente alvo);
     int getPontosDeVida();
+    void resetarHabilidade();
 }

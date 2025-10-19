@@ -97,16 +97,7 @@ public class FaseDeCombate implements Fase {
 
         // Se herói sobreviveu a todos os monstros
         if (heroi.estaVivo()) {
-            this.concluida = true;
-            // Resetar habilidades específicas do herói
-            if (heroi instanceof Mario){
-                Mario m = (Mario) heroi;
-                m.setCogumelo(1);
-            }
-            else if (heroi instanceof Yoshi) {
-                Yoshi y = (Yoshi) heroi;
-                y.setAtordoarDisponivel(true);
-            }
+            heroi.resetarHabilidade();
         }
     }
 
