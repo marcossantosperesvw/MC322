@@ -6,6 +6,7 @@ public interface Combatente {
     boolean estaVivo();
     void receberDano(int dano);
     void receberCura(int cura);
+    boolean isAtordoado(); 
     AcaoDeCombate escolherAcao(Combatente alvo);
     int getPontosDeVida();
 }
