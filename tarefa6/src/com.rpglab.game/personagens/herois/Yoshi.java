@@ -46,7 +46,7 @@ public class Yoshi extends Heroi {
         return acoes.get(0); // AtaqueFisico
     }
     @Override
-    public resetarHabilidade(){
+    public void resetarHabilidade(){
         setAtordoarDisponivel(true);
     }
     @Override

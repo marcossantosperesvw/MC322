@@ -175,5 +175,5 @@ public abstract class Personagem implements Combatente {
     public abstract AcaoDeCombate escolherAcao(Combatente alvo);
 
     @Override 
-    public abstract resetarHabilidade();
+    public abstract void resetarHabilidade();
 }
