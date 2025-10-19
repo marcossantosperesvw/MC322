@@ -86,20 +86,22 @@ public class GerenciadorDeInteracao {
         
         return opcao;
     }
-    
-    public Heroi selecaoHeroi(Heroi[] arrayHerois) {
+    public Heroi selecaoHeroi() {
         if (arrayHerois == null || arrayHerois.length < 2) {
             throw new IllegalArgumentException("Array de heróis inválido");
         }
         
         System.out.println("\n=== SELEÇÃO DE HERÓI ===");
         String opcoes = "\n[1] Yoshi\n[2] Mario\n";
-
+        Heroi heroiSelecionado;
         int posicao = InputManager.lerInteiro(opcoes + "Escolha seu herói", 1, 2);
-        
-        Heroi heroiSelecionado = arrayHerois[posicao - 1];
-        System.out.printf("Você selecionou: %s!\n", heroiSelecionado.getNome());
-        
+        if (posicao ==1){
+            Arma linguaIniciante = new Lingua("Lingua do iniciante", 20, 0);
+            heroiSelecionado = new Yoshi("Yoshi", 200, 40, linguaIniciante);
+        } else {
+            Arma marteloIniciante = new Martelo("Martelo do iniciante", 30, 0);
+            heroiSelecionado = new Mario("Mario", 200, 50, marteloIniciante);
+        }
         return heroiSelecionado;
     }
     

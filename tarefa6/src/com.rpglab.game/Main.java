@@ -76,17 +76,8 @@ public class Main {
         GeradorDeFases gerador = new ConstrutorDeCenarioFixo();
         List<Fase> fases = gerador.gerar(3, dificuldade);
         
-        // Criação dos heróis disponíveis
-        Arma marteloIniciante = new Martelo("Martelo do Iniciante", 15, 0);
-        Arma linguaIniciante = new Lingua("Língua do Iniciante", 13, 0);
-        
-        Heroi[] arrayHerois = {
-            new Yoshi("Yoshi", 200, 40, linguaIniciante), 
-            new Mario("Mario", 200, 50, marteloIniciante)
-        };
-        
         // Seleção do herói
-        Heroi heroi = manager.selecaoHeroi(arrayHerois);
+        Heroi heroi = manager.selecaoHeroi();
         
         // Narrativa pós-seleção
         exibirNarrativaPosSelecao(heroi);
