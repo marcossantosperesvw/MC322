@@ -13,10 +13,7 @@ wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-st
 
 cd ..
 
-Passo 2: Copiar os Códigos
-Copie cada arquivo dos artifacts acima para os respectivos locais no seu projeto.
-
-Passo 3: Compilar
+Passo 2: Compilar
 # Compilar código fonte
 javac -d bin -cp "lib/jaxb-api-2.3.1.jar:lib/jaxb-runtime-2.3.1.jar:lib/activation-1.1.1.jar" \
   -sourcepath src $(find src -name "*.java")
@@ -25,11 +22,11 @@ javac -d bin -cp "lib/jaxb-api-2.3.1.jar:lib/jaxb-runtime-2.3.1.jar:lib/activati
 javac -d bin -cp "bin:lib/junit-platform-console-standalone-1.10.1.jar:lib/jaxb-api-2.3.1.jar:lib/jaxb-runtime-2.3.1.jar:lib/activation-1.1.1.jar" \
   -sourcepath test $(find test -name "*.java")
 
- Passo 4: Executar
+ Passo 3: Executar
   java -cp "bin:lib/jaxb-api-2.3.1.jar:lib/jaxb-runtime-2.3.1.jar:lib/activation-1.1.1.jar" \
   com.rpglab.game.Main
 
-Passo 5: Testar Save/Load
+Passo 4: Testar Save/Load
 
 1. Inicie um novo jogo
 2. Jogue algumas fases
