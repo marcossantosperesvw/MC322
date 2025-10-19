@@ -61,14 +61,8 @@ public class Batalha {
         Fase fase = fases.get(faseAtual);
         
         if (fase.isConcluida()) {
-            faseAtual++;
-            if (faseAtual < fases.size()) {
-                executarProxFase();
-            }
             return;
-        }
-        
-        exibirInicioFase(faseAtual + 1, fases.size());
+        }        exibirInicioFase(faseAtual + 1, fases.size());
         
         // Iniciar a fase
         fase.iniciar(heroi);

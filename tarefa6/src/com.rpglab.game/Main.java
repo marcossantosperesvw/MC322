@@ -47,6 +47,10 @@ public class Main {
                 while (batalha.getFaseAtual() < batalha.getFases().size() && 
                        batalha.getHeroi().estaVivo()) {
                     batalha.executarProxFase();
+                    // Dar uma pequena pausa entre as fases para melhor leitura
+                    if (batalha.getHeroi().estaVivo() && batalha.getFaseAtual() < batalha.getFases().size()) {
+                        InputManager.esperarEnter("\nPressione ENTER para continuar para a próxima fase...");
+                    }
                 }
             }
             

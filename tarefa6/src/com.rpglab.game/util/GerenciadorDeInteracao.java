@@ -176,7 +176,7 @@ public class GerenciadorDeInteracao {
     
     private void mostrarArmaDropada(Arma armaDropada) {
         System.out.printf("\n--- Arma Encontrada ---\nNome: %s\nDano: %d\nNível Mínimo: %d\n", 
-                        armaDropada.getNome(), armaDropada.getDano(), armaDropada.getMinNivel());
+        armaDropada.getNome(), armaDropada.getDano(), armaDropada.getMinNivel());
     }
     
     private void tentarTrocarArma(Heroi heroi, Arma armaDropada) {
