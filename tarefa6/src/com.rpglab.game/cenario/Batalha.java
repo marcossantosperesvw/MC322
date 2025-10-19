@@ -61,37 +61,40 @@ public class Batalha {
         Fase fase = fases.get(faseAtual);
         
         if (fase.isConcluida()) {
+            faseAtual++;
             return;
-        }        exibirInicioFase(faseAtual + 1, fases.size());
+        }
+        
+        exibirInicioFase(faseAtual + 1, fases.size());
         
         // Iniciar a fase
         fase.iniciar(heroi);
         
-        // Verificar se foi concluída
-        if (!fase.isConcluida()) {
+        // Verificar se o herói morreu
+        if (!heroi.estaVivo()) {
             exibirGameOver();
             return;
         }
         
-        // Narrativa pós-fase
+        // Marcar fase como concluída e mostrar narrativa de sucesso
         exibirSucessoFase(faseAtual + 1);
         
         // Mostrar status após a fase
         System.out.println("\n=== STATUS APÓS A FASE ===");
         heroi.exibirStatus();
         
-        faseAtual++;
-        
         // Menu pós-fase (exceto na última)
-        if (faseAtual < fases.size()) {
+        if (faseAtual < fases.size() - 1) {
             InputManager.esperarEnter("Pressione ENTER para o menu...");
             menuPosFase();
         } else {
             // Vitória final
-            if (heroi.estaVivo() && todasFasesConcluidas()) {
+            if (heroi.estaVivo()) {
                 exibirVitoriaFinal();
             }
         }
+        
+        faseAtual++;
     }
     
     /**
