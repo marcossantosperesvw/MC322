@@ -16,7 +16,7 @@ public abstract class Monstro extends Personagem implements Lootavel {
     private boolean atordoado = false;
     
     @XmlElement
-    private final Arma[] listaArmasParaLargar;
+    private final Arma[] listaArmasParaLargar; // Agregação
 
     // Ação de ataque compartilhada (AGREGAÇÃO)
     @XmlTransient
