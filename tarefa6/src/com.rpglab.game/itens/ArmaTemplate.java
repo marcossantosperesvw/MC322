@@ -4,9 +4,7 @@ public class ArmaTemplate {
     private String nome;
     private int dano;
     private int nivel;
-    public String getClasse_arma() {
-        return classe_arma;
-    }
+
     public String getNome() {
         return nome;
     }
@@ -15,6 +13,10 @@ public class ArmaTemplate {
     }
     public int getDano() {
         return dano;
+    }
+    
+    public String getClasse_arma() {
+        return classe_arma;
     }
     public ArmaTemplate(String classe_arma, String nome, int dano, int nivel){
         this.classe_arma = classe_arma;

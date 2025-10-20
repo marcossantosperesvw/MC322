@@ -5,7 +5,6 @@ import com.rpglab.game.itens.*;
 import com.rpglab.game.combate.*;
 import java.util.*;
 import javax.xml.bind.annotation.*;
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso({Bowser.class, King_Boo.class, Kamek.class, Koopalings.class})
 public abstract class Monstro extends Personagem implements Lootavel {
@@ -16,8 +15,6 @@ public abstract class Monstro extends Personagem implements Lootavel {
     @XmlElement
     private boolean atordoado = false;
     
-    @XmlElement
-    private final Arma[] listaArmasParaLargar;
     
     // Ação de ataque compartilhada (AGREGAÇÃO)
     @XmlTransient
@@ -27,11 +24,10 @@ public abstract class Monstro extends Personagem implements Lootavel {
     protected Monstro() {
         super();
         this.xpConcedido = 0;
-        this.listaArmasParaLargar = new Arma[0];
     }
     
     public Monstro(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
-        super(nome, pontosDeVida, forca);
+        super(nome, pontosDeVida, forca, arma);
         this.xpConcedido = xpConcedido;
         this.acoes = new ArrayList<>();
         inicializarAcoes();
@@ -64,31 +60,19 @@ public abstract class Monstro extends Personagem implements Lootavel {
         this.atordoado = atordoado;
     }
     
-    @Override
-    public Item droparLoot() {
-        if (listaArmasParaLargar.length == 0) return null;
-        int indice = (int) (Math.random() * listaArmasParaLargar.length);
-        return this.listaArmasParaLargar[indice];
+    private Arma instanciarArma(ArmaTemplate template) {
+        Class<?> possibilidades = Class.forName(template.getClasse_arma());
+        return (Arma) possibilidades
+                .getDeclaredConstructor(String.class, int.class, int.class)
+                .newInstance(template.getNome(), template.getDano(), template.getNivel());
     }
     @Override
-    public Item droparLoot(int qualidade, ArmaTemplate[][] lootsPorQualidade) {
-        Arma[] arma_template = lootsPorQualidade[qualidade];
+    public Arma droparLoot(int qualidade, ArmaTemplate[][] lootsPorQualidade) {
+        ArmaTemplate[] arma_template = lootsPorQualidade[qualidade];
         int indice = (int) (Math.random() * 3);
         return instanciarArma(arma_template[indice]);
     }
 
-    private Arma instanciarArma(ArmaTemplate template) {
-        try {
-            Class<?> possibilidades = Class.forName(template.getTipoClasse());
-            // Supondo que o construtor aceite (String nome, int dano, int nivel)
-            return (Arma) possibilidades
-                    .getDeclaredConstructor(String.class, int.class, int.class)
-                    .newInstance(template.getNome(), template.getDano(), template.getNivel());
-        } catch (Exception e) {
-            // Erro ao instanciar arma
-            return null;
-        }
-    }
     
     @Override
     public void exibirStatus() {

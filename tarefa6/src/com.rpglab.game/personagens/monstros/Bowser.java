@@ -17,7 +17,12 @@ public class Bowser extends Monstro {
     protected void inicializarAcoes() {
         acoes.add(new AtaqueFisico());
     }
-
+    @Override
+    public Arma droparLoot(int qualidade, ArmaTemplate[][] lootsPorQualidade) {
+        ArmaTemplate[] arma_template = lootsPorQualidade[qualidade];
+        int indice = (int) (Math.random() * 3);
+        return instanciarArma(arma_template[indice]);
+    }
     @Override
     public AcaoDeCombate escolherAcao(Combatente alvo) {
         if (acoes == null || acoes.isEmpty()) {

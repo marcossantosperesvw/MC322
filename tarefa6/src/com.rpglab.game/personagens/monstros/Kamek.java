@@ -28,6 +28,12 @@ public class Kamek extends Monstro {
     }
 
     @Override
+    public Item droparLoot() {
+        int indice = (int) (Math.random() * listaArmasParaLargar.length);
+        return this.listaArmasParaLargar[indice];
+    }
+
+    @Override
     public void resetarHabilidade() {
         setAtordoado(false);
     }
