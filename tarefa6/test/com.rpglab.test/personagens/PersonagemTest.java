@@ -21,7 +21,7 @@ public class PersonagemTest {
         armaHeroi = new Martelo("Martelo Básico", 10, 0);
         armaMonstro = new Machadinho("Machadinha Koopa", 5, 0);
         heroi = new Mario("Mario", 100, 20, armaHeroi);
-        monstro = new Koopalings("Koopa", 80, 15, 50, armaMonstro, new Arma[]{new Garras("Garras", 12, 1)});
+        monstro = new Koopalings("Koopa", 80, 15, 50, armaMonstro);
     }
 
     @Test
