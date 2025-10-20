@@ -14,7 +14,13 @@ public class FaseDeCombate implements Fase {
     @XmlElement
     private TipoCenario tipoCenario;
     
-    @XmlElement
+    @XmlElementWrapper(name = "monstros")
+    @XmlElements({
+        @XmlElement(name = "bowser", type = Bowser.class),
+        @XmlElement(name = "kingBoo", type = King_Boo.class),
+        @XmlElement(name = "kamek", type = Kamek.class),
+        @XmlElement(name = "koopalings", type = Koopalings.class)
+    })
     private List<Monstro> monstros;
     
     @XmlElement

@@ -1,6 +1,7 @@
 package com.rpglab.game.combate;
 
 import com.rpglab.game.personagens.*;
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement
 public class AtaqueFisico implements AcaoDeCombate {

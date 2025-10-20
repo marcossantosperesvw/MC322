@@ -6,10 +6,11 @@ import com.rpglab.game.combate.*;
 import java.util.*;
 import com.rpglab.game.exceptions.*;
 import com.rpglab.game.personagens.herois.*;
+import com.rpglab.game.personagens.monstros.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlSeeAlso({Heroi.class})
+@XmlSeeAlso({Heroi.class, Monstro.class})
 public abstract class Personagem implements Combatente {
     
     @XmlElement

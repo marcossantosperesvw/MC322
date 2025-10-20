@@ -2,8 +2,14 @@ package com.rpglab.game.combate;
 
 import com.rpglab.game.personagens.herois.*;
 import com.rpglab.game.exceptions.*;
+import javax.xml.bind.annotation.*;
 
+
+@XmlRootElement
 public class HabilidadeCogumelo implements AcaoDeCombate {
+    
+    // Construtor padrão para JAXB
+    public HabilidadeCogumelo() {}
     @Override
     public void executar(Combatente usuario, Combatente alvo) {
         if (usuario instanceof Mario) {
