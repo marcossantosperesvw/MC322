@@ -2,7 +2,11 @@ package com.rpglab.game.combate;
 
 import com.rpglab.game.personagens.*;
 
+@XmlRootElement
 public class AtaqueFisico implements AcaoDeCombate {
+    
+    // Construtor padrão para JAXB
+    public AtaqueFisico() {}
     /**
      * Executa um ataque físico de um combatente (usuário) em outro (alvo).
      * O dano total é calculado com base nos atributos do atacante e aplicado ao alvo.

@@ -55,8 +55,15 @@ public class Batalha {
      * Executa a próxima fase incompleta e o menu pós-combate.
      */
     public void executarProxFase() {
+        // Verificar se já completou todas as fases
         if (faseAtual >= fases.size()) {
             System.out.println("Todas as fases foram completadas!");
+            return;
+        }
+        
+        // Verificar se há fases disponíveis
+        if (fases == null || fases.isEmpty()) {
+            System.out.println("Erro: Nenhuma fase disponível!");
             return;
         }
         
@@ -153,6 +160,14 @@ public class Batalha {
         Batalha batalha = GerenciadorDePersistencia.carregarBatalha(nomeSave);
         if (batalha != null) {
             batalha.gerenciador = new GerenciadorDeInteracao();
+            
+            // Verificar estado do jogo carregado
+            System.out.println("\nVerificando estado do jogo carregado...");
+            System.out.printf("Fase atual: %d/%d\n", 
+                            batalha.getFaseAtual() + 1, 
+                            batalha.getFases().size());
+            System.out.println("Status do herói:");
+            batalha.getHeroi().exibirStatus();
         }
         return batalha;
     }

@@ -7,6 +7,7 @@ import java.util.*;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso({Bowser.class, King_Boo.class, Kamek.class, Koopalings.class})
 public abstract class Monstro extends Personagem implements Lootavel {
     
     @XmlElement

@@ -39,6 +39,12 @@ public class Main {
                                     batalha.getFases().size());
                     batalha.getHeroi().exibirStatus();
                     InputManager.esperarEnter("\nPressione ENTER para continuar a aventura...");
+                    
+                    // Verificar se todas as fases foram concluídas
+                    if (batalha.getFaseAtual() >= batalha.getFases().size()) {
+                        System.out.println("Este save já completou todas as fases!");
+                        System.exit(0);
+                    }
                 }
             }
             
