@@ -9,12 +9,12 @@ import com.rpglab.game.cenario.*;
 
 public class GerenciadorDeInteracao {
     // Lista centralizada de classes de monstros para exibição de informações
-    private static final Class<? extends com.rpglab.game.personagens.monstros.Monstro>[] MONSTRO_CLASSES = new Class[] {
-        com.rpglab.game.personagens.monstros.Bowser.class,
-        com.rpglab.game.personagens.monstros.Kamek.class,
-        com.rpglab.game.personagens.monstros.King_Boo.class,
-        com.rpglab.game.personagens.monstros.Koopalings.class
-    };
+    private static final List<Class<? extends Monstro>> MONSTRO_CLASSES = Arrays.asList(
+        Bowser.class,
+        Kamek.class,
+        King_Boo.class,
+        Koopalings.class
+    );
                     
     public int mostrarOpcoes(Heroi heroi, List<Monstro> monstros) {
         int opcao = 0;
@@ -103,7 +103,7 @@ public class GerenciadorDeInteracao {
             if (escolha == 3) {
                 // Mostrar informações dos monstros (todas as classes conhecidas)
                 System.out.println("\n=== INFORMAÇÕES: MONSTROS ===");
-                for (Class<? extends com.rpglab.game.personagens.monstros.Monstro> cls : MONSTRO_CLASSES) {
+                for (Class<? extends Monstro> cls : MONSTRO_CLASSES) {
                     try {
                         com.rpglab.game.personagens.monstros.Monstro exemplo = cls.getDeclaredConstructor().newInstance();
                         System.out.println("\n-- " + cls.getSimpleName() + " --");

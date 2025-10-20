@@ -27,11 +27,7 @@ public class Kamek extends Monstro {
         return acoes.get(0);
     }
 
-    @Override
-    public Item droparLoot() {
-        int indice = (int) (Math.random() * listaArmasParaLargar.length);
-        return this.listaArmasParaLargar[indice];
-    }
+    // Usa a implementação padrão de droparLoot() definida em Monstro
 
     @Override
     public void resetarHabilidade() {

@@ -15,7 +15,9 @@ public abstract class Monstro extends Personagem implements Lootavel {
     @XmlElement
     private boolean atordoado = false;
     
-    
+    @XmlElement
+    private final Arma[] listaArmasParaLargar;
+
     // Ação de ataque compartilhada (AGREGAÇÃO)
     @XmlTransient
     private AcaoDeCombate acaoAtaqueCompartilhada;
@@ -24,11 +26,17 @@ public abstract class Monstro extends Personagem implements Lootavel {
     protected Monstro() {
         super();
         this.xpConcedido = 0;
+        this.listaArmasParaLargar = new Arma[0];
     }
     
     public Monstro(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
+        this(nome, pontosDeVida, forca, xpConcedido, arma, new Arma[0]);
+    }
+
+    public Monstro(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] listaArmasParaLargar) {
         super(nome, pontosDeVida, forca, arma);
         this.xpConcedido = xpConcedido;
+        this.listaArmasParaLargar = (listaArmasParaLargar != null) ? listaArmasParaLargar : new Arma[0];
         this.acoes = new ArrayList<>();
         inicializarAcoes();
     }
@@ -60,17 +68,11 @@ public abstract class Monstro extends Personagem implements Lootavel {
         this.atordoado = atordoado;
     }
     
-    private Arma instanciarArma(ArmaTemplate template) {
-        Class<?> possibilidades = Class.forName(template.getClasse_arma());
-        return (Arma) possibilidades
-                .getDeclaredConstructor(String.class, int.class, int.class)
-                .newInstance(template.getNome(), template.getDano(), template.getNivel());
-    }
     @Override
-    public Arma droparLoot(int qualidade, ArmaTemplate[][] lootsPorQualidade) {
-        ArmaTemplate[] arma_template = lootsPorQualidade[qualidade];
-        int indice = (int) (Math.random() * 3);
-        return instanciarArma(arma_template[indice]);
+    public Item droparLoot() {
+        if (listaArmasParaLargar == null || listaArmasParaLargar.length == 0) return null;
+        int indice = (int) (Math.random() * listaArmasParaLargar.length);
+        return this.listaArmasParaLargar[indice];
     }
 
     
