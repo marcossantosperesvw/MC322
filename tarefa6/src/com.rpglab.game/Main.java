@@ -24,28 +24,38 @@ public class Main {
             if (opcaoMenu == 1) {
                 // Iniciar novo jogo
                 batalha = iniciarNovaAventura(manager);
-            } else if (opcaoMenu == 2 && existeSave) {
-                // Carregar jogo salvo
-                String nomeSave = GerenciadorDePersistencia.getNomeSavePadrao();
-                batalha = Batalha.carregarJogo(nomeSave);
-                
-                if (batalha == null) {
-                    System.out.println("Erro ao carregar o save. Iniciando novo jogo...");
-                    batalha = iniciarNovaAventura(manager);
-                } else {
-                    System.out.println("\n=== JOGO CARREGADO ===");
-                    System.out.printf("Fase atual: %d/%d\n", 
-                                    batalha.getFaseAtual() + 1, 
-                                    batalha.getFases().size());
-                    batalha.getHeroi().exibirStatus();
-                    InputManager.esperarEnter("\nPressione ENTER para continuar a aventura...");
-                    
-                    // Verificar se todas as fases foram concluídas
-                    if (batalha.getFaseAtual() >= batalha.getFases().size()) {
-                        System.out.println("Este save já completou todas as fases!");
-                        System.exit(0);
+            } else if (opcaoMenu == 2) {
+                // Tentar carregar jogo salvo (se disponível)
+                if (existeSave) {
+                    String nomeSave = GerenciadorDePersistencia.getNomeSavePadrao();
+                    batalha = Batalha.carregarJogo(nomeSave);
+
+                    if (batalha == null) {
+                        System.out.println("Erro ao carregar o save. Iniciando novo jogo...");
+                        batalha = iniciarNovaAventura(manager);
+                    } else {
+                        System.out.println("\n=== JOGO CARREGADO ===");
+                        System.out.printf("Fase atual: %d/%d\n", 
+                                        batalha.getFaseAtual() + 1, 
+                                        batalha.getFases().size());
+                        batalha.getHeroi().exibirStatus();
+                        InputManager.esperarEnter("\nPressione ENTER para continuar a aventura...");
+
+                        // Verificar se todas as fases foram concluídas
+                        if (batalha.getFaseAtual() >= batalha.getFases().size()) {
+                            System.out.println("Este save já completou todas as fases!");
+                            System.exit(0);
+                        }
                     }
+                } else {
+                    // Caso não exista save, essa opção nunca deveria ser retornada como 2
+                    // Mas por segurança, iniciar novo jogo
+                    batalha = iniciarNovaAventura(manager);
                 }
+            } else if (opcaoMenu == 3) {
+                // Sair do jogo
+                System.out.println("Obrigado por jogar!");
+                System.exit(0);
             }
             
             // Executar o loop de fases
