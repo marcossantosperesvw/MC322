@@ -1,3 +1,5 @@
+saves/
+*.xml
 bin/
 *.class
 target/

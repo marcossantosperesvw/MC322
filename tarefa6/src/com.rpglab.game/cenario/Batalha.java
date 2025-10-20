@@ -18,8 +18,9 @@ public class Batalha {
     @XmlElement
     private Heroi heroi;
     
-    @XmlElement
-    private List<Fase> fases;
+    @XmlElementWrapper(name = "fases")
+    @XmlElement(name = "fase")
+    private List<FaseDeCombate> fases;
     
     @XmlElement
     private int faseAtual;
@@ -41,9 +42,10 @@ public class Batalha {
      * @param fases Lista de fases da aventura
      * @param dificuldade Dificuldade selecionada
      */
-    public Batalha(Heroi heroi, List<Fase> fases, Dificuldade dificuldade) {
+    @SuppressWarnings("unchecked")
+    public Batalha(Heroi heroi, List<? extends Fase> fases, Dificuldade dificuldade) {
         this.heroi = heroi;
-        this.fases = fases;
+        this.fases = (List<FaseDeCombate>) fases;  // Safe cast as we only use FaseDeCombate
         this.faseAtual = 0;
         this.dificuldade = dificuldade;
         this.gerenciador = new GerenciadorDeInteracao();
@@ -163,7 +165,7 @@ public class Batalha {
         return heroi;
     }
     
-    public List<Fase> getFases() {
+    public List<? extends Fase> getFases() {
         return fases;
     }
     
