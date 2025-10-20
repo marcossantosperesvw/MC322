@@ -21,7 +21,7 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
         Arma machadinhaKoopa = new Machadinho("Machadinha Koopa", 8, 0);
         
         // Criar arrays de loot por qualidade (AGREGAÇÃO - não são instâncias, são classes)
-        Arma[][] lootsPorQualidade = criarLootsPorQualidade();
+        ArmaTemplate[][] lootsPorQualidade = criarLootsPorQualidade();
         
         // Fase 1 - Corredor Assombrado
         Koopalings koop1_1 = new Koopalings("Koopaling Ordenado", 90, 20, 150, machadinhaKoopa);
