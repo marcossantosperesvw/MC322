@@ -52,6 +52,7 @@ public abstract class Monstro extends Personagem implements Lootavel {
         this.acoes.add(acao);
     }
     
+    
     public int getXpConcedido() {
         return this.xpConcedido;
     }
@@ -69,6 +70,25 @@ public abstract class Monstro extends Personagem implements Lootavel {
         if (listaArmasParaLargar.length == 0) return null;
         int indice = (int) (Math.random() * listaArmasParaLargar.length);
         return this.listaArmasParaLargar[indice];
+    }
+    @Override
+    public Item droparLoot(int qualidade, ArmaTemplate[][] lootsPorQualidade) {
+        Arma[] arma_template = lootsPorQualidade[qualidade];
+        int indice = (int) (Math.random() * 3);
+        return instanciarArma(arma_template[indice]);
+    }
+
+    private Arma instanciarArma(ArmaTemplate template) {
+        try {
+            Class<?> possibilidades = Class.forName(template.getTipoClasse());
+            // Supondo que o construtor aceite (String nome, int dano, int nivel)
+            return (Arma) possibilidades
+                    .getDeclaredConstructor(String.class, int.class, int.class)
+                    .newInstance(template.getNome(), template.getDano(), template.getNivel());
+        } catch (Exception e) {
+            // Erro ao instanciar arma
+            return null;
+        }
     }
     
     @Override

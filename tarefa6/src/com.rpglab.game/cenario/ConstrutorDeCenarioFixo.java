@@ -74,26 +74,24 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
         return fases;
     }
     
-    private Arma[][] criarLootsPorQualidade() {
+    private ArmaTemplate[][] criarLootsPorQualidade() {
         // [0] = Básico, [1] = Médio, [2] = Épico
-        return new Arma[][]{
+        return new ArmaTemplate[][]{
             // Loot básico (FÁCIL)
-            {
-                new Martelo("Martelo de Ferro", 15, 1),
-                new Varinha("Cajado Simples", 12, 1),
-                new Garras("Garras Afiadas", 14, 1)
+            { // Básico
+                new ArmaTemplate("com.rpglab.game.itens.Martelo", "Martelo de Ferro", 10, 1),
+                new ArmaTemplate("com.rpglab.game.itens.Varinha", "Cajado Simples", 10, 1),
+                new ArmaTemplate("com.rpglab.game.itens.Garras", "Garras Afiadas", 12, 1)
             },
-            // Loot médio (NORMAL)
-            {
-                new Martelo("Esmagador de Crânios", 25, 3),
-                new Varinha("Cajado da Noite Eterna", 22, 3),
-                new Garras("Dilacerador de Almas", 24, 3)
+            { // Médio
+                new ArmaTemplate("com.rpglab.game.itens.Martelo", "Esmagador de Crânios", 25, 3),
+                new ArmaTemplate("com.rpglab.game.itens.Varinha", "Cajado da Noite Eterna", 22, 3),
+                new ArmaTemplate("com.rpglab.game.itens.Garras", "Dilacerador de Almas", 24, 3)
             },
-            // Loot épico (DIFÍCIL)
-            {
-                new Martelo("Aniquilador Divino", 40, 5),
-                new Varinha("Cetro do Apocalipse", 45, 5),
-                new Garras("Exterminador de Universos", 42, 5)
+            { // Épico
+                new ArmaTemplate("com.rpglab.game.itens.Martelo", "Aniquilador Divino", 40, 5),
+                new ArmaTemplate("com.rpglab.game.itens.Varinha", "Cetro do Apocalipse", 45, 5),
+                new ArmaTemplate("com.rpglab.game.itens.Garras", "Exterminador de Universos", 42, 5)
             }
         };
     }
