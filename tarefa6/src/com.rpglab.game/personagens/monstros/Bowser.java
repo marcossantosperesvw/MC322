@@ -9,8 +9,8 @@ public class Bowser extends Monstro {
     
     public Bowser() { super(); }
     
-    public Bowser(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
-        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
+    public Bowser(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma);
     }
 
     @Override

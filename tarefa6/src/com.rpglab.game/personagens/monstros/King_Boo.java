@@ -9,8 +9,8 @@ public class King_Boo extends Monstro {
     
     public King_Boo() { super(); }
     
-    public King_Boo(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
-        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
+    public King_Boo(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma);
     }
 
     @Override

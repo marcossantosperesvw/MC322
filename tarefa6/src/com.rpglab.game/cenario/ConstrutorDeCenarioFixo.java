@@ -24,9 +24,9 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
         Arma[][] lootsPorQualidade = criarLootsPorQualidade();
         
         // Fase 1 - Corredor Assombrado
-        Koopalings koop1_1 = new Koopalings("Koopaling Ordenado", 90, 20, 150, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        Koopalings koop1_2 = new Koopalings("Koopaling Ponteiro", 90, 20, 150, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        King_Boo kingBoo = new King_Boo("King Boo", 120, 30, 300, cetroGelido, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
+        Koopalings koop1_1 = new Koopalings("Koopaling Ordenado", 90, 20, 150, machadinhaKoopa);
+        Koopalings koop1_2 = new Koopalings("Koopaling Ponteiro", 90, 20, 150, machadinhaKoopa);
+        King_Boo kingBoo = new King_Boo("King Boo", 120, 30, 300, cetroGelido);
         
         // Configurar ações compartilhadas
         koop1_1.setAcaoAtaque(ATAQUE_FISICO_COMPARTILHADO);
@@ -39,9 +39,9 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
         ));
         
         // Fase 2 - Câmara das Ilusões
-        Koopalings koop2_1 = new Koopalings("Koopaling Logarítmico", 110, 25, 180, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        Koopalings koop2_2 = new Koopalings("Koopaling Quadrático", 110, 25, 180, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        Kamek kamek = new Kamek("Kamek", 300, 50, 420, varinhaSombras, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
+        Koopalings koop2_1 = new Koopalings("Koopaling Logarítmico", 110, 25, 180, machadinhaKoopa);
+        Koopalings koop2_2 = new Koopalings("Koopaling Quadrático", 110, 25, 180, machadinhaKoopa);
+        Kamek kamek = new Kamek("Kamek", 300, 50, 420, varinhaSombras);
         
         // Configurar ações compartilhadas
         koop2_1.setAcaoAtaque(ATAQUE_FISICO_COMPARTILHADO);
@@ -54,9 +54,9 @@ public class ConstrutorDeCenarioFixo implements GeradorDeFases {
         ));
         
         // Fase 3 - Castelo do Bowser
-        Koopalings koop3_1 = new Koopalings("Koopaling Exponencial", 130, 30, 220, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        Koopalings koop3_2 = new Koopalings("Koopaling Linear", 130, 30, 220, machadinhaKoopa, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
-        Bowser bowser = new Bowser("Bowser", 450, 55, 1500, garrasFogo, lootsPorQualidade[dificuldade.getQualidadeLoot()]);
+        Koopalings koop3_1 = new Koopalings("Koopaling Exponencial", 130, 30, 220, machadinhaKoopa);
+        Koopalings koop3_2 = new Koopalings("Koopaling Linear", 130, 30, 220, machadinhaKoopa);
+        Bowser bowser = new Bowser("Bowser", 450, 55, 1500, garrasFogo);
         
         // Configurar ações compartilhadas
         koop3_1.setAcaoAtaque(ATAQUE_FISICO_COMPARTILHADO);

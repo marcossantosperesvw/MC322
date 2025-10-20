@@ -9,8 +9,8 @@ public class Kamek extends Monstro {
     
     public Kamek() { super(); }
     
-    public Kamek(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
-        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
+    public Kamek(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma);
     }
 
     @Override

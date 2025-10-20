@@ -9,8 +9,8 @@ public class Koopalings extends Monstro {
     
     public Koopalings() { super(); }
     
-    public Koopalings(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma, Arma[] lista) {
-        super(nome, pontosDeVida, forca, xpConcedido, arma, lista);
+    public Koopalings(String nome, int pontosDeVida, int forca, int xpConcedido, Arma arma) {
+        super(nome, pontosDeVida, forca, xpConcedido, arma);
     }
 
     @Override
